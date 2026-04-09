@@ -1,5 +1,5 @@
 .account-card {
-  background: #fff;
+  background: var(--color-white);
   border-radius: 8px;
   padding: 1.5rem;
   max-width: 480px;
@@ -13,26 +13,31 @@
   display: flex;
   justify-content: space-between;
   padding: 0.4rem 0;
-  border-bottom: 1px solid #f0f0f0;
+  border-bottom: 1px solid #ebebeb;
   font-size: 0.95rem;
 }
 
 .account-label {
   color: #666;
   font-weight: 500;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+  letter-spacing: 0.05em;
 }
 
 .role-badge {
-  font-size: 0.8rem;
+  font-size: 0.75rem;
   padding: 0.2rem 0.6rem;
   border-radius: 12px;
-  font-weight: 600;
-  text-transform: capitalize;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
 }
 
-.role-support    { background: #fdecea; color: #c0392b; }
-.role-admin-user { background: #eaf0fb; color: #2471a3; }
-.role-user       { background: #eafaf1; color: #1e8449; }
+.role-support       { background: #d4edda; color: var(--color-teal-deep); }
+.role-support-admin { background: #d4edda; color: var(--color-teal-deep); }
+.role-admin-user    { background: #eaf0fb; color: #2471a3; }
+.role-user          { background: var(--color-surface); color: var(--color-dark); }
 
 .account-actions {
   display: flex;
@@ -42,8 +47,9 @@
 }
 
 .account-saved {
-  color: #27ae60;
+  color: var(--color-teal-deep);
   font-size: 0.875rem;
+  font-weight: 600;
 }
 
 .account-edit-form {
@@ -57,8 +63,11 @@
   display: flex;
   flex-direction: column;
   gap: 0.3rem;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 0.85rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: #666;
 }
 
 .account-edit-form input {
@@ -66,38 +75,20 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 0.95rem;
+  font-family: 'Arimo', sans-serif;
+  text-transform: none;
+  font-weight: 400;
+  letter-spacing: normal;
+  color: var(--color-dark);
 }
 
 .account-edit-form input:focus {
   outline: none;
-  border-color: #111;
+  border-color: var(--color-teal-deep);
 }
 
 .account-edit-actions {
   display: flex;
   gap: 0.75rem;
   margin-top: 0.25rem;
-}
-
-button {
-  padding: 0.5rem 1rem;
-  background: #111;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  cursor: pointer;
-  font-size: 0.9rem;
-}
-
-button:hover {
-  background: #333;
-}
-
-button.secondary {
-  background: #eee;
-  color: #111;
-}
-
-button.secondary:hover {
-  background: #ddd;
 }

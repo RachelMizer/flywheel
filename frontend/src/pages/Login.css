@@ -3,14 +3,14 @@
   align-items: center;
   justify-content: center;
   min-height: 100vh;
-  background: #f5f5f5;
+  background: var(--color-dark);
 }
 
 .login-box {
-  background: #fff;
+  background: var(--color-white);
   padding: 2.5rem 2rem;
   border-radius: 8px;
-  box-shadow: 0 2px 12px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 24px rgba(0,0,0,0.3);
   width: 100%;
   max-width: 360px;
 }
@@ -18,12 +18,16 @@
 .login-title {
   margin: 0 0 0.25rem;
   font-size: 1.75rem;
+  color: var(--color-teal-deep);
 }
 
 .login-subtitle {
   margin: 0 0 1.5rem;
-  color: #666;
+  color: #888;
   font-size: 0.9rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  font-weight: 700;
 }
 
 .login-form {
@@ -36,8 +40,11 @@
   display: flex;
   flex-direction: column;
   gap: 0.35rem;
-  font-size: 0.9rem;
-  font-weight: 500;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #555;
 }
 
 .login-form input {
@@ -45,26 +52,23 @@
   border: 1px solid #ccc;
   border-radius: 5px;
   font-size: 1rem;
+  font-family: 'Arimo', sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--color-dark);
 }
 
 .login-form input:focus {
   outline: none;
-  border-color: #111;
+  border-color: var(--color-teal-deep);
 }
 
+/* login button inherits global style; just adjust padding */
 .login-form button {
   padding: 0.65rem;
-  background: #111;
-  color: #fff;
-  border: none;
-  border-radius: 5px;
-  font-size: 1rem;
-  cursor: pointer;
   margin-top: 0.5rem;
-}
-
-.login-form button:hover {
-  background: #333;
+  width: 100%;
 }
 
 .login-error {

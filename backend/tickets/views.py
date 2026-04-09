@@ -19,10 +19,9 @@ def is_support(user):
 @api_view(['GET', 'POST'])
 @permission_classes([IsAuthenticated])
 def ticket_list(request):
-    if not is_support(request.user):
-        return Response({'error': 'Support access required.'}, status=status.HTTP_403_FORBIDDEN)
-
     if request.method == 'GET':
+        if not is_support(request.user):
+            return Response({'error': 'Support access required.'}, status=status.HTTP_403_FORBIDDEN)
         status_filter = request.query_params.get('status')
         limit = int(request.query_params.get('limit', 30))
         qs = Ticket.objects.select_related('assigned_to', 'created_by').prefetch_related('screenshots', 'comments')
@@ -31,6 +30,7 @@ def ticket_list(request):
         qs = qs[:limit]
         return Response(TicketSerializer(qs, many=True, context={'request': request}).data)
 
+    # POST — any authenticated user can create a ticket
     serializer = TicketSerializer(data=request.data, context={'request': request})
     if serializer.is_valid():
         ticket = serializer.save()
@@ -38,19 +38,37 @@ def ticket_list(request):
     return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def my_tickets(request):
+    """Returns tickets created by the current user."""
+    status_filter = request.query_params.get('status')
+    qs = (Ticket.objects
+          .select_related('assigned_to', 'created_by')
+          .prefetch_related('screenshots', 'comments')
+          .filter(created_by=request.user)
+          .order_by('-created_at'))
+    if status_filter:
+        qs = qs.filter(status=status_filter)
+    return Response(TicketSerializer(qs, many=True, context={'request': request}).data)
+
+
 @api_view(['GET', 'PATCH', 'DELETE'])
 @permission_classes([IsAuthenticated])
 def ticket_detail(request, pk):
-    if not is_support(request.user):
-        return Response({'error': 'Support access required.'}, status=status.HTTP_403_FORBIDDEN)
-
     try:
         ticket = Ticket.objects.select_related('assigned_to', 'created_by').prefetch_related('screenshots', 'comments__author').get(pk=pk)
     except Ticket.DoesNotExist:
         return Response({'error': 'Not found.'}, status=status.HTTP_404_NOT_FOUND)
 
     if request.method == 'GET':
+        # support staff can view all tickets; owners can view their own
+        if not is_support(request.user) and ticket.created_by_id != request.user.id:
+            return Response({'error': 'Not found.'}, status=status.HTTP_404_NOT_FOUND)
         return Response(TicketSerializer(ticket, context={'request': request}).data)
+
+    if not is_support(request.user):
+        return Response({'error': 'Support access required.'}, status=status.HTTP_403_FORBIDDEN)
 
     if request.method == 'PATCH':
         serializer = TicketSerializer(ticket, data=request.data, partial=True, context={'request': request})
@@ -68,12 +86,12 @@ def ticket_detail(request, pk):
 @permission_classes([IsAuthenticated])
 @parser_classes([MultiPartParser, FormParser])
 def upload_screenshot(request, pk):
-    if not is_support(request.user):
-        return Response({'error': 'Support access required.'}, status=status.HTTP_403_FORBIDDEN)
-
     try:
         ticket = Ticket.objects.get(pk=pk)
     except Ticket.DoesNotExist:
+        return Response({'error': 'Not found.'}, status=status.HTTP_404_NOT_FOUND)
+
+    if not is_support(request.user) and ticket.created_by_id != request.user.id:
         return Response({'error': 'Not found.'}, status=status.HTTP_404_NOT_FOUND)
 
     images = request.FILES.getlist('images')
@@ -90,12 +108,12 @@ def upload_screenshot(request, pk):
 @api_view(['POST'])
 @permission_classes([IsAuthenticated])
 def add_comment(request, pk):
-    if not is_support(request.user):
-        return Response({'error': 'Support access required.'}, status=status.HTTP_403_FORBIDDEN)
-
     try:
         ticket = Ticket.objects.get(pk=pk)
     except Ticket.DoesNotExist:
+        return Response({'error': 'Not found.'}, status=status.HTTP_404_NOT_FOUND)
+
+    if not is_support(request.user) and ticket.created_by_id != request.user.id:
         return Response({'error': 'Not found.'}, status=status.HTTP_404_NOT_FOUND)
 
     serializer = CommentSerializer(data=request.data)
