@@ -1,0 +1,232 @@
+.dash-wrap {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.dash-wrap h2 {
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.1rem;
+  color: var(--color-teal-deep);
+}
+
+.dash-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  align-items: start;
+}
+
+/* ── Section card ────────────────────────────────────────────────────────── */
+.dash-section {
+  background: var(--color-surface);
+  border-radius: 6px;
+  border: 1px solid #e4e4e4;
+  overflow: hidden;
+}
+
+.dash-section-title {
+  margin: 0;
+  padding: 0.65rem 1rem;
+  background: var(--color-teal-deep);
+  color: #fff;
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+}
+
+.dash-empty {
+  padding: 1rem;
+  color: #aaa;
+  font-size: 0.85rem;
+  margin: 0;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+}
+
+/* ── Docker list ─────────────────────────────────────────────────────────── */
+.docker-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.docker-item {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding: 0.5rem 0.75rem;
+  background: var(--color-white);
+  border-radius: 4px;
+  border: 1px solid #e4e4e4;
+  font-size: 0.875rem;
+}
+
+.status-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 2px;
+  flex-shrink: 0;
+}
+
+.docker-name {
+  font-weight: 700;
+  color: var(--color-dark);
+  flex: 1;
+}
+
+.docker-node {
+  font-size: 0.78rem;
+  color: #888;
+}
+
+.docker-status {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  margin-left: auto;
+}
+
+/* ── Kanban activity list ────────────────────────────────────────────────── */
+.activity-list {
+  list-style: none;
+  margin: 0;
+  padding: 0.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.activity-item {
+  display: flex;
+  gap: 0.75rem;
+  align-items: flex-start;
+  padding: 0.5rem 0.75rem;
+  background: var(--color-white);
+  border-radius: 4px;
+  border: 1px solid #e4e4e4;
+  font-size: 0.8rem;
+}
+
+.activity-time {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  flex-shrink: 0;
+  gap: 0.1rem;
+}
+
+.activity-date {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-teal-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+.activity-clock {
+  font-size: 0.72rem;
+  color: #aaa;
+}
+
+.activity-body {
+  display: flex;
+  flex-direction: column;
+  gap: 0.1rem;
+  min-width: 0;
+}
+
+.activity-board {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--color-teal-deep);
+}
+
+.activity-card {
+  font-weight: 700;
+  color: var(--color-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.activity-change {
+  font-size: 0.78rem;
+  color: #666;
+}
+
+/* ── Ticket card ─────────────────────────────────────────────────────────── */
+.dash-ticket {
+  margin: 0.5rem;
+  padding: 0.75rem;
+  background: var(--color-white);
+  border-radius: 4px;
+  border: 1px solid #e4e4e4;
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+}
+
+.dash-ticket-header {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.dash-ticket-number {
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--color-teal-mid);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.badge-new {
+  font-size: 0.65rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  background: var(--color-teal-deep);
+  color: #fff;
+  padding: 0.1rem 0.45rem;
+  border-radius: 3px;
+}
+
+.dash-ticket-status {
+  margin-left: auto;
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.dash-ticket-title {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  margin: 0;
+}
+
+.dash-ticket-desc {
+  font-size: 0.8rem;
+  color: #666;
+  margin: 0;
+}
+
+.dash-ticket-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.72rem;
+  color: #aaa;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  margin-top: 0.2rem;
+}
