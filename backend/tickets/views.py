@@ -43,6 +43,7 @@ def ticket_list(request):
 def my_tickets(request):
     """Returns tickets created by the current user."""
     status_filter = request.query_params.get('status')
+    limit = int(request.query_params.get('limit', 50))
     qs = (Ticket.objects
           .select_related('assigned_to', 'created_by')
           .prefetch_related('screenshots', 'comments')
@@ -50,7 +51,15 @@ def my_tickets(request):
           .order_by('-created_at'))
     if status_filter:
         qs = qs.filter(status=status_filter)
-    return Response(TicketSerializer(qs, many=True, context={'request': request}).data)
+    qs = qs[:limit]
+    tickets = TicketSerializer(qs, many=True, context={'request': request}).data
+    # annotate each ticket with whether there has been any activity since creation
+    for t in tickets:
+        t['has_activity'] = (
+            t['updated_at'] != t['created_at']
+            or len(t.get('comments', [])) > 0
+        )
+    return Response(tickets)
 
 
 @api_view(['GET', 'PATCH', 'DELETE'])

@@ -24,4 +24,6 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("api/", include("api.urls")),
     path("api/tickets/", include("tickets.urls")),
+    path("api/docker/", include("docker_manager.urls")),
+    path("api/kanban/", include("kanban.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
