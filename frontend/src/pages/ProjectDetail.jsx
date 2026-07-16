@@ -1,6 +1,7 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
-import { Folder } from 'lucide-react'
+import { Folder, ListTodo, CalendarRange, Rocket, Gauge, FileText, Layers, BookOpen, Target } from 'lucide-react'
+import { isMarkdownFile, markdownViewerPath } from '../utils/markdown'
 import './ProjectDetail.css'
 
 const PROJECTS_API = '/api/projects'
@@ -180,6 +181,8 @@ function ProjectDetail({ isManager }) {
   const [documents, setDocuments] = useState([])
   const [events, setEvents] = useState([])
   const [sprints, setSprints] = useState([])
+  const [epics, setEpics] = useState([])
+  const [items, setItems] = useState([])
   const [loading, setLoading] = useState(true)
   const [showEdit, setShowEdit] = useState(false)
   const [showNewSprint, setShowNewSprint] = useState(false)
@@ -190,16 +193,20 @@ function ProjectDetail({ isManager }) {
   const fetchAll = useCallback(async () => {
     setLoading(true)
     try {
-      const [projectRes, docsRes, eventsRes, sprintsRes] = await Promise.all([
+      const [projectRes, docsRes, eventsRes, sprintsRes, epicsRes, itemsRes] = await Promise.all([
         fetch(`${PROJECTS_API}/${projectId}/`, { headers: authH() }),
         fetch(`${PROJECTS_API}/${projectId}/documents/`, { headers: authH() }),
         fetch(`${PROJECTS_API}/${projectId}/timeline/`, { headers: authH() }),
         fetch(`${BACKLOG_API}/sprints/?project_id=${projectId}`, { headers: authH() }),
+        fetch(`${BACKLOG_API}/epics/?project_id=${projectId}`, { headers: authH() }),
+        fetch(`${BACKLOG_API}/items/?project_id=${projectId}&sprint_id=all`, { headers: authH() }),
       ])
       setProject(projectRes.ok ? await projectRes.json() : null)
       setDocuments(docsRes.ok ? await docsRes.json() : [])
       setEvents(eventsRes.ok ? await eventsRes.json() : [])
       setSprints(sprintsRes.ok ? await sprintsRes.json() : [])
+      setEpics(epicsRes.ok ? await epicsRes.json() : [])
+      setItems(itemsRes.ok ? await itemsRes.json() : [])
     } finally {
       setLoading(false)
     }
@@ -244,6 +251,11 @@ function ProjectDetail({ isManager }) {
   const hasBacklog = project.has_backlog
   const hasTimeline = project.has_timeline
 
+  const storyPoints = items.reduce((sum, i) => sum + (i.estimate || 0), 0)
+  const storiesByStatus = items.reduce((acc, i) => { acc[i.status] = (acc[i.status] || 0) + 1; return acc }, {})
+  const activeSprint = sprints.find(s => s.status === 'active')
+  const hasAgileData = epics.length > 0 || items.length > 0 || sprints.length > 0
+
   return (
     <div className="page pd-page">
       <Link className="pd-back-link" to="/projects">← All Projects</Link>
@@ -264,7 +276,7 @@ function ProjectDetail({ isManager }) {
 
       <div className="pd-sections">
         <section className="pd-section">
-          <h3>Backlog</h3>
+          <h3><ListTodo size={15} /> Backlog</h3>
           {hasBacklog ? (
             <Link className="pd-section-link" to={`/projects/${projectId}/backlog`}>View Project Backlog →</Link>
           ) : (
@@ -276,7 +288,7 @@ function ProjectDetail({ isManager }) {
         </section>
 
         <section className="pd-section">
-          <h3>Timeline</h3>
+          <h3><CalendarRange size={15} /> Timeline</h3>
           {hasTimeline ? (
             <>
               <div className="pd-timeline-preview">
@@ -300,7 +312,7 @@ function ProjectDetail({ isManager }) {
 
       <section className="pd-section pd-sprints-section">
         <div className="pd-docs-header">
-          <h3>Sprints</h3>
+          <h3><Rocket size={15} /> Sprints</h3>
           {isManager && (
             <button className="secondary" onClick={() => setShowNewSprint(true)}>Sprint Planning</button>
           )}
@@ -324,9 +336,49 @@ function ProjectDetail({ isManager }) {
         )}
       </section>
 
+      <section className="pd-section pd-agile-section">
+        <div className="pd-docs-header">
+          <h3><Gauge size={15} /> Agile Summary</h3>
+          <button className="secondary" onClick={() => navigate(`/projects/${projectId}/agile-dashboard`)}>Agile Dashboard</button>
+        </div>
+        {!hasAgileData ? (
+          <p className="pd-empty">No agile activity yet for this project.</p>
+        ) : (
+          <>
+            <div className="pd-agile-stats">
+              <div className="pd-agile-stat">
+                <Layers size={18} className="pd-agile-stat-icon" />
+                <span className="pd-agile-stat-value">{epics.length}</span>
+                <span className="pd-agile-stat-label">Epics</span>
+              </div>
+              <div className="pd-agile-stat">
+                <BookOpen size={18} className="pd-agile-stat-icon" />
+                <span className="pd-agile-stat-value">{items.length}</span>
+                <span className="pd-agile-stat-label">Stories</span>
+              </div>
+              <div className="pd-agile-stat">
+                <Target size={18} className="pd-agile-stat-icon" />
+                <span className="pd-agile-stat-value">{storyPoints}</span>
+                <span className="pd-agile-stat-label">Story Points</span>
+              </div>
+              <div className="pd-agile-stat">
+                <Rocket size={18} className="pd-agile-stat-icon" />
+                <span className="pd-agile-stat-value">{sprints.length}</span>
+                <span className="pd-agile-stat-label">Sprints</span>
+              </div>
+            </div>
+            <p className="pd-agile-breakdown">
+              {storiesByStatus.backlog || 0} backlog · {storiesByStatus.planned || 0} planned · {storiesByStatus.started || 0} started
+              {' — '}
+              {activeSprint ? `active sprint: ${activeSprint.display_name}` : 'no active sprint'}
+            </p>
+          </>
+        )}
+      </section>
+
       <section className="pd-section pd-docs-section">
         <div className="pd-docs-header">
-          <h3>High-Level Documentation</h3>
+          <h3><FileText size={15} /> High-Level Documentation</h3>
           {isManager && (
             <>
               <button className="secondary" disabled={uploading} onClick={() => fileInputRef.current?.click()}>
@@ -343,7 +395,13 @@ function ProjectDetail({ isManager }) {
           <ul className="pd-doc-list">
             {documents.map(doc => (
               <li key={doc.id} className="pd-doc-row">
-                <a href={doc.url} target="_blank" rel="noreferrer">{doc.name}</a>
+                {isMarkdownFile(doc.name) ? (
+                  <Link to={markdownViewerPath({ url: doc.url, name: doc.name, back: `/projects/${projectId}`, backLabel: project.title })}>
+                    {doc.name}
+                  </Link>
+                ) : (
+                  <a href={doc.url} target="_blank" rel="noreferrer">{doc.name}</a>
+                )}
                 <span className="pd-doc-meta">
                   {doc.uploaded_by?.full_name || 'Unknown'} · {fmtDate(doc.uploaded_at)}
                 </span>
