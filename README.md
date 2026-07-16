@@ -1,39 +1,52 @@
 # FlyWheel
 
 FlyWheel is an internal operations tool that brings together project
-management, IT/support ticketing, team messaging, and Docker container
-monitoring in a single app with role-based access.
+planning, sprint/backlog management, Kanban boards, a team knowledge base,
+and Docker container monitoring in a single app with role-based access.
 
 ## Features
 
-- **Dashboard** — at-a-glance view of Docker container health, recent
-  Kanban activity, and open tickets.
+- **Dashboard** — at-a-glance view of Docker container health and recent
+  Kanban board activity.
 - **Kanban** — drag-and-drop project boards with columns, cards,
-  checklists, and member assignment.
-- **Tickets** — self-service ticket filing with screenshot attachments, a
-  support triage dashboard, and resolution metrics.
-- **Team Overview** — manager view of Kanban cards grouped by assignee.
-- **Messages** — direct messaging between users (in progress).
-- **Docker Manager** — registry of Docker container status (in progress).
+  checklists, member assignment, and shareable board links (view/edit
+  roles) for link-based collaboration.
+- **Project Planning** — projects with descriptions, dates, an icon, and
+  attached documents, plus a visual timeline of milestones tied to epics
+  and backlog stories.
+- **Backlog & Sprints** — epics, numbered sprints, and backlog items/stories
+  that can be estimated, assigned to a sprint, and linked one-to-one with a
+  Kanban card.
+- **Team Resources** — a shared knowledge-base file library (upload,
+  browse, archive) available to all authenticated users.
+- **Team Overview** — manager-only view of Kanban cards grouped by
+  assignee.
+- **Docker Manager** — registry/dashboard of Docker container health
+  status (healthy / working / down) by cluster.
 - **Account** — profile management.
 
 ## Tech Stack
 
-**Backend:** Django 5.2, Django REST Framework, token authentication,
-SQLite (dev), Pillow.
+**Backend:** Django 5.2, Django REST Framework, django-cors-headers,
+token authentication, SQLite (dev), Pillow.
 
-**Frontend:** React 19, Vite, react-router-dom, lucide-react.
+**Frontend:** React 19, Vite, react-router-dom, lucide-react,
+react-markdown (with remark-gfm).
 
 ## Roles & Permissions
 
-Access is controlled via Django Groups:
+Access to Kanban, Backlog, Projects, and Docker Manager is controlled via
+Django Groups (see `api/management/commands/setup_groups.py`):
 
 | Group           | Access                                                    |
 |-----------------|------------------------------------------------------------|
-| `team-member`   | Add/change/view on Kanban, Tickets, Messaging, Docker      |
-| `support`       | Full add/change/delete/view; sees the Support Dashboard    |
-| `support-admin` | Same as `support`; default assignee for new tickets        |
+| `team-member`   | Add/change/view on Kanban, Backlog, Projects, Docker      |
+| `support`       | Full add/change/delete/view                               |
+| `support-admin` | Full add/change/delete/view                                |
 | `manager`       | Full add/change/delete/view; sees the Team Overview page   |
+
+Team Resources is available to any authenticated user, with archiving
+restricted to managers.
 
 ## Getting Started
 
@@ -66,9 +79,10 @@ is pre-configured for the Vite dev server.
 ```
 backend/
   api/             Auth endpoints (login, logout, current user)
-  kanban/          Boards, columns, cards, checklists
-  tickets/         Support ticket system
-  messaging/       Direct messaging
+  kanban/          Boards, columns, cards, checklists, link sharing
+  backlog/         Epics, sprints, backlog items
+  projects/        Projects, documents, timeline events
+  team_resources/  Shared knowledge-base file library
   docker_manager/  Docker container status registry
   flywheel/        Django project settings/urls
 
