@@ -26,7 +26,7 @@ services:
         value: ""
 
   - type: web
-    name: flywheel-frontend
+    name: flywheel
     runtime: static
     rootDir: frontend
     buildCommand: npm install && npm run build
