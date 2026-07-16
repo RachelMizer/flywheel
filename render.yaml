@@ -3,9 +3,15 @@ services:
     name: flywheel-backend
     runtime: python
     rootDir: backend
-    plan: free
+    plan: starter
     buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
     startCommand: gunicorn flywheel.wsgi
+    # Persists db.sqlite3 and uploaded media across deploys/restarts — Free-instance
+    # services can't attach disks at all, which is why this is on Starter ($7/mo).
+    disk:
+      name: flywheel-data
+      mountPath: /var/data
+      sizeGB: 1
     envVars:
       - key: PYTHON_VERSION
         value: 3.13.5
@@ -13,6 +19,10 @@ services:
         generateValue: true
       - key: DEBUG
         value: "False"
+      # Where the persistent disk above is mounted — settings.py puts db.sqlite3 and
+      # media/ under this path instead of BASE_DIR when it's set.
+      - key: DATA_DIR
+        value: /var/data
       # Extra allowed hosts beyond the service's own *.onrender.com domain (which
       # settings.py already whitelists automatically via RENDER_EXTERNAL_HOSTNAME).
       # Comma-separated, e.g. "flywheel.example.com".
