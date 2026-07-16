@@ -1,0 +1,382 @@
+/* ── Page ─────────────────────────────────────────────────────────────────── */
+.agd-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+
+  /* Categorical accents (validated palette, slots 1/2/3/4 — pass all-pairs CVD in both modes) */
+  --agd-blue:    #2a78d6;
+  --agd-green:   #008300;
+  --agd-magenta: #e87ba4;
+  --agd-yellow:  #eda100;
+
+  /* Ordinal blue ramp (story pipeline: backlog → planned → started) */
+  --agd-blue-250: #86b6ef;
+  --agd-blue-450: #2a78d6;
+  --agd-blue-650: #104281;
+}
+
+.agd-back-link {
+  align-self: flex-start;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-teal-mid);
+  text-decoration: none;
+}
+.agd-back-link:hover { text-decoration: underline; }
+
+.agd-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.agd-header h1 {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  margin: 0;
+}
+
+.agd-header button {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.agd-empty {
+  color: #999;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.agd-view-backlog-link {
+  align-self: flex-start;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-teal-deep);
+  text-decoration: none;
+}
+.agd-view-backlog-link:hover { text-decoration: underline; }
+
+/* ── Stat cards ───────────────────────────────────────────────────────────── */
+.agd-stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1rem;
+}
+
+.agd-stat-card {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.25rem;
+  background: var(--color-white);
+  border: 1px solid #e4e4e4;
+  border-top: 4px solid transparent;
+  border-radius: 10px;
+  padding: 1.1rem 1rem;
+  box-shadow: 0 1px 3px rgba(48,48,48,0.06);
+}
+
+.agd-stat-blue    { border-top-color: var(--agd-blue); }
+.agd-stat-green   { border-top-color: var(--agd-green); }
+.agd-stat-magenta { border-top-color: var(--agd-magenta); }
+.agd-stat-yellow  { border-top-color: var(--agd-yellow); }
+
+.agd-stat-icon-badge {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.4rem;
+  height: 2.4rem;
+  border-radius: 50%;
+  margin-bottom: 0.15rem;
+  color: #fff;
+}
+.agd-stat-blue    .agd-stat-icon-badge { background: var(--agd-blue); }
+.agd-stat-green   .agd-stat-icon-badge { background: var(--agd-green); }
+.agd-stat-magenta .agd-stat-icon-badge { background: var(--agd-magenta); }
+.agd-stat-yellow  .agd-stat-icon-badge { background: var(--agd-yellow); }
+
+.agd-stat-value {
+  font-size: 2rem;
+  font-weight: 900;
+  color: var(--color-dark);
+  line-height: 1;
+}
+
+.agd-stat-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+}
+
+/* ── Panels ───────────────────────────────────────────────────────────────── */
+.agd-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: var(--color-surface);
+  border: 1px solid #e4e4e4;
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.agd-panel h2 {
+  margin: 0;
+  color: var(--color-teal-deep);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.85rem;
+}
+
+/* ── Story pipeline (ordinal: backlog → planned → started) ──────────────── */
+.agd-pipeline-bar {
+  display: flex;
+  height: 2rem;
+  border-radius: 6px;
+  overflow: hidden;
+  background: var(--color-white);
+  border: 1px solid #e4e4e4;
+}
+
+.agd-pipeline-seg {
+  min-width: 3px;
+  transition: width 0.2s;
+}
+.agd-pipeline-seg + .agd-pipeline-seg { margin-left: 2px; }
+
+.agd-seg-backlog { background: var(--agd-blue-250); }
+.agd-seg-planned { background: var(--agd-blue-450); }
+.agd-seg-started { background: var(--agd-blue-650); }
+
+.agd-pipeline-legend {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1.25rem;
+  font-size: 0.8rem;
+  color: #555;
+}
+.agd-pipeline-legend span {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.agd-dot {
+  display: inline-block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+}
+
+/* ── Sprints ─────────────────────────────────────────────────────────────── */
+.agd-sprint-row {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  gap: 0.75rem;
+}
+
+.agd-sprint-card {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  background: var(--color-white);
+  border: 1px solid #e4e4e4;
+  border-radius: 6px;
+  padding: 0.75rem 0.9rem;
+  text-decoration: none;
+  color: inherit;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+.agd-sprint-card:hover {
+  box-shadow: 0 2px 8px rgba(31,111,95,0.1);
+  border-color: var(--color-teal-mid);
+}
+
+.agd-sprint-name {
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  color: var(--color-teal-deep);
+  font-size: 0.85rem;
+}
+
+.agd-sprint-dates {
+  font-size: 0.7rem;
+  color: #999;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+}
+
+/* Sprint status badge — matches the Sprints tile on Project Detail */
+.pd-sprint-status {
+  align-self: flex-start;
+  font-size: 0.62rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  border-radius: 4px;
+  padding: 0.12rem 0.45rem;
+}
+.pd-sprint-status-planned   { background: var(--color-surface); border: 1px solid #d0d0d0; color: #666; }
+.pd-sprint-status-active    { background: rgba(31,111,95,0.12); color: var(--color-teal-deep); }
+.pd-sprint-status-completed { background: #e8e8e8; color: #999; }
+
+/* ── Epic breakdown table ────────────────────────────────────────────────── */
+.agd-epic-table {
+  display: flex;
+  flex-direction: column;
+  background: var(--color-white);
+  border: 1px solid #e4e4e4;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.agd-epic-table-row {
+  display: grid;
+  grid-template-columns: minmax(120px, 1fr) 4.5rem 4.5rem minmax(140px, 230px);
+  align-items: center;
+  gap: 0.75rem;
+  padding: 0.55rem 0.9rem;
+  border-bottom: 1px solid #e4e4e4;
+}
+.agd-epic-table-row:last-child { border-bottom: none; }
+
+.agd-epic-table-head {
+  background: var(--color-surface);
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #888;
+}
+.agd-epic-table-head .agd-epic-col-num { text-align: center; }
+
+.agd-epic-table-total {
+  background: var(--color-surface);
+  font-weight: 700;
+}
+
+.agd-epic-name {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.agd-epic-col-num {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  text-align: center;
+}
+
+.agd-epic-col-mix {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.agd-mix-bar {
+  display: flex;
+  height: 0.55rem;
+  border-radius: 4px;
+  overflow: hidden;
+  background: var(--color-surface);
+}
+.agd-mix-bar .agd-pipeline-seg + .agd-pipeline-seg { margin-left: 1px; }
+
+.agd-mix-caption {
+  font-size: 0.66rem;
+  color: #999;
+}
+
+/* ── Modal (self-contained, matches ProjectDetail.css/Kanban.css skeleton) ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(48,48,48,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.modal {
+  background: var(--color-white);
+  border-radius: 8px;
+  width: 90%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(48,48,48,0.2);
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.25rem 1.5rem 0.75rem;
+  border-bottom: 2px solid var(--color-teal-deep);
+  background: var(--color-surface);
+  border-radius: 8px 8px 0 0;
+}
+.modal-header h3 { margin: 0; color: var(--color-dark); }
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #888;
+  padding: 0;
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
+}
+.modal-close:hover { color: var(--color-dark); background: none; }
+
+.card-form {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.card-form label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #555;
+}
+.card-form input,
+.card-form select {
+  display: block;
+  width: 100%;
+  margin-top: 0.3rem;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-family: 'Arimo', sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--color-dark);
+  box-sizing: border-box;
+}
+.card-form input:focus,
+.card-form select:focus {
+  outline: none;
+  border-color: var(--color-teal-deep);
+}
+.form-error { color: #c0392b; font-size: 0.85rem; margin: 0; }
+.form-actions { display: flex; gap: 0.75rem; }
+.required { color: #c0392b; }
+.optional { color: #aaa; font-weight: 400; font-size: 0.8rem; text-transform: none; letter-spacing: normal; }

@@ -88,6 +88,9 @@
 }
 
 .pd-section h3 {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
   margin: 0;
   color: var(--color-teal-deep);
   text-transform: uppercase;
@@ -202,6 +205,55 @@
   color: #999;
   text-transform: uppercase;
   letter-spacing: 0.03em;
+}
+
+/* ── Agile Summary ───────────────────────────────────────────────────────── */
+.pd-agile-section {
+  grid-column: 1 / -1;
+}
+
+.pd-agile-stats {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+}
+
+.pd-agile-stat {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  gap: 0.15rem;
+  background: var(--color-white);
+  border: 1px solid #e4e4e4;
+  border-radius: 8px;
+  padding: 0.6rem 1.1rem;
+}
+
+.pd-agile-stat-icon {
+  color: var(--color-teal-mid);
+  margin-bottom: 0.1rem;
+}
+
+.pd-agile-stat-value {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--color-teal-deep);
+  line-height: 1;
+}
+
+.pd-agile-stat-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+}
+
+.pd-agile-breakdown {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #888;
 }
 
 /* ── Documentation ───────────────────────────────────────────────────────── */

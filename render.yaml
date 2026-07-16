@@ -1,0 +1,49 @@
+services:
+  - type: web
+    name: flywheel-backend
+    runtime: python
+    rootDir: backend
+    plan: free
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
+    startCommand: gunicorn flywheel.wsgi
+    envVars:
+      - key: PYTHON_VERSION
+        value: 3.13.5
+      - key: SECRET_KEY
+        generateValue: true
+      - key: DEBUG
+        value: "False"
+      # Extra allowed hosts beyond the service's own *.onrender.com domain (which
+      # settings.py already whitelists automatically via RENDER_EXTERNAL_HOSTNAME).
+      # Comma-separated, e.g. "flywheel.example.com".
+      - key: ALLOWED_HOSTS
+        value: ""
+      # Not needed for the frontend service below — its /api/* rewrite proxy makes
+      # those requests same-origin from the browser's perspective. Only set this if
+      # something else (a custom domain, local tooling, etc.) calls the API directly
+      # cross-origin, e.g. "https://flywheel.example.com" (comma-separated for multiple).
+      - key: CORS_ALLOWED_ORIGINS
+        value: ""
+
+  - type: web
+    name: flywheel-frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: npm install && npm run build
+    staticPublishPath: dist
+    # The frontend's own code calls relative paths like fetch('/api/...') — it has
+    # no separate "backend URL" config (that's what makes Vite's dev proxy work
+    # locally). These rewrites proxy those same paths to the backend service in
+    # production, so the browser sees everything as same-origin (no CORS needed).
+    # IMPORTANT: if "flywheel-backend" is taken and Render assigns a different
+    # hostname, update the destinations below to match it.
+    routes:
+      - type: rewrite
+        source: /api/*
+        destination: https://flywheel-backend.onrender.com/api/*
+      - type: rewrite
+        source: /media/*
+        destination: https://flywheel-backend.onrender.com/media/*
+      - type: rewrite
+        source: /*
+        destination: /index.html
