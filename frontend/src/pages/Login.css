@@ -15,10 +15,11 @@
   max-width: 360px;
 }
 
-.login-title {
-  margin: 0 0 0.25rem;
-  font-size: 1.75rem;
-  color: var(--color-teal-deep);
+.login-logo {
+  display: block;
+  width: 100%;
+  max-width: 220px;
+  margin: 0 auto 0.25rem;
 }
 
 .login-subtitle {

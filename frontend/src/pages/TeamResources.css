@@ -1,0 +1,304 @@
+/* ── Page ─────────────────────────────────────────────────────────────────── */
+.tr-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.tr-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.tr-header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.tr-subtitle {
+  margin: -0.75rem 0 0;
+  font-size: 0.85rem;
+  color: #999;
+}
+
+.tr-empty {
+  color: #999;
+  font-size: 0.9rem;
+  margin: 0;
+  text-align: center;
+}
+
+/* ── Filter ───────────────────────────────────────────────────────────────── */
+.tr-filter-input {
+  display: block;
+  width: 100%;
+  max-width: 320px;
+  margin: 0 auto;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.85rem;
+  font-family: 'Arimo', sans-serif;
+  text-align: center;
+}
+
+/* ── Document table ───────────────────────────────────────────────────────── */
+.tr-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: var(--color-white);
+  border: 1px solid #e4e4e4;
+  border-radius: 5px;
+  overflow: hidden;
+}
+
+.tr-table th,
+.tr-table td {
+  padding: 0.55rem 0.75rem;
+  text-align: center;
+  border-bottom: 1px solid #e4e4e4;
+  font-size: 0.85rem;
+}
+
+.tr-table thead th {
+  background: var(--color-surface);
+  color: var(--color-dark);
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  user-select: none;
+}
+
+.tr-table tbody tr:last-child td { border-bottom: none; }
+.tr-table tbody tr:hover { background: var(--color-surface); }
+
+.tr-th-sortable { cursor: pointer; white-space: nowrap; }
+.tr-th-sortable:hover { color: var(--color-teal-deep); }
+.tr-th-actions { width: 2.5rem; white-space: nowrap; }
+.tr-th-delete { width: 1%; white-space: nowrap; }
+
+.tr-copy-btn { color: #aaa; display: inline-flex; align-items: center; }
+.tr-copy-btn:hover { background: #eee; color: var(--color-teal-deep); }
+.tr-copy-btn.copied { color: var(--color-teal-deep); }
+
+/* ── Delete button (pale tan, not red — matches the Kanban delete-board button) ── */
+.tr-delete-btn {
+  background: #e8dcc4;
+  border: 1px solid #c9b28f;
+  color: var(--color-dark);
+  padding: 0.2rem 0.5rem;
+  font-size: 0.68rem;
+}
+.tr-delete-btn:hover {
+  background: #ddccaa;
+}
+
+.tr-archive-actions {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+}
+
+.tr-sort-arrow {
+  font-size: 0.65rem;
+  color: var(--color-teal-deep);
+}
+
+.tr-type-badge {
+  display: inline-block;
+  padding: 0.1rem 0.4rem;
+  background: var(--color-surface);
+  border: 1px solid #e4e4e4;
+  border-radius: 4px;
+  font-size: 0.68rem;
+  font-weight: 700;
+  color: var(--color-teal-mid);
+  letter-spacing: 0.03em;
+}
+
+.tr-doc-link {
+  background: none;
+  border: none;
+  padding: 0 4px !important;
+  text-align: left;
+  cursor: pointer;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--color-teal-deep);
+  font-weight: 700;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+.tr-doc-link:hover {
+  text-decoration: none;
+  color: #fff !important;
+}
+
+.tr-table td a {
+  color: var(--color-teal-deep);
+  font-weight: 700;
+  text-decoration: none;
+}
+.tr-table td a:hover { text-decoration: underline; }
+
+.tr-doc-meta {
+  color: #999;
+  white-space: nowrap;
+}
+
+/* ── Icon button (self-contained, matches Kanban.css) ─────────────────────── */
+.icon-btn {
+  background: none;
+  border: none;
+  padding: 0.15rem 0.3rem;
+  font-size: 0.8rem;
+  color: #aaa;
+  cursor: pointer;
+  border-radius: 3px;
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
+}
+.icon-btn:hover {
+  background: #eee;
+  color: var(--color-dark);
+}
+.icon-btn-danger:hover {
+  background: #eeebeb;
+  color: #7a7a7a;
+  border: 1px solid #7b2020;
+}
+
+.form-error { color: #c0392b; font-size: 0.85rem; margin: 0; }
+
+/* ── Modal (self-contained, matches Kanban.css/ProjectDetail.css skeleton) ── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(48,48,48,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.25rem 1.5rem 0.75rem;
+  border-bottom: 2px solid var(--color-teal-deep);
+  background: var(--color-surface);
+  border-radius: 8px 8px 0 0;
+}
+.modal-header h3 { margin: 0; color: var(--color-dark); }
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #888;
+  padding: 0;
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
+}
+.modal-close:hover { color: var(--color-dark); background: none; }
+
+/* ── Markdown viewer (wide reading panel, not a form-sized modal) ─────────── */
+.tr-md-modal {
+  background: var(--color-white);
+  border-radius: 8px;
+  width: 90%;
+  max-width: 780px;
+  max-height: 85vh;
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 8px 32px rgba(48,48,48,0.2);
+}
+
+.tr-md-body {
+  padding: 1.5rem 1.75rem;
+  overflow-y: auto;
+}
+
+.tr-md-body h1,
+.tr-md-body h2,
+.tr-md-body h3,
+.tr-md-body h4 {
+  color: var(--color-teal-deep);
+  margin: 1.25rem 0 0.5rem;
+}
+.tr-md-body h1:first-child,
+.tr-md-body h2:first-child,
+.tr-md-body h3:first-child { margin-top: 0; }
+
+.tr-md-body p,
+.tr-md-body ul,
+.tr-md-body ol,
+.tr-md-body blockquote {
+  margin: 0 0 0.85rem;
+  line-height: 1.55;
+  font-size: 0.9rem;
+}
+
+.tr-md-body ul, .tr-md-body ol { padding-left: 1.4rem; }
+
+.tr-md-body a {
+  color: var(--color-teal-mid);
+  font-weight: 700;
+}
+
+.tr-md-body blockquote {
+  border-left: 3px solid var(--color-teal-mid);
+  padding-left: 0.9rem;
+  color: #666;
+}
+
+.tr-md-body code {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.82em;
+  background: var(--color-surface);
+  padding: 2px 6px;
+  border-radius: 4px;
+}
+
+.tr-md-body pre {
+  background: var(--color-surface);
+  border: 1px solid #e4e4e4;
+  border-radius: 6px;
+  padding: 0.85rem 1rem;
+  overflow-x: auto;
+  margin: 0 0 0.85rem;
+}
+.tr-md-body pre code {
+  background: none;
+  padding: 0;
+}
+
+.tr-md-body table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 0 0 0.85rem;
+  font-size: 0.85rem;
+}
+.tr-md-body th,
+.tr-md-body td {
+  border: 1px solid #e4e4e4;
+  padding: 0.4rem 0.6rem;
+  text-align: left;
+}
+.tr-md-body th {
+  background: var(--color-surface);
+  color: var(--color-dark);
+}
+
+.tr-md-body hr {
+  border: none;
+  border-top: 1px solid #e4e4e4;
+  margin: 1.25rem 0;
+}

@@ -1,7 +1,7 @@
 function DockerManager() {
   return (
     <div className="page">
-      <h2>Docker Manager</h2>
+      <h1>Docker Manager</h1>
       <p>Open and manage Docker containers, edit files, and access Ignition configurations.</p>
     </div>
   )

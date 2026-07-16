@@ -24,7 +24,7 @@ function Login() {
   return (
     <div className="login-wrapper">
       <div className="login-box">
-        <h1 className="login-title">FlyWheel</h1>
+        <img src="/logo_on_lt.png" alt="FlyWheel" className="login-logo" />
         <p className="login-subtitle">Sign in to your account</p>
 
         <form onSubmit={handleSubmit} className="login-form">

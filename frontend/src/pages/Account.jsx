@@ -2,6 +2,18 @@ import { useState } from 'react'
 import { useAuth } from '../context/AuthContext'
 import './Account.css'
 
+function fmtDate(d) {
+  if (!d) return d
+  if (d.includes('T')) {
+    const dt = new Date(d)
+    const mm = String(dt.getMonth() + 1).padStart(2, '0')
+    const dd = String(dt.getDate()).padStart(2, '0')
+    return `${mm}-${dd}-${dt.getFullYear()}`
+  }
+  const [y, m, day] = d.split('-')
+  return `${m}-${day}-${y}`
+}
+
 function Account() {
   const { user, updateUser } = useAuth()
   const [editing, setEditing] = useState(false)
@@ -27,11 +39,11 @@ function Account() {
 
   if (!user) return null
 
-  const joined = new Date(user.date_joined).toLocaleDateString()
+  const joined = fmtDate(user.date_joined)
 
   return (
     <div className="page account">
-      <h2>Account</h2>
+      <h1>Account</h1>
 
       <div className="account-card">
         <div className="account-row">

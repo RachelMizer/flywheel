@@ -1,0 +1,220 @@
+/* ── Page ─────────────────────────────────────────────────────────────────── */
+.bl-dash-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.bl-dash-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.bl-empty {
+  color: #999;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+.bl-back-link {
+  display: inline-block;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: var(--color-teal-mid);
+  text-decoration: none;
+  margin-bottom: 0.25rem;
+}
+.bl-back-link:hover { text-decoration: underline; }
+
+/* ── Dashboard grid ──────────────────────────────────────────────────────── */
+.bl-dash-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+}
+
+.bl-panel {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  background: var(--color-surface);
+  border: 1px solid #e4e4e4;
+  border-radius: 8px;
+  padding: 1.25rem;
+}
+
+.bl-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+
+.bl-panel-header h3 {
+  margin: 0;
+  color: var(--color-teal-deep);
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  font-size: 0.95rem;
+}
+
+.bl-count {
+  background: var(--color-teal-deep);
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: 700;
+  border-radius: 10px;
+  padding: 0.1rem 0.55rem;
+}
+
+.bl-sprint-select {
+  padding: 0.35rem 0.6rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.8rem;
+  background: var(--color-white);
+}
+
+/* ── Preview rows ────────────────────────────────────────────────────────── */
+.bl-preview-list {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.bl-preview-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--color-white);
+  border: 1px solid #e4e4e4;
+  border-radius: 5px;
+  padding: 0.5rem 0.65rem;
+}
+
+.bl-preview-title {
+  flex: 1;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.bl-badge {
+  font-size: 0.68rem;
+  font-weight: 700;
+  border-radius: 4px;
+  padding: 0.1rem 0.45rem;
+  white-space: nowrap;
+}
+
+.bl-badge-epic {
+  background: rgba(31,111,95,0.1);
+  color: var(--color-teal-deep);
+}
+
+.bl-badge-estimate {
+  background: var(--color-surface);
+  border: 1px solid #d0d0d0;
+  color: #666;
+}
+
+.bl-panel-link {
+  align-self: flex-start;
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-teal-deep);
+  text-decoration: none;
+}
+
+.bl-panel-link:hover {
+  text-decoration: underline;
+}
+
+/* ── Modal (self-contained, matches Kanban.css skeleton) ─────────────────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(48,48,48,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.modal {
+  background: var(--color-white);
+  border-radius: 8px;
+  width: 90%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(48,48,48,0.2);
+}
+.modal-sm { max-width: 360px; }
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.25rem 1.5rem 0.75rem;
+  border-bottom: 2px solid var(--color-teal-deep);
+  background: var(--color-surface);
+  border-radius: 8px 8px 0 0;
+}
+.modal-header h3 { margin: 0; color: var(--color-dark); }
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #888;
+  padding: 0;
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
+}
+.modal-close:hover { color: var(--color-dark); background: none; }
+
+.card-form {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.card-form label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #555;
+}
+.card-form input,
+.card-form textarea,
+.card-form select {
+  display: block;
+  width: 100%;
+  margin-top: 0.3rem;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-family: 'Arimo', sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--color-dark);
+  resize: vertical;
+  box-sizing: border-box;
+}
+.card-form input:focus,
+.card-form textarea:focus,
+.card-form select:focus {
+  outline: none;
+  border-color: var(--color-teal-deep);
+}
+.form-error  { color: #c0392b; font-size: 0.85rem; margin: 0; }
+.form-actions { display: flex; gap: 0.75rem; }
+.optional { color: #aaa; font-weight: 400; font-size: 0.8rem; text-transform: none; letter-spacing: normal; }

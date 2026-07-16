@@ -36,8 +36,8 @@
 
 .role-support       { background: #d4edda; color: var(--color-teal-deep); }
 .role-support-admin { background: #d4edda; color: var(--color-teal-deep); }
-.role-admin-user    { background: #eaf0fb; color: #2471a3; }
-.role-user          { background: var(--color-surface); color: var(--color-dark); }
+.role-manager       { background: #eaf0fb; color: #2471a3; }
+.role-team-member   { background: var(--color-surface); color: var(--color-dark); }
 
 .account-actions {
   display: flex;
