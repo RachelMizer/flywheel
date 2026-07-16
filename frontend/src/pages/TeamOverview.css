@@ -1,0 +1,186 @@
+/* ── Page ─────────────────────────────────────────────────────────────────── */
+.ov-page {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.ov-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.ov-empty {
+  color: #999;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* ── Summary bar ─────────────────────────────────────────────────────────── */
+.ov-summary {
+  display: flex;
+  gap: 1.25rem;
+}
+
+.ov-summary-stat {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  background: var(--color-surface);
+  border: 1px solid #e4e4e4;
+  border-radius: 8px;
+  padding: 0.65rem 1.1rem;
+  min-width: 130px;
+}
+
+.ov-stat-value {
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: var(--color-teal-deep);
+  line-height: 1;
+}
+
+.ov-stat-label {
+  font-size: 0.72rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #888;
+}
+
+/* ── User lane ───────────────────────────────────────────────────────────── */
+.ov-lane {
+  display: flex;
+  flex-direction: column;
+  gap: 0.65rem;
+  border-top: 2px solid var(--color-teal-deep);
+  padding-top: 0.85rem;
+}
+
+.ov-lane-unassigned {
+  border-color: #ccc;
+}
+
+.ov-lane-header {
+  display: flex;
+  align-items: center;
+  gap: 0.65rem;
+}
+
+.ov-avatar {
+  width: 2rem;
+  height: 2rem;
+  border-radius: 50%;
+  background: var(--color-teal-deep);
+  color: #fff;
+  font-size: 0.6rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.ov-avatar-unassigned {
+  background: #ccc;
+  font-size: 0.85rem;
+}
+
+.ov-user-info {
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+}
+
+.ov-user-name {
+  font-size: 0.95rem;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.ov-card-count {
+  font-size: 0.75rem;
+  color: #999;
+}
+
+/* ── Cards strip (horizontal scroll) ────────────────────────────────────── */
+.ov-cards-strip {
+  display: flex;
+  gap: 0.75rem;
+  overflow-x: auto;
+  padding-bottom: 0.25rem;
+}
+
+/* ── Individual card ─────────────────────────────────────────────────────── */
+.ov-card {
+  flex: 0 0 220px;
+  background: var(--color-white);
+  border: 1px solid #e4e4e4;
+  border-radius: 6px;
+  padding: 0.65rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+
+.ov-card:hover {
+  box-shadow: 0 2px 8px rgba(31,111,95,0.1);
+  border-color: var(--color-teal-mid);
+}
+
+.ov-card-context {
+  display: flex;
+  align-items: center;
+  gap: 0.25rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #aaa;
+}
+
+.ov-board { color: var(--color-teal-mid); }
+.ov-sep   { color: #ccc; }
+.ov-column { color: #aaa; }
+
+.ov-card-title {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  word-break: break-word;
+}
+
+.ov-card-desc {
+  margin: 0;
+  font-size: 0.78rem;
+  color: #777;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.ov-cl-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.68rem;
+  font-weight: 700;
+  background: var(--color-surface);
+  border: 1px solid #d0d0d0;
+  color: #666;
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+  align-self: flex-start;
+  margin-top: 0.1rem;
+}
+
+.ov-cl-badge.all-done {
+  background: #d4edda;
+  border-color: #a8d5b5;
+  color: var(--color-teal-deep);
+}

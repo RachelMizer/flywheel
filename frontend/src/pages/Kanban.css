@@ -1,0 +1,802 @@
+/* ── Page layout ─────────────────────────────────────────────────────────── */
+.kanban-page {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+}
+
+.kanban-header {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 0.6rem;
+  flex-shrink: 0;
+  margin-bottom: 1.25rem;
+}
+
+
+.new-board-btn { }
+
+.board-select-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.board-select-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #888;
+  white-space: nowrap;
+}
+
+.board-select {
+  padding: 0.4rem 0.65rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-family: 'Arimo', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  background: var(--color-white);
+  cursor: pointer;
+}
+.board-select:focus { outline: none; border-color: var(--color-teal-deep); }
+.board-select:disabled { opacity: 0.5; cursor: default; }
+
+.board-title-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-top: 0.75rem;
+  margin-top: 0.25rem;
+  border-top: 2px solid var(--color-teal-deep);
+  width: 100%;
+}
+
+.board-active-name {
+  margin: 0;
+  font-size: 1.6rem;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-teal-deep);
+}
+
+/* ── Board meta row (owner / shared-with) ───────────────────────────────── */
+.board-meta-row {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 1.5rem;
+  width: 100%;
+}
+
+.board-owner-line,
+.board-shared-line {
+  margin: 0;
+  font-size: 0.8rem;
+  color: #666;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.shared-badges {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.35rem;
+}
+
+.shared-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: #d4edda;
+  border: 1px solid #a8d5b5;
+  color: var(--color-teal-deep);
+  font-size: 0.62rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  cursor: default;
+}
+
+.shared-empty-text {
+  color: #aaa;
+  font-style: italic;
+}
+
+/* ── Share modal ─────────────────────────────────────────────────────────── */
+.share-body {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+
+.share-section {
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.share-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #555;
+}
+
+.share-section select {
+  padding: 0.5rem 0.65rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-family: 'Arimo', sans-serif;
+  color: var(--color-dark);
+}
+
+.share-toggle-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  text-transform: none;
+  letter-spacing: normal;
+}
+
+.share-link-row {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.share-link-input {
+  flex: 1;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.82rem;
+  font-family: 'Arimo', sans-serif;
+  color: var(--color-dark);
+  background: var(--color-surface);
+}
+
+.share-empty {
+  color: #999;
+  font-size: 0.85rem;
+  margin: 0;
+}
+
+/* ── Board create modal: member picker ──────────────────────────────────── */
+.board-member-picker {
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+  max-height: 220px;
+  overflow-y: auto;
+  border: 1px solid #e4e4e4;
+  border-radius: 5px;
+  padding: 0.6rem 0.75rem;
+  margin-top: -0.4rem;
+}
+
+.board-member-check-row {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.85rem;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--color-dark);
+  cursor: pointer;
+}
+
+.board-member-check-row input[type="checkbox"] {
+  display: inline-block;
+  width: auto;
+  margin: 0;
+  padding: 0;
+  border: none;
+  order: -1;
+}
+
+.share-member-row {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  background: var(--color-surface);
+  border: 1px solid #e4e4e4;
+  border-radius: 5px;
+  padding: 0.4rem 0.6rem;
+}
+
+.share-member-name {
+  flex: 1;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+
+.share-add-row {
+  display: flex;
+  gap: 0.5rem;
+  margin-top: 0.25rem;
+}
+
+.share-add-row select:first-child {
+  flex: 1;
+}
+
+.kanban-empty {
+  color: #999;
+  font-size: 0.9rem;
+  margin: 0;
+}
+
+/* ── Danger button (scoped to Kanban — .btn-danger collides with other page CSS) ── */
+.kanban-btn-danger {
+  background: #e8dcc4;
+  border: 1px solid #c9b28f;
+  color: var(--color-dark);
+}
+.kanban-btn-danger:hover {
+  background: #ddccaa;
+}
+
+/* ── Board (horizontal scroll) ───────────────────────────────────────────── */
+.kanban-board {
+  display: flex;
+  align-items: stretch;
+  gap: 1rem;
+  overflow-x: auto;
+  overflow-y: hidden;
+  flex: 1;
+  min-height: 0;
+  padding-bottom: 1rem;
+}
+
+/* ── Column ──────────────────────────────────────────────────────────────── */
+.kanban-column {
+  flex-shrink: 0;
+  width: 270px;
+  background: var(--color-surface);
+  border-radius: 8px;
+  border: 1px solid #e4e4e4;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+
+.kanban-column.drag-over {
+  border-color: var(--color-teal-deep);
+  box-shadow: 0 0 0 2px rgba(31,111,95,0.2);
+}
+
+.col-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.65rem 0.75rem 0.5rem;
+  border-bottom: 2px solid var(--color-teal-deep);
+  flex-shrink: 0;
+}
+
+.col-name {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--color-teal-deep);
+}
+
+.col-actions {
+  display: flex;
+  gap: 0.2rem;
+}
+
+.col-cards {
+  flex: 1;
+  overflow-y: auto;
+  padding: 0.6rem 0.6rem 0.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.col-empty {
+  color: #bbb;
+  font-size: 0.8rem;
+  margin: 0;
+  text-align: center;
+  padding: 0.5rem 0;
+}
+
+/* ── Card ────────────────────────────────────────────────────────────────── */
+.kanban-card {
+  background: var(--color-white);
+  border: 1px solid #e4e4e4;
+  border-radius: 6px;
+  padding: 0.6rem 0.65rem;
+  cursor: grab;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 0.4rem;
+  transition: box-shadow 0.15s, border-color 0.15s;
+}
+.kanban-card:hover {
+  box-shadow: 0 2px 8px rgba(31,111,95,0.12);
+  border-color: var(--color-teal-mid);
+}
+.kanban-card:active { cursor: grabbing; }
+
+.card-body {
+  flex: 1;
+  min-width: 0;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 0.875rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  word-break: break-word;
+}
+
+.card-desc {
+  margin: 0.25rem 0 0;
+  font-size: 0.78rem;
+  color: #777;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.card-actions {
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+  flex-shrink: 0;
+}
+
+/* ── Icon buttons ────────────────────────────────────────────────────────── */
+.icon-btn {
+  background: none;
+  border: none;
+  padding: 0.15rem 0.3rem;
+  font-size: 0.8rem;
+  color: #aaa;
+  cursor: pointer;
+  border-radius: 3px;
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
+  transition: color 0.12s, background 0.12s;
+}
+.icon-btn:hover {
+  background: #eee;
+  color: var(--color-dark);
+}
+.icon-btn-danger:hover {
+  background: #eeebeb;
+  color: #7a7a7a;
+  border: 1px solid #7b2020;
+}
+
+/* ── Add card button ─────────────────────────────────────────────────────── */
+.add-card-btn {
+  margin: 0.4rem 0.6rem 0.6rem;
+  background: none;
+  border: 1px dashed #ccc;
+  color: #999;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: normal;
+  padding: 0.4rem;
+  border-radius: 5px;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+  flex-shrink: 0;
+}
+.add-card-btn:hover {
+  background: rgba(31,111,95,0.06);
+  border-color: var(--color-teal-mid);
+  color: var(--color-teal-deep);
+}
+
+/* ── Add column ──────────────────────────────────────────────────────────── */
+.kanban-add-col {
+  flex-shrink: 0;
+  width: 200px;
+  display: flex;
+  align-items: flex-start;
+  padding-top: 0.1rem;
+}
+
+.add-col-btn {
+  width: 100%;
+  background: none;
+  border: 2px dashed #ccc;
+  color: #999;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: normal;
+  padding: 0.65rem;
+  border-radius: 8px;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.add-col-btn:hover {
+  background: rgba(31,111,95,0.06);
+  border-color: var(--color-teal-mid);
+  color: var(--color-teal-deep);
+}
+
+/* ── Modal (replicates Tickets.css pattern for self-contained styling) ────── */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(48,48,48,0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 100;
+}
+.modal {
+  background: var(--color-white);
+  border-radius: 8px;
+  width: 90%;
+  max-width: 520px;
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 8px 32px rgba(48,48,48,0.2);
+}
+.modal-sm { max-width: 360px; }
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 1.25rem 1.5rem 0.75rem;
+  border-bottom: 2px solid var(--color-teal-deep);
+  background: var(--color-surface);
+  border-radius: 8px 8px 0 0;
+}
+.modal-header h3 { margin: 0; color: var(--color-dark); }
+.modal-close {
+  background: none;
+  border: none;
+  font-size: 1.1rem;
+  cursor: pointer;
+  color: #888;
+  padding: 0;
+  text-transform: none;
+  letter-spacing: normal;
+  font-weight: 400;
+}
+.modal-close:hover { color: var(--color-dark); background: none; }
+
+/* ── Card / Name form ────────────────────────────────────────────────────── */
+.card-form {
+  padding: 1.25rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.9rem;
+}
+.card-form label {
+  display: block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #555;
+}
+.card-form input,
+.card-form textarea,
+.card-form select {
+  display: block;
+  width: 100%;
+  margin-top: 0.3rem;
+  padding: 0.5rem 0.65rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 0.9rem;
+  font-family: 'Arimo', sans-serif;
+  font-weight: 400;
+  text-transform: none;
+  letter-spacing: normal;
+  color: var(--color-dark);
+  resize: vertical;
+  box-sizing: border-box;
+}
+.card-form input:focus,
+.card-form textarea:focus,
+.card-form select:focus {
+  outline: none;
+  border-color: var(--color-teal-deep);
+}
+.modal-footer {
+  padding: 0.75rem 1.5rem 1.25rem;
+  border-top: 1px solid #eee;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+.form-error  { color: #c0392b; font-size: 0.85rem; margin: 0; }
+.form-hint   { color: #aaa; font-size: 0.8rem; margin: 0; }
+.form-actions { display: flex; gap: 0.75rem; }
+.required { color: #c0392b; }
+.optional { color: #aaa; font-weight: 400; font-size: 0.8rem; text-transform: none; letter-spacing: normal; }
+
+
+/* ── Assigned-to read-only display ───────────────────────────────────────── */
+.assigned-readonly {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+.assigned-label {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #555;
+}
+.assigned-value { font-size: 0.9rem; color: var(--color-dark); }
+
+/* ── Card meta (checklist badge + assignee chip on the tile) ─────────────── */
+.card-meta {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  margin-top: 0.4rem;
+  flex-wrap: wrap;
+}
+
+.card-cl-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.2rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  background: var(--color-surface);
+  border: 1px solid #d0d0d0;
+  color: #666;
+  border-radius: 4px;
+  padding: 0.1rem 0.4rem;
+}
+.card-cl-badge.all-done {
+  background: #d4edda;
+  border-color: #a8d5b5;
+  color: var(--color-teal-deep);
+}
+
+.card-assignee {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 1.6rem;
+  height: 1.6rem;
+  border-radius: 50%;
+  background: var(--color-teal-deep);
+  color: #fff;
+  font-size: 0.5rem;
+  font-weight: 700;
+  letter-spacing: 0.04em;
+  cursor: default;
+}
+
+/* ── Checklists section (inside edit modal) ──────────────────────────────── */
+.checklists-section {
+  border-top: 1px solid #eee;
+  padding: 1rem 1.5rem 1.5rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.checklists-header { margin-bottom: 0.25rem; }
+
+.checklists-title {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-teal-mid);
+}
+
+.cl-loading { color: #aaa; font-size: 0.85rem; margin: 0; }
+
+/* ── Individual checklist block ──────────────────────────────────────────── */
+.checklist-block {
+  background: var(--color-surface);
+  border: 1px solid #e4e4e4;
+  border-radius: 6px;
+  padding: 0.6rem 0.75rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+}
+
+.cl-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.5rem;
+}
+
+.cl-header-left {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+  flex: 1;
+  min-width: 0;
+}
+
+.cl-icon {
+  color: var(--color-teal-mid);
+  font-size: 0.85rem;
+  flex-shrink: 0;
+}
+
+.cl-name-input {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font-family: 'Arimo', sans-serif;
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: var(--color-dark);
+  padding: 0.15rem 0.3rem;
+  border-radius: 3px;
+  text-transform: none;
+  letter-spacing: normal;
+}
+.cl-name-input:hover { background: #eee; }
+.cl-name-input:focus { outline: none; background: #fff; border: 1px solid var(--color-teal-deep); }
+
+.cl-progress {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #999;
+  flex-shrink: 0;
+  white-space: nowrap;
+}
+.cl-progress.complete { color: var(--color-teal-deep); }
+
+/* ── Progress bar ────────────────────────────────────────────────────────── */
+.cl-progress-bar {
+  height: 4px;
+  background: #ddd;
+  border-radius: 2px;
+  overflow: hidden;
+}
+.cl-progress-fill {
+  height: 100%;
+  background: var(--color-teal-deep);
+  border-radius: 2px;
+  transition: width 0.2s ease;
+}
+
+/* ── Checklist items ─────────────────────────────────────────────────────── */
+.cl-items {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+}
+
+.cl-item {
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.cl-checkbox {
+  width: 1rem;
+  height: 1rem;
+  flex-shrink: 0;
+  accent-color: var(--color-teal-deep);
+  cursor: pointer;
+}
+
+.cl-item-text {
+  flex: 1;
+  min-width: 0;
+  border: none;
+  background: transparent;
+  font-family: 'Arimo', sans-serif;
+  font-size: 0.875rem;
+  font-weight: 400;
+  color: var(--color-dark);
+  padding: 0.15rem 0.3rem;
+  border-radius: 3px;
+  text-transform: none;
+  letter-spacing: normal;
+}
+.cl-item-text:hover { background: #eee; }
+.cl-item-text:focus { outline: none; background: #fff; border: 1px solid #ccc; }
+.cl-item-text.cl-item-checked {
+  text-decoration: line-through;
+  color: #aaa;
+}
+
+.cl-delete {
+  opacity: 0;
+  transition: opacity 0.1s;
+}
+.cl-item:hover .cl-delete { opacity: 1; }
+
+/* ── Add item row ────────────────────────────────────────────────────────── */
+.cl-add-item {
+  display: flex;
+  gap: 0.4rem;
+  align-items: center;
+  padding-top: 0.2rem;
+}
+
+.cl-add-item-input {
+  flex: 1;
+  padding: 0.3rem 0.5rem;
+  border: 1px dashed #ccc;
+  border-radius: 4px;
+  font-family: 'Arimo', sans-serif;
+  font-size: 0.8rem;
+  color: var(--color-dark);
+  background: transparent;
+}
+.cl-add-item-input:focus { outline: none; border-color: var(--color-teal-deep); border-style: solid; }
+
+.cl-add-item-btn {
+  font-size: 0.75rem;
+  padding: 0.3rem 0.6rem;
+}
+
+/* ── Add checklist ───────────────────────────────────────────────────────── */
+.add-cl-btn {
+  align-self: flex-start;
+  background: none;
+  border: 1px dashed #ccc;
+  color: #999;
+  font-size: 0.78rem;
+  font-weight: 600;
+  text-transform: none;
+  letter-spacing: normal;
+  padding: 0.35rem 0.75rem;
+  border-radius: 5px;
+  transition: border-color 0.15s, color 0.15s, background 0.15s;
+}
+.add-cl-btn:hover {
+  background: rgba(31,111,95,0.06);
+  border-color: var(--color-teal-mid);
+  color: var(--color-teal-deep);
+}
+
+.add-cl-row {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.add-cl-input {
+  flex: 1;
+  padding: 0.4rem 0.6rem;
+  border: 1px solid var(--color-teal-deep);
+  border-radius: 5px;
+  font-family: 'Arimo', sans-serif;
+  font-size: 0.875rem;
+  color: var(--color-dark);
+}
+.add-cl-input:focus { outline: none; }

@@ -4,7 +4,7 @@ from django.contrib.contenttypes.models import ContentType
 from django.apps import apps
 
 
-PROTECTED_APPS = ['kanban', 'tickets', 'messaging', 'docker_manager']
+PROTECTED_APPS = ['kanban', 'backlog', 'projects', 'docker_manager']
 
 
 def get_permissions(actions):
@@ -22,7 +22,7 @@ def get_permissions(actions):
 
 
 class Command(BaseCommand):
-    help = 'Create the three FlyWheel user groups: support, admin-user, user'
+    help = 'Create the FlyWheel user groups: support, support-admin, manager, teammember'
 
     def handle(self, *args, **kwargs):
         # support — all permissions
@@ -30,19 +30,19 @@ class Command(BaseCommand):
         support.permissions.set(get_permissions(['add', 'change', 'delete', 'view']))
         self.stdout.write('  support: add, change, delete, view')
 
-        # admin-user — everything including delete
-        admin_user, _ = Group.objects.get_or_create(name='admin-user')
-        admin_user.permissions.set(get_permissions(['add', 'change', 'delete', 'view']))
-        self.stdout.write('  admin-user: add, change, delete, view')
+        # manager — everything including delete
+        manager, _ = Group.objects.get_or_create(name='manager')
+        manager.permissions.set(get_permissions(['add', 'change', 'delete', 'view']))
+        self.stdout.write('  manager: add, change, delete, view')
 
-        # user — no delete
-        user, _ = Group.objects.get_or_create(name='user')
-        user.permissions.set(get_permissions(['add', 'change', 'view']))
-        self.stdout.write('  user: add, change, view (no delete)')
+        # team-member — no delete
+        team_member, _ = Group.objects.get_or_create(name='team-member')
+        team_member.permissions.set(get_permissions(['add', 'change', 'view']))
+        self.stdout.write('  team-member: add, change, view (no delete)')
 
-        # support-admin — same permissions as support, special title for default ticket assignment
+        # support-admin — same permissions as support
         support_admin, _ = Group.objects.get_or_create(name='support-admin')
         support_admin.permissions.set(get_permissions(['add', 'change', 'delete', 'view']))
-        self.stdout.write('  support-admin: add, change, delete, view (+ Support Manager title)')
+        self.stdout.write('  support-admin: add, change, delete, view')
 
         self.stdout.write(self.style.SUCCESS('Groups created successfully.'))

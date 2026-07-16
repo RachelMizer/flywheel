@@ -1,8 +1,19 @@
 import { useState, useEffect } from 'react'
-import { useAuth } from '../context/AuthContext'
 import './Dashboard.css'
 
 const authHeaders = () => ({ Authorization: `Token ${localStorage.getItem('token')}` })
+
+function fmtDate(d) {
+  if (!d) return d
+  if (d.includes('T')) {
+    const dt = new Date(d)
+    const mm = String(dt.getMonth() + 1).padStart(2, '0')
+    const dd = String(dt.getDate()).padStart(2, '0')
+    return `${mm}-${dd}-${dt.getFullYear()}`
+  }
+  const [y, m, day] = d.split('-')
+  return `${m}-${day}-${y}`
+}
 
 const STATUS_COLOR = { healthy: '#2ecc71', working: '#f1c40f', down: '#e74c3c' }
 const STATUS_LABEL = { healthy: 'Healthy', working: 'Working', down: 'Down' }
@@ -76,7 +87,7 @@ function KanbanSection() {
             return (
               <li key={a.id} className="activity-item">
                 <div className="activity-time">
-                  <span className="activity-date">{ts.toLocaleDateString()}</span>
+                  <span className="activity-date">{fmtDate(a.timestamp)}</span>
                   <span className="activity-clock">
                     {ts.toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                   </span>
@@ -95,78 +106,17 @@ function KanbanSection() {
   )
 }
 
-// ── Tickets Section ───────────────────────────────────────────────────────────
-function TicketsSection() {
-  const { user }              = useAuth()
-  const [ticket, setTicket]   = useState(null)
-  const [loading, setLoading] = useState(true)
-
-  const isSupport = user?.groups?.includes('support') || user?.groups?.includes('support-admin') || user?.is_staff
-
-  useEffect(() => {
-    const url = isSupport
-      ? '/api/tickets/?status=open&limit=1'
-      : '/api/tickets/my/?limit=1'
-
-    fetch(url, { headers: authHeaders() })
-      .then(r => r.ok ? r.json() : [])
-      .then(data => {
-        const list = Array.isArray(data) ? data : []
-        setTicket(list[0] || null)
-        setLoading(false)
-      })
-      .catch(() => setLoading(false))
-  }, [isSupport])
-
-  const statusColor = {
-    open:        '#856404',
-    in_progress: 'var(--color-teal-deep)',
-    resolved:    '#666',
-    closed:      '#999',
-  }
-
-  return (
-    <div className="dash-section">
-      <h3 className="dash-section-title">Tickets</h3>
-      {loading && <p className="dash-empty">Loading…</p>}
-      {!loading && !ticket && (
-        <p className="dash-empty">No recent tickets.</p>
-      )}
-      {!loading && ticket && (
-        <div className="dash-ticket">
-          <div className="dash-ticket-header">
-            <span className="dash-ticket-number">{ticket.ticket_number}</span>
-            {ticket.has_activity && <span className="badge-new">New</span>}
-            <span
-              className="dash-ticket-status"
-              style={{ color: statusColor[ticket.status] }}
-            >
-              {ticket.status.replace('_', ' ')}
-            </span>
-          </div>
-          <p className="dash-ticket-title">{ticket.title}</p>
-          {ticket.short_description && (
-            <p className="dash-ticket-desc">{ticket.short_description}</p>
-          )}
-          <div className="dash-ticket-meta">
-            <span>{ticket.site_section ? ticket.site_section.replace(/_/g, ' ') : '—'}</span>
-            <span>{new Date(ticket.created_at).toLocaleDateString()}</span>
-          </div>
-        </div>
-      )}
-    </div>
-  )
-}
-
 // ── Dashboard ─────────────────────────────────────────────────────────────────
 function Dashboard() {
+  const today = fmtDate(new Date().toISOString())
+
   return (
     <div className="dash-wrap">
-      <h2>Dashboard</h2>
+      <h1>Dashboard</h1>
+      <p className="dash-date">Today is {today}</p>
       <div className="dash-grid">
         <DockerSection />
         <KanbanSection />
-        <TicketsSection />
       </div>
     </div>
   )

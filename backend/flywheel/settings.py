@@ -41,10 +41,11 @@ INSTALLED_APPS = [
     "rest_framework.authtoken",
     "corsheaders",
     "api",
+    "projects",
     "kanban",
-    "tickets",
-    "messaging",
+    "backlog",
     "docker_manager",
+    "team_resources",
 ]
 
 MIDDLEWARE = [

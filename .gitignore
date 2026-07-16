@@ -1,6 +1,7 @@
 # ── Project docs (local only) ─────────────────────────────────────────────────
 build_notes.txt
 backend/requirements.txt
+dev/
 
 # ── Python / Django ───────────────────────────────────────────────────────────
 __pycache__/
