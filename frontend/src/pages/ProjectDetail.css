@@ -10,6 +10,8 @@
   font-weight: 700;
   color: var(--color-teal-mid);
   text-decoration: none;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
 }
 .pd-back-link:hover { text-decoration: underline; }
 

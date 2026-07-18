@@ -14,4 +14,7 @@ urlpatterns = [
     path('items/reorder/',           views.item_reorder, name='backlog-item-reorder'),
     path('items/<int:item_id>/',           views.item_detail, name='backlog-item-detail'),
     path('items/<int:item_id>/start/',     views.item_start,  name='backlog-item-start'),
+
+    path('stories/',                 views.user_story_list,   name='backlog-story-list'),
+    path('stories/<int:story_id>/',  views.user_story_detail, name='backlog-story-detail'),
 ]

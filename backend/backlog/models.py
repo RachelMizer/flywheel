@@ -40,6 +40,13 @@ class Sprint(models.Model):
 
 
 class BacklogItem(models.Model):
+    MOSCOW_CHOICES = [
+        ('must',   'Must'),
+        ('should', 'Should'),
+        ('could',  'Could'),
+        ('wont',   "Won't"),
+    ]
+
     project     = models.ForeignKey('projects.Project', on_delete=models.CASCADE, related_name='backlog_items')
     title       = models.CharField(max_length=300)
     description = models.TextField(blank=True)
@@ -47,6 +54,7 @@ class BacklogItem(models.Model):
     sprint      = models.ForeignKey(Sprint, null=True, blank=True, on_delete=models.SET_NULL, related_name='items')
     order       = models.PositiveIntegerField(default=0)
     estimate    = models.PositiveIntegerField(null=True, blank=True)
+    moscow      = models.CharField(max_length=10, choices=MOSCOW_CHOICES, null=True, blank=True)
     kanban_card = models.OneToOneField(
         'kanban.Card', null=True, blank=True,
         on_delete=models.SET_NULL, related_name='backlog_item',
@@ -60,6 +68,17 @@ class BacklogItem(models.Model):
 
     def __str__(self):
         return self.title
+
+
+class UserStory(models.Model):
+    backlog_item = models.OneToOneField(BacklogItem, on_delete=models.CASCADE, related_name='user_story')
+    content      = models.TextField()
+    created_by   = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
+    created_at   = models.DateTimeField(auto_now_add=True)
+    updated_at   = models.DateTimeField(auto_now=True)
+
+    def __str__(self):
+        return f'User story for {self.backlog_item.title}'
 
 
 class BacklogActivity(models.Model):
