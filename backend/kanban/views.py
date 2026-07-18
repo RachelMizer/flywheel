@@ -321,6 +321,39 @@ def column_detail(request, col_id):
     return Response(status=204)
 
 
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def column_reorder(request):
+    board_id = request.data.get('board_id')
+    ordered_ids = request.data.get('ordered_ids', [])
+    if not board_id:
+        return Response({'error': 'board_id required'}, status=400)
+    if not isinstance(ordered_ids, list):
+        return Response({'error': 'ordered_ids must be a list'}, status=400)
+
+    try:
+        board = Board.objects.get(pk=board_id)
+    except Board.DoesNotExist:
+        return Response({'error': 'Board not found'}, status=404)
+
+    role = _resolve_role(request.user, board)
+    if role is None:
+        return Response({'error': 'Not found'}, status=404)
+    if role not in ('owner', 'edit'):
+        return Response({'error': 'Forbidden'}, status=403)
+
+    columns = {c.id: c for c in Column.objects.filter(board=board)}
+    updates = []
+    for index, col_id in enumerate(ordered_ids):
+        col = columns.get(int(col_id))
+        if col:
+            col.order = index
+            updates.append(col)
+    Column.objects.bulk_update(updates, ['order'])
+
+    return Response([_column(c) for c in Column.objects.filter(board=board).order_by('order')])
+
+
 # ── Cards ─────────────────────────────────────────────────────────────────────
 
 @api_view(['POST'])

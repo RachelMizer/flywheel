@@ -12,6 +12,7 @@ urlpatterns = [
     path('boards/<int:board_id>/members/', views.board_member_create, name='kanban-board-member-create'),
     path('boards/<int:board_id>/regenerate-link/', views.board_regenerate_link, name='kanban-board-regenerate-link'),
     path('columns/',                     views.column_create,    name='kanban-column-create'),
+    path('columns/reorder/',             views.column_reorder,   name='kanban-column-reorder'),
     path('columns/<int:col_id>/',        views.column_detail,    name='kanban-column-detail'),
     path('cards/',                       views.card_create,      name='kanban-card-create'),
     path('cards/<int:card_id>/',         views.card_detail,      name='kanban-card-detail'),
