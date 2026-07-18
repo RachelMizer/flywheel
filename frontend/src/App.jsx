@@ -10,6 +10,7 @@ import ProjectTimeline from './pages/ProjectTimeline'
 import BacklogDashboard from './pages/BacklogDashboard'
 import ProjectBacklog from './pages/ProjectBacklog'
 import SprintBacklog from './pages/SprintBacklog'
+import UserStories from './pages/UserStories'
 import AgileDashboard from './pages/AgileDashboard'
 import Account from './pages/Account'
 import TeamOverview from './pages/TeamOverview'
@@ -77,6 +78,7 @@ function ProtectedApp() {
           <Route path="/projects/:projectId/backlog" element={<BacklogDashboard isManager={isManager} />} />
           <Route path="/projects/:projectId/backlog/project" element={<ProjectBacklog isManager={isManager} />} />
           <Route path="/projects/:projectId/backlog/sprint/:sprintId" element={<SprintBacklog isManager={isManager} />} />
+          <Route path="/projects/:projectId/backlog/stories" element={<UserStories />} />
           <Route path="/projects/:projectId/agile-dashboard" element={<AgileDashboard />} />
           <Route path="/team" element={isManager ? <TeamOverview /> : <Navigate to="/" replace />} />
           <Route path="/team-resources" element={<TeamResources isManager={isManager} />} />

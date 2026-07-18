@@ -6,7 +6,7 @@ from rest_framework.response import Response
 
 from kanban.models import Column, Card, CardActivity
 from kanban.views import _resolve_role as _kanban_role
-from .models import Epic, Sprint, BacklogItem, BacklogActivity
+from .models import Epic, Sprint, BacklogItem, BacklogActivity, UserStory
 
 
 # ── Helpers ───────────────────────────────────────────────────────────────────
@@ -39,7 +39,7 @@ def _sprint(sprint, user, full=False):
         'created_at':  sprint.created_at,
     }
     if full:
-        data['items'] = [_item(i, user) for i in sprint.items.select_related('epic', 'kanban_card__column__board')]
+        data['items'] = [_item(i, user) for i in sprint.items.select_related('epic', 'kanban_card__column__board', 'user_story')]
     return data
 
 
@@ -62,6 +62,11 @@ def _item(item, user):
             'board_id': card.column.board_id,
         }
 
+    try:
+        user_story_data = {'id': item.user_story.id, 'content': item.user_story.content}
+    except UserStory.DoesNotExist:
+        user_story_data = None
+
     return {
         'id':          item.id,
         'project_id':  item.project_id,
@@ -71,8 +76,10 @@ def _item(item, user):
         'sprint_id':   item.sprint_id,
         'order':       item.order,
         'estimate':    item.estimate,
+        'moscow':      item.moscow,
         'status':      status,
         'kanban_card': kanban_card_data,
+        'user_story':  user_story_data,
         'created_at':  item.created_at,
         'updated_at':  item.updated_at,
     }
@@ -229,7 +236,7 @@ def item_list(request):
         project_id = request.GET.get('project_id')
         if not project_id:
             return Response({'error': 'project_id required'}, status=400)
-        qs = BacklogItem.objects.filter(project_id=project_id).select_related('epic', 'kanban_card__column__board')
+        qs = BacklogItem.objects.filter(project_id=project_id).select_related('epic', 'kanban_card__column__board', 'user_story')
         raw_sprint = request.GET.get('sprint_id')
         if raw_sprint == 'all':
             pass  # no sprint filter — every story in the project, regardless of sprint
@@ -274,7 +281,7 @@ def item_list(request):
 @permission_classes([IsAuthenticated])
 def item_detail(request, item_id):
     try:
-        item = BacklogItem.objects.select_related('epic', 'kanban_card__column__board').get(pk=item_id)
+        item = BacklogItem.objects.select_related('epic', 'kanban_card__column__board', 'user_story').get(pk=item_id)
     except BacklogItem.DoesNotExist:
         return Response({'error': 'Not found'}, status=404)
 
@@ -294,6 +301,11 @@ def item_detail(request, item_id):
             item.epic_id = epic_id
         if 'estimate' in request.data:
             item.estimate = request.data['estimate'] or None
+        if 'moscow' in request.data:
+            moscow = request.data['moscow'] or None
+            if moscow and moscow not in dict(BacklogItem.MOSCOW_CHOICES):
+                return Response({'error': 'Invalid moscow value.'}, status=400)
+            item.moscow = moscow
 
         old_sprint_id = item.sprint_id
         if 'sprint_id' in request.data:
@@ -352,7 +364,7 @@ def item_reorder(request):
 
     return Response([
         _item(i, request.user) for i in BacklogItem.objects.filter(project_id=project_id, sprint_id=scope)
-            .select_related('epic', 'kanban_card__column__board')
+            .select_related('epic', 'kanban_card__column__board', 'user_story')
     ])
 
 
@@ -396,6 +408,65 @@ def item_start(request, item_id):
     return Response(_item(item, request.user))
 
 
+# ── User Stories ──────────────────────────────────────────────────────────────
+
+def _user_story(story):
+    return {
+        'id':           story.id,
+        'backlog_item': {'id': story.backlog_item_id, 'title': story.backlog_item.title},
+        'content':      story.content,
+        'created_at':   story.created_at,
+        'updated_at':   story.updated_at,
+    }
+
+
+@api_view(['GET', 'POST'])
+@permission_classes([IsAuthenticated])
+def user_story_list(request):
+    if request.method == 'GET':
+        project_id = request.GET.get('project_id')
+        if not project_id:
+            return Response({'error': 'project_id required'}, status=400)
+        qs = UserStory.objects.filter(backlog_item__project_id=project_id).select_related('backlog_item')
+        return Response([_user_story(s) for s in qs])
+
+    backlog_item_id = request.data.get('backlog_item_id')
+    content = request.data.get('content', '').strip()
+    if not backlog_item_id or not content:
+        return Response({'error': 'backlog_item_id and content required'}, status=400)
+    try:
+        backlog_item = BacklogItem.objects.get(pk=backlog_item_id)
+    except BacklogItem.DoesNotExist:
+        return Response({'error': 'Backlog item not found'}, status=404)
+    if UserStory.objects.filter(backlog_item=backlog_item).exists():
+        return Response({'error': 'This backlog item already has a user story.'}, status=400)
+
+    story = UserStory.objects.create(backlog_item=backlog_item, content=content, created_by=request.user)
+    return Response(_user_story(story), status=201)
+
+
+@api_view(['GET', 'PATCH', 'DELETE'])
+@permission_classes([IsAuthenticated])
+def user_story_detail(request, story_id):
+    try:
+        story = UserStory.objects.select_related('backlog_item').get(pk=story_id)
+    except UserStory.DoesNotExist:
+        return Response({'error': 'Not found'}, status=404)
+
+    if request.method == 'GET':
+        return Response(_user_story(story))
+
+    if request.method == 'PATCH':
+        content = request.data.get('content', '').strip()
+        if content:
+            story.content = content
+        story.save()
+        return Response(_user_story(story))
+
+    story.delete()
+    return Response(status=204)
+
+
 # ── Dashboard ─────────────────────────────────────────────────────────────────
 
 @api_view(['GET'])
@@ -407,7 +478,7 @@ def backlog_dashboard(request):
 
     project_backlog_qs = BacklogItem.objects.filter(
         project_id=project_id, sprint__isnull=True,
-    ).select_related('epic', 'kanban_card__column__board')
+    ).select_related('epic', 'kanban_card__column__board', 'user_story')
     project_backlog = {
         'count':   project_backlog_qs.count(),
         'preview': [_item(i, request.user) for i in project_backlog_qs[:5]],
@@ -427,7 +498,7 @@ def backlog_dashboard(request):
 
     current_sprint_data = None
     if current_sprint:
-        preview_qs = BacklogItem.objects.filter(sprint=current_sprint).select_related('epic', 'kanban_card__column__board')[:5]
+        preview_qs = BacklogItem.objects.filter(sprint=current_sprint).select_related('epic', 'kanban_card__column__board', 'user_story')[:5]
         current_sprint_data = _sprint(current_sprint, request.user)
         current_sprint_data['preview'] = [_item(i, request.user) for i in preview_qs]
         current_sprint_data['item_count'] = BacklogItem.objects.filter(sprint=current_sprint).count()
