@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Link, useParams } from 'react-router-dom'
-import { Gauge, Layers, BookOpen, Target, Rocket, Plus } from 'lucide-react'
+import { Gauge, Layers, BookOpen, Target, Rocket, Plus, ChevronRight, ChevronDown } from 'lucide-react'
 import './AgileDashboard.css'
 
 const PROJECTS_API = '/api/projects'
@@ -76,6 +76,16 @@ function AgileDashboard() {
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(true)
   const [showNewStory, setShowNewStory] = useState(false)
+  const [expandedEpics, setExpandedEpics] = useState(new Set())
+
+  function toggleEpic(key) {
+    setExpandedEpics(prev => {
+      const next = new Set(prev)
+      if (next.has(key)) next.delete(key)
+      else next.add(key)
+      return next
+    })
+  }
 
   const fetchAll = useCallback(async () => {
     setLoading(true)
@@ -117,8 +127,14 @@ function AgileDashboard() {
   }
 
   const epicRows = epics
-    .map(ep => ({ key: ep.id, title: ep.title, ...summarize(items.filter(i => i.epic?.id === ep.id)) }))
-    .concat([{ key: 'none', title: 'No Epic', ...summarize(items.filter(i => !i.epic)) }])
+    .map(ep => {
+      const epicItems = items.filter(i => i.epic?.id === ep.id)
+      return { key: ep.id, title: ep.title, items: epicItems, ...summarize(epicItems) }
+    })
+    .concat([(() => {
+      const noEpicItems = items.filter(i => !i.epic)
+      return { key: 'none', title: 'No Epic', items: noEpicItems, ...summarize(noEpicItems) }
+    })()])
     .filter(row => row.count > 0)
     .sort((a, b) => b.count - a.count)
 
@@ -198,8 +214,9 @@ function AgileDashboard() {
         {epicRows.length === 0 ? (
           <p className="agd-empty">No stories yet.</p>
         ) : (
-          <div className="agd-epic-table">
-            <div className="agd-epic-table-row agd-epic-table-head">
+          <div className="agd-epic-tree">
+            <div className="agd-epic-tree-row agd-epic-tree-head">
+              <span />
               <span className="agd-epic-name">Epic</span>
               <span className="agd-epic-col-num">Stories</span>
               <span className="agd-epic-col-num">Points</span>
@@ -207,29 +224,46 @@ function AgileDashboard() {
             </div>
             {epicRows.map(row => {
               const rowTotal = row.count || 1
+              const isOpen = expandedEpics.has(row.key)
               return (
-                <div key={row.key} className="agd-epic-table-row">
-                  <span className="agd-epic-name">{row.title}</span>
-                  <span className="agd-epic-col-num">{row.count}</span>
-                  <span className="agd-epic-col-num">{row.points}</span>
-                  <div className="agd-epic-col-mix">
+                <div key={row.key} className="agd-epic-node">
+                  <button
+                    type="button"
+                    className="agd-epic-tree-row agd-epic-node-header"
+                    onClick={() => toggleEpic(row.key)}
+                    aria-expanded={isOpen}
+                  >
+                    {isOpen ? <ChevronDown size={16} /> : <ChevronRight size={16} />}
+                    <span className="agd-epic-name">{row.title}</span>
+                    <span className="agd-epic-col-num">{row.count}</span>
+                    <span className="agd-epic-col-num">{row.points}</span>
                     <div className="agd-mix-bar">
                       {row.backlog > 0 && <div className="agd-pipeline-seg agd-seg-backlog" style={{ width: `${(row.backlog / rowTotal) * 100}%` }} />}
                       {row.planned > 0 && <div className="agd-pipeline-seg agd-seg-planned" style={{ width: `${(row.planned / rowTotal) * 100}%` }} />}
                       {row.started > 0 && <div className="agd-pipeline-seg agd-seg-started" style={{ width: `${(row.started / rowTotal) * 100}%` }} />}
                     </div>
-                    <span className="agd-mix-caption">{row.backlog} · {row.planned} · {row.started}</span>
-                  </div>
+                  </button>
+                  {isOpen && (
+                    <div className="agd-epic-node-children">
+                      {row.items.map(item => (
+                        <div key={item.id} className="agd-story-node">
+                          <span className="agd-story-connector" aria-hidden="true" />
+                          <span className="agd-story-title">{item.title}</span>
+                          <span className={`agd-story-status agd-seg-${item.status}`}>{item.status}</span>
+                          {item.estimate != null && <span className="agd-story-estimate">{item.estimate} pt</span>}
+                        </div>
+                      ))}
+                    </div>
+                  )}
                 </div>
               )
             })}
-            <div className="agd-epic-table-row agd-epic-table-total">
+            <div className="agd-epic-tree-row agd-epic-tree-total">
+              <span />
               <span className="agd-epic-name">Total</span>
               <span className="agd-epic-col-num">{items.length}</span>
               <span className="agd-epic-col-num">{storyPoints}</span>
-              <div className="agd-epic-col-mix">
-                <span className="agd-mix-caption">{backlogCount} · {plannedCount} · {startedCount}</span>
-              </div>
+              <span className="agd-mix-caption">{backlogCount} · {plannedCount} · {startedCount}</span>
             </div>
           </div>
         )}

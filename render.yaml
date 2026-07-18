@@ -4,7 +4,12 @@ services:
     runtime: python
     rootDir: backend
     plan: starter
-    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput && python manage.py migrate
+    buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput
+    # Runs after build but with the persistent disk already mounted (unlike buildCommand,
+    # which runs before the disk exists — that mismatch is what broke the original deploy:
+    # migrate tried to open /var/data/db.sqlite3 during build and got "unable to open
+    # database file" since /var/data didn't exist yet).
+    preDeployCommand: python manage.py migrate
     startCommand: gunicorn flywheel.wsgi
     # Persists db.sqlite3 and uploaded media across deploys/restarts — Free-instance
     # services can't attach disks at all, which is why this is on Starter ($7/mo).
