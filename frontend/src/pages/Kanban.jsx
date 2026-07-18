@@ -831,13 +831,25 @@ function Kanban() {
   // ── Drag and drop ──────────────────────────────────────────────────────────
 
   function onDragStart(cardId, sourceColId) {
-    dragRef.current = { cardId, sourceColId }
+    dragRef.current = { type: 'card', cardId, sourceColId }
+  }
+
+  function onColumnDragStart(columnId) {
+    dragRef.current = { type: 'column', columnId }
   }
 
   async function onDrop(targetColId) {
     setDragOverCol(null)
-    const { cardId, sourceColId } = dragRef.current || {}
+    const dragged = dragRef.current
     dragRef.current = null
+    if (!dragged) return
+
+    if (dragged.type === 'column') {
+      await onColumnDrop(dragged.columnId, targetColId)
+      return
+    }
+
+    const { cardId, sourceColId } = dragged
     if (!cardId || sourceColId === targetColId) return
 
     const res = await fetch(`${API}/cards/${cardId}/`, {
@@ -857,6 +869,21 @@ function Kanban() {
           return c
         }),
       }
+    })
+  }
+
+  async function onColumnDrop(draggedColId, targetColId) {
+    if (draggedColId === targetColId) return
+
+    const ids = board.columns.map(c => c.id)
+    const without = ids.filter(id => id !== draggedColId)
+    const targetIndex = without.indexOf(targetColId)
+    without.splice(targetIndex, 0, draggedColId)
+
+    setBoard(bd => ({ ...bd, columns: without.map(id => bd.columns.find(c => c.id === id)) }))
+
+    await fetch(`${API}/columns/reorder/`, {
+      method: 'POST', headers: jsonH(), body: JSON.stringify({ board_id: headerBoard.id, ordered_ids: without }),
     })
   }
 
@@ -953,7 +980,14 @@ function Kanban() {
               onDragLeave={e => { if (!e.currentTarget.contains(e.relatedTarget)) setDragOverCol(null) }}
               onDrop={e => { e.preventDefault(); canEdit && onDrop(col.id) }}
             >
-              <div className="col-header">
+              <div
+                className={`col-header${canEdit ? ' col-header-draggable' : ''}`}
+                draggable={canEdit}
+                onDragStart={() => canEdit && onColumnDragStart(col.id)}
+                onDragEnd={() => { dragRef.current = null; setDragOverCol(null) }}
+                title={canEdit ? 'Drag to reorder columns' : undefined}
+              >
+                {canEdit && <span className="col-drag-handle">⠿</span>}
                 <span className="col-name">{col.name}</span>
                 {canEdit && (
                   <div className="col-actions">

@@ -288,12 +288,28 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  gap: 0.4rem;
   padding: 0.65rem 0.75rem 0.5rem;
   border-bottom: 2px solid var(--color-teal-deep);
   flex-shrink: 0;
 }
 
+.col-header-draggable {
+  cursor: grab;
+}
+.col-header-draggable:active {
+  cursor: grabbing;
+}
+
+.col-drag-handle {
+  color: var(--color-teal-mid);
+  font-size: 0.9rem;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
 .col-name {
+  flex: 1;
   font-size: 0.8rem;
   font-weight: 700;
   text-transform: uppercase;
