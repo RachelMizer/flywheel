@@ -1,0 +1,3387 @@
+[
+  {
+    "model": "auth.group",
+    "pk": 1,
+    "fields": {
+      "name": "support",
+      "permissions": [
+        [
+          "add_backlogactivity",
+          "backlog",
+          "backlogactivity"
+        ],
+        [
+          "change_backlogactivity",
+          "backlog",
+          "backlogactivity"
+        ],
+        [
+          "delete_backlogactivity",
+          "backlog",
+          "backlogactivity"
+        ],
+        [
+          "view_backlogactivity",
+          "backlog",
+          "backlogactivity"
+        ],
+        [
+          "add_backlogitem",
+          "backlog",
+          "backlogitem"
+        ],
+        [
+          "change_backlogitem",
+          "backlog",
+          "backlogitem"
+        ],
+        [
+          "delete_backlogitem",
+          "backlog",
+          "backlogitem"
+        ],
+        [
+          "view_backlogitem",
+          "backlog",
+          "backlogitem"
+        ],
+        [
+          "add_epic",
+          "backlog",
+          "epic"
+        ],
+        [
+          "change_epic",
+          "backlog",
+          "epic"
+        ],
+        [
+          "delete_epic",
+          "backlog",
+          "epic"
+        ],
+        [
+          "view_epic",
+          "backlog",
+          "epic"
+        ],
+        [
+          "add_sprint",
+          "backlog",
+          "sprint"
+        ],
+        [
+          "change_sprint",
+          "backlog",
+          "sprint"
+        ],
+        [
+          "delete_sprint",
+          "backlog",
+          "sprint"
+        ],
+        [
+          "view_sprint",
+          "backlog",
+          "sprint"
+        ],
+        [
+          "add_containerrecord",
+          "docker_manager",
+          "containerrecord"
+        ],
+        [
+          "change_containerrecord",
+          "docker_manager",
+          "containerrecord"
+        ],
+        [
+          "delete_containerrecord",
+          "docker_manager",
+          "containerrecord"
+        ],
+        [
+          "view_containerrecord",
+          "docker_manager",
+          "containerrecord"
+        ],
+        [
+          "add_board",
+          "kanban",
+          "board"
+        ],
+        [
+          "change_board",
+          "kanban",
+          "board"
+        ],
+        [
+          "delete_board",
+          "kanban",
+          "board"
+        ],
+        [
+          "view_board",
+          "kanban",
+          "board"
+        ],
+        [
+          "add_boardmembership",
+          "kanban",
+          "boardmembership"
+        ],
+        [
+          "change_boardmembership",
+          "kanban",
+          "boardmembership"
+        ],
+        [
+          "delete_boardmembership",
+          "kanban",
+          "boardmembership"
+        ],
+        [
+          "view_boardmembership",
+          "kanban",
+          "boardmembership"
+        ],
+        [
+          "add_card",
+          "kanban",
+          "card"
+        ],
+        [
+          "change_card",
+          "kanban",
+          "card"
+        ],
+        [
+          "delete_card",
+          "kanban",
+          "card"
+        ],
+        [
+          "view_card",
+          "kanban",
+          "card"
+        ],
+        [
+          "add_cardactivity",
+          "kanban",
+          "cardactivity"
+        ],
+        [
+          "change_cardactivity",
+          "kanban",
+          "cardactivity"
+        ],
+        [
+          "delete_cardactivity",
+          "kanban",
+          "cardactivity"
+        ],
+        [
+          "view_cardactivity",
+          "kanban",
+          "cardactivity"
+        ],
+        [
+          "add_checklist",
+          "kanban",
+          "checklist"
+        ],
+        [
+          "change_checklist",
+          "kanban",
+          "checklist"
+        ],
+        [
+          "delete_checklist",
+          "kanban",
+          "checklist"
+        ],
+        [
+          "view_checklist",
+          "kanban",
+          "checklist"
+        ],
+        [
+          "add_checklistitem",
+          "kanban",
+          "checklistitem"
+        ],
+        [
+          "change_checklistitem",
+          "kanban",
+          "checklistitem"
+        ],
+        [
+          "delete_checklistitem",
+          "kanban",
+          "checklistitem"
+        ],
+        [
+          "view_checklistitem",
+          "kanban",
+          "checklistitem"
+        ],
+        [
+          "add_column",
+          "kanban",
+          "column"
+        ],
+        [
+          "change_column",
+          "kanban",
+          "column"
+        ],
+        [
+          "delete_column",
+          "kanban",
+          "column"
+        ],
+        [
+          "view_column",
+          "kanban",
+          "column"
+        ],
+        [
+          "add_project",
+          "projects",
+          "project"
+        ],
+        [
+          "change_project",
+          "projects",
+          "project"
+        ],
+        [
+          "delete_project",
+          "projects",
+          "project"
+        ],
+        [
+          "view_project",
+          "projects",
+          "project"
+        ],
+        [
+          "add_projectdocument",
+          "projects",
+          "projectdocument"
+        ],
+        [
+          "change_projectdocument",
+          "projects",
+          "projectdocument"
+        ],
+        [
+          "delete_projectdocument",
+          "projects",
+          "projectdocument"
+        ],
+        [
+          "view_projectdocument",
+          "projects",
+          "projectdocument"
+        ],
+        [
+          "add_timelineevent",
+          "projects",
+          "timelineevent"
+        ],
+        [
+          "change_timelineevent",
+          "projects",
+          "timelineevent"
+        ],
+        [
+          "delete_timelineevent",
+          "projects",
+          "timelineevent"
+        ],
+        [
+          "view_timelineevent",
+          "projects",
+          "timelineevent"
+        ]
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 2,
+    "fields": {
+      "name": "manager",
+      "permissions": [
+        [
+          "add_backlogactivity",
+          "backlog",
+          "backlogactivity"
+        ],
+        [
+          "change_backlogactivity",
+          "backlog",
+          "backlogactivity"
+        ],
+        [
+          "delete_backlogactivity",
+          "backlog",
+          "backlogactivity"
+        ],
+        [
+          "view_backlogactivity",
+          "backlog",
+          "backlogactivity"
+        ],
+        [
+          "add_backlogitem",
+          "backlog",
+          "backlogitem"
+        ],
+        [
+          "change_backlogitem",
+          "backlog",
+          "backlogitem"
+        ],
+        [
+          "delete_backlogitem",
+          "backlog",
+          "backlogitem"
+        ],
+        [
+          "view_backlogitem",
+          "backlog",
+          "backlogitem"
+        ],
+        [
+          "add_epic",
+          "backlog",
+          "epic"
+        ],
+        [
+          "change_epic",
+          "backlog",
+          "epic"
+        ],
+        [
+          "delete_epic",
+          "backlog",
+          "epic"
+        ],
+        [
+          "view_epic",
+          "backlog",
+          "epic"
+        ],
+        [
+          "add_sprint",
+          "backlog",
+          "sprint"
+        ],
+        [
+          "change_sprint",
+          "backlog",
+          "sprint"
+        ],
+        [
+          "delete_sprint",
+          "backlog",
+          "sprint"
+        ],
+        [
+          "view_sprint",
+          "backlog",
+          "sprint"
+        ],
+        [
+          "add_containerrecord",
+          "docker_manager",
+          "containerrecord"
+        ],
+        [
+          "change_containerrecord",
+          "docker_manager",
+          "containerrecord"
+        ],
+        [
+          "delete_containerrecord",
+          "docker_manager",
+          "containerrecord"
+        ],
+        [
+          "view_containerrecord",
+          "docker_manager",
+          "containerrecord"
+        ],
+        [
+          "add_board",
+          "kanban",
+          "board"
+        ],
+        [
+          "change_board",
+          "kanban",
+          "board"
+        ],
+        [
+          "delete_board",
+          "kanban",
+          "board"
+        ],
+        [
+          "view_board",
+          "kanban",
+          "board"
+        ],
+        [
+          "add_boardmembership",
+          "kanban",
+          "boardmembership"
+        ],
+        [
+          "change_boardmembership",
+          "kanban",
+          "boardmembership"
+        ],
+        [
+          "delete_boardmembership",
+          "kanban",
+          "boardmembership"
+        ],
+        [
+          "view_boardmembership",
+          "kanban",
+          "boardmembership"
+        ],
+        [
+          "add_card",
+          "kanban",
+          "card"
+        ],
+        [
+          "change_card",
+          "kanban",
+          "card"
+        ],
+        [
+          "delete_card",
+          "kanban",
+          "card"
+        ],
+        [
+          "view_card",
+          "kanban",
+          "card"
+        ],
+        [
+          "add_cardactivity",
+          "kanban",
+          "cardactivity"
+        ],
+        [
+          "change_cardactivity",
+          "kanban",
+          "cardactivity"
+        ],
+        [
+          "delete_cardactivity",
+          "kanban",
+          "cardactivity"
+        ],
+        [
+          "view_cardactivity",
+          "kanban",
+          "cardactivity"
+        ],
+        [
+          "add_checklist",
+          "kanban",
+          "checklist"
+        ],
+        [
+          "change_checklist",
+          "kanban",
+          "checklist"
+        ],
+        [
+          "delete_checklist",
+          "kanban",
+          "checklist"
+        ],
+        [
+          "view_checklist",
+          "kanban",
+          "checklist"
+        ],
+        [
+          "add_checklistitem",
+          "kanban",
+          "checklistitem"
+        ],
+        [
+          "change_checklistitem",
+          "kanban",
+          "checklistitem"
+        ],
+        [
+          "delete_checklistitem",
+          "kanban",
+          "checklistitem"
+        ],
+        [
+          "view_checklistitem",
+          "kanban",
+          "checklistitem"
+        ],
+        [
+          "add_column",
+          "kanban",
+          "column"
+        ],
+        [
+          "change_column",
+          "kanban",
+          "column"
+        ],
+        [
+          "delete_column",
+          "kanban",
+          "column"
+        ],
+        [
+          "view_column",
+          "kanban",
+          "column"
+        ],
+        [
+          "add_project",
+          "projects",
+          "project"
+        ],
+        [
+          "change_project",
+          "projects",
+          "project"
+        ],
+        [
+          "delete_project",
+          "projects",
+          "project"
+        ],
+        [
+          "view_project",
+          "projects",
+          "project"
+        ],
+        [
+          "add_projectdocument",
+          "projects",
+          "projectdocument"
+        ],
+        [
+          "change_projectdocument",
+          "projects",
+          "projectdocument"
+        ],
+        [
+          "delete_projectdocument",
+          "projects",
+          "projectdocument"
+        ],
+        [
+          "view_projectdocument",
+          "projects",
+          "projectdocument"
+        ],
+        [
+          "add_timelineevent",
+          "projects",
+          "timelineevent"
+        ],
+        [
+          "change_timelineevent",
+          "projects",
+          "timelineevent"
+        ],
+        [
+          "delete_timelineevent",
+          "projects",
+          "timelineevent"
+        ],
+        [
+          "view_timelineevent",
+          "projects",
+          "timelineevent"
+        ]
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 3,
+    "fields": {
+      "name": "team-member",
+      "permissions": [
+        [
+          "add_backlogactivity",
+          "backlog",
+          "backlogactivity"
+        ],
+        [
+          "change_backlogactivity",
+          "backlog",
+          "backlogactivity"
+        ],
+        [
+          "view_backlogactivity",
+          "backlog",
+          "backlogactivity"
+        ],
+        [
+          "add_backlogitem",
+          "backlog",
+          "backlogitem"
+        ],
+        [
+          "change_backlogitem",
+          "backlog",
+          "backlogitem"
+        ],
+        [
+          "view_backlogitem",
+          "backlog",
+          "backlogitem"
+        ],
+        [
+          "add_epic",
+          "backlog",
+          "epic"
+        ],
+        [
+          "change_epic",
+          "backlog",
+          "epic"
+        ],
+        [
+          "view_epic",
+          "backlog",
+          "epic"
+        ],
+        [
+          "add_sprint",
+          "backlog",
+          "sprint"
+        ],
+        [
+          "change_sprint",
+          "backlog",
+          "sprint"
+        ],
+        [
+          "view_sprint",
+          "backlog",
+          "sprint"
+        ],
+        [
+          "add_containerrecord",
+          "docker_manager",
+          "containerrecord"
+        ],
+        [
+          "change_containerrecord",
+          "docker_manager",
+          "containerrecord"
+        ],
+        [
+          "view_containerrecord",
+          "docker_manager",
+          "containerrecord"
+        ],
+        [
+          "add_board",
+          "kanban",
+          "board"
+        ],
+        [
+          "change_board",
+          "kanban",
+          "board"
+        ],
+        [
+          "view_board",
+          "kanban",
+          "board"
+        ],
+        [
+          "add_boardmembership",
+          "kanban",
+          "boardmembership"
+        ],
+        [
+          "change_boardmembership",
+          "kanban",
+          "boardmembership"
+        ],
+        [
+          "view_boardmembership",
+          "kanban",
+          "boardmembership"
+        ],
+        [
+          "add_card",
+          "kanban",
+          "card"
+        ],
+        [
+          "change_card",
+          "kanban",
+          "card"
+        ],
+        [
+          "view_card",
+          "kanban",
+          "card"
+        ],
+        [
+          "add_cardactivity",
+          "kanban",
+          "cardactivity"
+        ],
+        [
+          "change_cardactivity",
+          "kanban",
+          "cardactivity"
+        ],
+        [
+          "view_cardactivity",
+          "kanban",
+          "cardactivity"
+        ],
+        [
+          "add_checklist",
+          "kanban",
+          "checklist"
+        ],
+        [
+          "change_checklist",
+          "kanban",
+          "checklist"
+        ],
+        [
+          "view_checklist",
+          "kanban",
+          "checklist"
+        ],
+        [
+          "add_checklistitem",
+          "kanban",
+          "checklistitem"
+        ],
+        [
+          "change_checklistitem",
+          "kanban",
+          "checklistitem"
+        ],
+        [
+          "view_checklistitem",
+          "kanban",
+          "checklistitem"
+        ],
+        [
+          "add_column",
+          "kanban",
+          "column"
+        ],
+        [
+          "change_column",
+          "kanban",
+          "column"
+        ],
+        [
+          "view_column",
+          "kanban",
+          "column"
+        ],
+        [
+          "add_project",
+          "projects",
+          "project"
+        ],
+        [
+          "change_project",
+          "projects",
+          "project"
+        ],
+        [
+          "view_project",
+          "projects",
+          "project"
+        ],
+        [
+          "add_projectdocument",
+          "projects",
+          "projectdocument"
+        ],
+        [
+          "change_projectdocument",
+          "projects",
+          "projectdocument"
+        ],
+        [
+          "view_projectdocument",
+          "projects",
+          "projectdocument"
+        ],
+        [
+          "add_timelineevent",
+          "projects",
+          "timelineevent"
+        ],
+        [
+          "change_timelineevent",
+          "projects",
+          "timelineevent"
+        ],
+        [
+          "view_timelineevent",
+          "projects",
+          "timelineevent"
+        ]
+      ]
+    }
+  },
+  {
+    "model": "auth.group",
+    "pk": 4,
+    "fields": {
+      "name": "support-admin",
+      "permissions": [
+        [
+          "add_backlogactivity",
+          "backlog",
+          "backlogactivity"
+        ],
+        [
+          "change_backlogactivity",
+          "backlog",
+          "backlogactivity"
+        ],
+        [
+          "delete_backlogactivity",
+          "backlog",
+          "backlogactivity"
+        ],
+        [
+          "view_backlogactivity",
+          "backlog",
+          "backlogactivity"
+        ],
+        [
+          "add_backlogitem",
+          "backlog",
+          "backlogitem"
+        ],
+        [
+          "change_backlogitem",
+          "backlog",
+          "backlogitem"
+        ],
+        [
+          "delete_backlogitem",
+          "backlog",
+          "backlogitem"
+        ],
+        [
+          "view_backlogitem",
+          "backlog",
+          "backlogitem"
+        ],
+        [
+          "add_epic",
+          "backlog",
+          "epic"
+        ],
+        [
+          "change_epic",
+          "backlog",
+          "epic"
+        ],
+        [
+          "delete_epic",
+          "backlog",
+          "epic"
+        ],
+        [
+          "view_epic",
+          "backlog",
+          "epic"
+        ],
+        [
+          "add_sprint",
+          "backlog",
+          "sprint"
+        ],
+        [
+          "change_sprint",
+          "backlog",
+          "sprint"
+        ],
+        [
+          "delete_sprint",
+          "backlog",
+          "sprint"
+        ],
+        [
+          "view_sprint",
+          "backlog",
+          "sprint"
+        ],
+        [
+          "add_containerrecord",
+          "docker_manager",
+          "containerrecord"
+        ],
+        [
+          "change_containerrecord",
+          "docker_manager",
+          "containerrecord"
+        ],
+        [
+          "delete_containerrecord",
+          "docker_manager",
+          "containerrecord"
+        ],
+        [
+          "view_containerrecord",
+          "docker_manager",
+          "containerrecord"
+        ],
+        [
+          "add_board",
+          "kanban",
+          "board"
+        ],
+        [
+          "change_board",
+          "kanban",
+          "board"
+        ],
+        [
+          "delete_board",
+          "kanban",
+          "board"
+        ],
+        [
+          "view_board",
+          "kanban",
+          "board"
+        ],
+        [
+          "add_boardmembership",
+          "kanban",
+          "boardmembership"
+        ],
+        [
+          "change_boardmembership",
+          "kanban",
+          "boardmembership"
+        ],
+        [
+          "delete_boardmembership",
+          "kanban",
+          "boardmembership"
+        ],
+        [
+          "view_boardmembership",
+          "kanban",
+          "boardmembership"
+        ],
+        [
+          "add_card",
+          "kanban",
+          "card"
+        ],
+        [
+          "change_card",
+          "kanban",
+          "card"
+        ],
+        [
+          "delete_card",
+          "kanban",
+          "card"
+        ],
+        [
+          "view_card",
+          "kanban",
+          "card"
+        ],
+        [
+          "add_cardactivity",
+          "kanban",
+          "cardactivity"
+        ],
+        [
+          "change_cardactivity",
+          "kanban",
+          "cardactivity"
+        ],
+        [
+          "delete_cardactivity",
+          "kanban",
+          "cardactivity"
+        ],
+        [
+          "view_cardactivity",
+          "kanban",
+          "cardactivity"
+        ],
+        [
+          "add_checklist",
+          "kanban",
+          "checklist"
+        ],
+        [
+          "change_checklist",
+          "kanban",
+          "checklist"
+        ],
+        [
+          "delete_checklist",
+          "kanban",
+          "checklist"
+        ],
+        [
+          "view_checklist",
+          "kanban",
+          "checklist"
+        ],
+        [
+          "add_checklistitem",
+          "kanban",
+          "checklistitem"
+        ],
+        [
+          "change_checklistitem",
+          "kanban",
+          "checklistitem"
+        ],
+        [
+          "delete_checklistitem",
+          "kanban",
+          "checklistitem"
+        ],
+        [
+          "view_checklistitem",
+          "kanban",
+          "checklistitem"
+        ],
+        [
+          "add_column",
+          "kanban",
+          "column"
+        ],
+        [
+          "change_column",
+          "kanban",
+          "column"
+        ],
+        [
+          "delete_column",
+          "kanban",
+          "column"
+        ],
+        [
+          "view_column",
+          "kanban",
+          "column"
+        ],
+        [
+          "add_project",
+          "projects",
+          "project"
+        ],
+        [
+          "change_project",
+          "projects",
+          "project"
+        ],
+        [
+          "delete_project",
+          "projects",
+          "project"
+        ],
+        [
+          "view_project",
+          "projects",
+          "project"
+        ],
+        [
+          "add_projectdocument",
+          "projects",
+          "projectdocument"
+        ],
+        [
+          "change_projectdocument",
+          "projects",
+          "projectdocument"
+        ],
+        [
+          "delete_projectdocument",
+          "projects",
+          "projectdocument"
+        ],
+        [
+          "view_projectdocument",
+          "projects",
+          "projectdocument"
+        ],
+        [
+          "add_timelineevent",
+          "projects",
+          "timelineevent"
+        ],
+        [
+          "change_timelineevent",
+          "projects",
+          "timelineevent"
+        ],
+        [
+          "delete_timelineevent",
+          "projects",
+          "timelineevent"
+        ],
+        [
+          "view_timelineevent",
+          "projects",
+          "timelineevent"
+        ]
+      ]
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$RjDxyyhNrzhyCezMAFKfbt$jt8yatCDd3+dj7+Y8zUu0Wo/o2+zy4tPO23RzUkKIiQ=",
+      "last_login": "2026-04-09T12:55:51Z",
+      "is_superuser": true,
+      "username": "admin",
+      "first_name": "",
+      "last_name": "",
+      "email": "admin@company.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2026-04-09T12:48:56Z",
+      "groups": [
+        [
+          "manager"
+        ],
+        [
+          "support-admin"
+        ]
+      ],
+      "user_permissions": [
+        [
+          "add_logentry",
+          "admin",
+          "logentry"
+        ],
+        [
+          "change_logentry",
+          "admin",
+          "logentry"
+        ],
+        [
+          "delete_logentry",
+          "admin",
+          "logentry"
+        ],
+        [
+          "view_logentry",
+          "admin",
+          "logentry"
+        ],
+        [
+          "add_group",
+          "auth",
+          "group"
+        ],
+        [
+          "change_group",
+          "auth",
+          "group"
+        ],
+        [
+          "delete_group",
+          "auth",
+          "group"
+        ],
+        [
+          "view_group",
+          "auth",
+          "group"
+        ],
+        [
+          "add_permission",
+          "auth",
+          "permission"
+        ],
+        [
+          "change_permission",
+          "auth",
+          "permission"
+        ],
+        [
+          "delete_permission",
+          "auth",
+          "permission"
+        ],
+        [
+          "view_permission",
+          "auth",
+          "permission"
+        ],
+        [
+          "add_user",
+          "auth",
+          "user"
+        ],
+        [
+          "change_user",
+          "auth",
+          "user"
+        ],
+        [
+          "delete_user",
+          "auth",
+          "user"
+        ],
+        [
+          "view_user",
+          "auth",
+          "user"
+        ],
+        [
+          "add_token",
+          "authtoken",
+          "token"
+        ],
+        [
+          "change_token",
+          "authtoken",
+          "token"
+        ],
+        [
+          "delete_token",
+          "authtoken",
+          "token"
+        ],
+        [
+          "view_token",
+          "authtoken",
+          "token"
+        ],
+        [
+          "add_tokenproxy",
+          "authtoken",
+          "tokenproxy"
+        ],
+        [
+          "change_tokenproxy",
+          "authtoken",
+          "tokenproxy"
+        ],
+        [
+          "delete_tokenproxy",
+          "authtoken",
+          "tokenproxy"
+        ],
+        [
+          "view_tokenproxy",
+          "authtoken",
+          "tokenproxy"
+        ],
+        [
+          "add_contenttype",
+          "contenttypes",
+          "contenttype"
+        ],
+        [
+          "change_contenttype",
+          "contenttypes",
+          "contenttype"
+        ],
+        [
+          "delete_contenttype",
+          "contenttypes",
+          "contenttype"
+        ],
+        [
+          "view_contenttype",
+          "contenttypes",
+          "contenttype"
+        ],
+        [
+          "add_containerrecord",
+          "docker_manager",
+          "containerrecord"
+        ],
+        [
+          "change_containerrecord",
+          "docker_manager",
+          "containerrecord"
+        ],
+        [
+          "delete_containerrecord",
+          "docker_manager",
+          "containerrecord"
+        ],
+        [
+          "view_containerrecord",
+          "docker_manager",
+          "containerrecord"
+        ],
+        [
+          "add_board",
+          "kanban",
+          "board"
+        ],
+        [
+          "change_board",
+          "kanban",
+          "board"
+        ],
+        [
+          "delete_board",
+          "kanban",
+          "board"
+        ],
+        [
+          "view_board",
+          "kanban",
+          "board"
+        ],
+        [
+          "add_card",
+          "kanban",
+          "card"
+        ],
+        [
+          "change_card",
+          "kanban",
+          "card"
+        ],
+        [
+          "delete_card",
+          "kanban",
+          "card"
+        ],
+        [
+          "view_card",
+          "kanban",
+          "card"
+        ],
+        [
+          "add_column",
+          "kanban",
+          "column"
+        ],
+        [
+          "change_column",
+          "kanban",
+          "column"
+        ],
+        [
+          "delete_column",
+          "kanban",
+          "column"
+        ],
+        [
+          "view_column",
+          "kanban",
+          "column"
+        ],
+        [
+          "add_session",
+          "sessions",
+          "session"
+        ],
+        [
+          "change_session",
+          "sessions",
+          "session"
+        ],
+        [
+          "delete_session",
+          "sessions",
+          "session"
+        ],
+        [
+          "view_session",
+          "sessions",
+          "session"
+        ]
+      ]
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$LwEbtPl0EOCq9YhZanaoJs$3OOVg3qZeKJqhDbBPz5KFmKhzv9tYPXQK2zSo8Ky6qs=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "jmizer",
+      "first_name": "James",
+      "last_name": "Mizer",
+      "email": "jmizer@company.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-04-09T14:01:41Z",
+      "groups": [
+        [
+          "manager"
+        ]
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$JetBPU27YEo0uF0iWp2A7F$4d6RUnMC/Q7ryUXUXR2Hx4tmg8XQhAsuQ07YrfPb3ic=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "rmizer",
+      "first_name": "Rachel",
+      "last_name": "Mizer",
+      "email": "rmizer@company.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-04-09T14:01:42.255Z",
+      "groups": [
+        [
+          "team-member"
+        ]
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$O2veXiYY4zLYsizpRUYQ8l$JsVJYKcQFF9prU1VWVCPQAjMzfqij5rHkTnwGkV1tyQ=",
+      "last_login": null,
+      "is_superuser": true,
+      "username": "support-admin",
+      "first_name": "support",
+      "last_name": "admin",
+      "email": "support-admin@company.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2026-04-11T04:38:41Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$WVhIDVqZ12rxDfwV5iO4Jn$xGVyOpGrmh8ek1ztksyQ8uf/AuQ57xHCSX+GlRYXrCg=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "kbutler",
+      "first_name": "Kelsi",
+      "last_name": "Butler",
+      "email": "kbutler@company.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-04-11T22:30:09.848Z",
+      "groups": [
+        [
+          "team-member"
+        ]
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$7Zrbk9d6ZADE3uAUYIRjEN$LMRgsn+9vk9DCLM3GoRkfSgbcaojzJv1PurCAxjLzU8=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "mscott",
+      "first_name": "Michael",
+      "last_name": "Scott",
+      "email": "mscott@company.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-07-14T22:42:38.481Z",
+      "groups": [
+        [
+          "manager"
+        ]
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$KQHEjl2bWAjF8v8MNnooOj$QmyYbaBvJMtN6rurw/GlwgcyUzeYBhf3ckXcxrYsI6k=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "teammember1",
+      "first_name": "Alex",
+      "last_name": "Rivera",
+      "email": "teammember1@company.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-07-16T01:47:28.249Z",
+      "groups": [
+        [
+          "team-member"
+        ]
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$tp3nTXNcqzg1A0vDh4tjjO$YArVlC6mvnxYLGNUpVs9WzVHuFXUo0piLG6oENOLQuA=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "teammember2",
+      "first_name": "Jordan",
+      "last_name": "Lee",
+      "email": "teammember2@company.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-07-16T01:47:28.719Z",
+      "groups": [
+        [
+          "team-member"
+        ]
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 9,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$2KkpDeCQXc1xmXRBLyTUoq$Ek0SMRBk7Ne5fEDjQLG7He2WAmRv4EWDzWJlUvdQb2E=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "teammember3",
+      "first_name": "Sam",
+      "last_name": "Patel",
+      "email": "teammember3@company.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-07-16T01:47:29.197Z",
+      "groups": [
+        [
+          "team-member"
+        ]
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 10,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$GqVTkivr5W9SZwr4Viu5OD$qEq/o08P+2lEuAmmHy6w/rPiNLafGCZHKL8jyQ1Wa54=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "teammember4",
+      "first_name": "Casey",
+      "last_name": "Nguyen",
+      "email": "teammember4@company.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-07-16T01:47:29.663Z",
+      "groups": [
+        [
+          "team-member"
+        ]
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 11,
+    "fields": {
+      "password": "pbkdf2_sha256$1200000$quKmQZxNqv3WivN3IrCub4$IPpSKd8/SmXVIHDxcg49uUN+/AEsNVDeZ3SLLzR6Bcg=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "teammember5",
+      "first_name": "Morgan",
+      "last_name": "Blake",
+      "email": "teammember5@company.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-07-16T01:47:30.092Z",
+      "groups": [
+        [
+          "team-member"
+        ]
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "auth.user",
+    "pk": 12,
+    "fields": {
+      "password": "pbkdf2_sha256$1000000$hSPp4Iyuk7D4UjcQ3eZD9o$f7bEHAvSvoYVlxESbmCx8JIC1TGfB5eyK9cUYhNmugk=",
+      "last_login": null,
+      "is_superuser": false,
+      "username": "jhalpert",
+      "first_name": "Jim",
+      "last_name": "Halpert",
+      "email": "jhalpert@company.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2026-07-16T22:07:32.127Z",
+      "groups": [
+        [
+          "team-member"
+        ]
+      ],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "projects.project",
+    "pk": 5,
+    "fields": {
+      "title": "Huddle",
+      "description": "A team fitness & accountability app that allows users join small groups (\"huddles\") around a shared goal, check in daily, and see group streaks and leaderboards.",
+      "start_date": "2026-05-04",
+      "end_date": "2026-10-01",
+      "icon": "",
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.376Z"
+    }
+  },
+  {
+    "model": "projects.projectdocument",
+    "pk": 4,
+    "fields": {
+      "project": 5,
+      "file": "project_docs/Huddle_Product_Spec.txt",
+      "uploaded_by": [
+        "jmizer"
+      ],
+      "uploaded_at": "2026-07-14T22:44:59.649Z"
+    }
+  },
+  {
+    "model": "projects.projectdocument",
+    "pk": 5,
+    "fields": {
+      "project": 5,
+      "file": "project_docs/Huddle_Architecture_Overview.md",
+      "uploaded_by": [
+        "mscott"
+      ],
+      "uploaded_at": "2026-07-15T01:12:43.155Z"
+    }
+  },
+  {
+    "model": "projects.projectdocument",
+    "pk": 6,
+    "fields": {
+      "project": 5,
+      "file": "project_docs/Huddle_SRS.md",
+      "uploaded_by": [
+        "mscott"
+      ],
+      "uploaded_at": "2026-07-15T01:12:52.864Z"
+    }
+  },
+  {
+    "model": "projects.projectdocument",
+    "pk": 7,
+    "fields": {
+      "project": 5,
+      "file": "project_docs/Huddle_User_Personas.md",
+      "uploaded_by": [
+        "mscott"
+      ],
+      "uploaded_at": "2026-07-15T01:13:37.894Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 6,
+    "fields": {
+      "project": 5,
+      "title": "Kickoff",
+      "description": "Project kicked off, team assembled, initial scope agreed.",
+      "date": "2026-05-04",
+      "epic": null,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.629Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 7,
+    "fields": {
+      "project": 5,
+      "title": "MVP Complete",
+      "description": "Core auth + check-in loop complete, internal dogfooding begins.",
+      "date": "2026-06-14",
+      "epic": 5,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.634Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 8,
+    "fields": {
+      "project": 5,
+      "title": "Private Beta",
+      "description": "Invite-only beta with 50 early testers.",
+      "date": "2026-07-14",
+      "epic": 6,
+      "story": null,
+      "owner": [
+        "mscott"
+      ],
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.639Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 9,
+    "fields": {
+      "project": 5,
+      "title": "Public Launch",
+      "description": "App Store + Play Store public release.",
+      "date": "2026-10-01",
+      "epic": null,
+      "story": null,
+      "owner": [
+        "jmizer"
+      ],
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.642Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 10,
+    "fields": {
+      "project": 5,
+      "title": "Sprint 1 Planning",
+      "description": "Review backlog, commit to the Sprint 1 goal: ship the core auth + check-in loop.",
+      "date": "2026-05-04",
+      "epic": null,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:54:32.585Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 11,
+    "fields": {
+      "project": 5,
+      "title": "Sprint 1 Review & Retro",
+      "description": "Demo the check-in loop MVP. Retro: auth took longer than estimated, plan smaller stories next time.",
+      "date": "2026-05-18",
+      "epic": null,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:54:32.592Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 12,
+    "fields": {
+      "project": 5,
+      "title": "Sprint 2 Planning",
+      "description": "Commit to Sprint 2 goal: streaks, leaderboards, and check-in reminders.",
+      "date": "2026-07-06",
+      "epic": null,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:54:32.595Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 13,
+    "fields": {
+      "project": 5,
+      "title": "Sprint 2 Review & Retro",
+      "description": "Demo streaks + leaderboard. Retro scheduled for end of sprint.",
+      "date": "2026-07-20",
+      "epic": null,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:54:32.599Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 14,
+    "fields": {
+      "project": 5,
+      "title": "Sprint 3 Planning",
+      "description": "Commit to Sprint 3 goal: group features, notifications, beta feedback fixes.",
+      "date": "2026-07-20",
+      "epic": null,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:54:32.603Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 15,
+    "fields": {
+      "project": 5,
+      "title": "Sprint 3 Review & Retro",
+      "description": "Sprint 3 demo and retrospective.",
+      "date": "2026-08-03",
+      "epic": null,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:54:32.606Z"
+    }
+  },
+  {
+    "model": "kanban.board",
+    "pk": 1,
+    "fields": {
+      "name": "Sprint 1",
+      "owner": [
+        "jmizer"
+      ],
+      "visibility": "public",
+      "share_token": null,
+      "link_sharing_enabled": false,
+      "created_at": "2026-04-10T21:58:44.449Z"
+    }
+  },
+  {
+    "model": "kanban.board",
+    "pk": 2,
+    "fields": {
+      "name": "Management Board",
+      "owner": [
+        "jmizer"
+      ],
+      "visibility": "public",
+      "share_token": null,
+      "link_sharing_enabled": false,
+      "created_at": "2026-04-11T22:14:30.315Z"
+    }
+  },
+  {
+    "model": "kanban.board",
+    "pk": 4,
+    "fields": {
+      "name": "Huddle Board",
+      "owner": [
+        "jmizer"
+      ],
+      "visibility": "public",
+      "share_token": null,
+      "link_sharing_enabled": false,
+      "created_at": "2026-07-14T22:44:59.416Z"
+    }
+  },
+  {
+    "model": "kanban.board",
+    "pk": 9,
+    "fields": {
+      "name": "Picker Test Board",
+      "owner": [
+        "rmizer"
+      ],
+      "visibility": "private",
+      "share_token": null,
+      "link_sharing_enabled": false,
+      "created_at": "2026-07-15T00:28:28.406Z"
+    }
+  },
+  {
+    "model": "kanban.boardmembership",
+    "pk": 1,
+    "fields": {
+      "board": 1,
+      "user": [
+        "admin"
+      ],
+      "role": "edit",
+      "invited_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T23:14:31.831Z"
+    }
+  },
+  {
+    "model": "kanban.boardmembership",
+    "pk": 2,
+    "fields": {
+      "board": 1,
+      "user": [
+        "rmizer"
+      ],
+      "role": "edit",
+      "invited_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T23:14:31.832Z"
+    }
+  },
+  {
+    "model": "kanban.boardmembership",
+    "pk": 3,
+    "fields": {
+      "board": 1,
+      "user": [
+        "support-admin"
+      ],
+      "role": "edit",
+      "invited_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T23:14:31.833Z"
+    }
+  },
+  {
+    "model": "kanban.boardmembership",
+    "pk": 4,
+    "fields": {
+      "board": 1,
+      "user": [
+        "kbutler"
+      ],
+      "role": "edit",
+      "invited_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T23:14:31.833Z"
+    }
+  },
+  {
+    "model": "kanban.boardmembership",
+    "pk": 5,
+    "fields": {
+      "board": 1,
+      "user": [
+        "mscott"
+      ],
+      "role": "edit",
+      "invited_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T23:14:31.834Z"
+    }
+  },
+  {
+    "model": "kanban.boardmembership",
+    "pk": 6,
+    "fields": {
+      "board": 2,
+      "user": [
+        "admin"
+      ],
+      "role": "edit",
+      "invited_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T23:14:31.834Z"
+    }
+  },
+  {
+    "model": "kanban.boardmembership",
+    "pk": 7,
+    "fields": {
+      "board": 2,
+      "user": [
+        "rmizer"
+      ],
+      "role": "edit",
+      "invited_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T23:14:31.835Z"
+    }
+  },
+  {
+    "model": "kanban.boardmembership",
+    "pk": 8,
+    "fields": {
+      "board": 2,
+      "user": [
+        "support-admin"
+      ],
+      "role": "edit",
+      "invited_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T23:14:31.835Z"
+    }
+  },
+  {
+    "model": "kanban.boardmembership",
+    "pk": 9,
+    "fields": {
+      "board": 2,
+      "user": [
+        "kbutler"
+      ],
+      "role": "edit",
+      "invited_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T23:14:31.836Z"
+    }
+  },
+  {
+    "model": "kanban.boardmembership",
+    "pk": 10,
+    "fields": {
+      "board": 2,
+      "user": [
+        "mscott"
+      ],
+      "role": "edit",
+      "invited_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T23:14:31.836Z"
+    }
+  },
+  {
+    "model": "kanban.boardmembership",
+    "pk": 11,
+    "fields": {
+      "board": 4,
+      "user": [
+        "admin"
+      ],
+      "role": "edit",
+      "invited_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T23:14:31.837Z"
+    }
+  },
+  {
+    "model": "kanban.boardmembership",
+    "pk": 12,
+    "fields": {
+      "board": 4,
+      "user": [
+        "rmizer"
+      ],
+      "role": "edit",
+      "invited_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T23:14:31.837Z"
+    }
+  },
+  {
+    "model": "kanban.boardmembership",
+    "pk": 13,
+    "fields": {
+      "board": 4,
+      "user": [
+        "support-admin"
+      ],
+      "role": "edit",
+      "invited_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T23:14:31.838Z"
+    }
+  },
+  {
+    "model": "kanban.boardmembership",
+    "pk": 14,
+    "fields": {
+      "board": 4,
+      "user": [
+        "kbutler"
+      ],
+      "role": "edit",
+      "invited_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T23:14:31.838Z"
+    }
+  },
+  {
+    "model": "kanban.boardmembership",
+    "pk": 15,
+    "fields": {
+      "board": 4,
+      "user": [
+        "mscott"
+      ],
+      "role": "edit",
+      "invited_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T23:14:31.839Z"
+    }
+  },
+  {
+    "model": "kanban.boardmembership",
+    "pk": 20,
+    "fields": {
+      "board": 9,
+      "user": [
+        "kbutler"
+      ],
+      "role": "view",
+      "invited_by": [
+        "rmizer"
+      ],
+      "created_at": "2026-07-15T00:28:28.423Z"
+    }
+  },
+  {
+    "model": "kanban.column",
+    "pk": 1,
+    "fields": {
+      "board": 1,
+      "name": "FAQ / Suggestions",
+      "order": 0
+    }
+  },
+  {
+    "model": "kanban.column",
+    "pk": 2,
+    "fields": {
+      "board": 1,
+      "name": "Backlog",
+      "order": 1
+    }
+  },
+  {
+    "model": "kanban.column",
+    "pk": 3,
+    "fields": {
+      "board": 1,
+      "name": "In Progress",
+      "order": 2
+    }
+  },
+  {
+    "model": "kanban.column",
+    "pk": 4,
+    "fields": {
+      "board": 1,
+      "name": "In Review",
+      "order": 3
+    }
+  },
+  {
+    "model": "kanban.column",
+    "pk": 5,
+    "fields": {
+      "board": 1,
+      "name": "In Testing",
+      "order": 4
+    }
+  },
+  {
+    "model": "kanban.column",
+    "pk": 6,
+    "fields": {
+      "board": 1,
+      "name": "Done",
+      "order": 5
+    }
+  },
+  {
+    "model": "kanban.column",
+    "pk": 7,
+    "fields": {
+      "board": 2,
+      "name": "Meeting Notes",
+      "order": 0
+    }
+  },
+  {
+    "model": "kanban.column",
+    "pk": 8,
+    "fields": {
+      "board": 2,
+      "name": "Daily Tasks",
+      "order": 1
+    }
+  },
+  {
+    "model": "kanban.column",
+    "pk": 10,
+    "fields": {
+      "board": 4,
+      "name": "To Do",
+      "order": 0
+    }
+  },
+  {
+    "model": "kanban.column",
+    "pk": 11,
+    "fields": {
+      "board": 4,
+      "name": "In Progress",
+      "order": 1
+    }
+  },
+  {
+    "model": "kanban.column",
+    "pk": 12,
+    "fields": {
+      "board": 4,
+      "name": "Done",
+      "order": 3
+    }
+  },
+  {
+    "model": "kanban.column",
+    "pk": 15,
+    "fields": {
+      "board": 4,
+      "name": "In Review",
+      "order": 2
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 1,
+    "fields": {
+      "column": 1,
+      "title": "Meeting",
+      "description": "Next meeting is on 7/16 at 8am.",
+      "order": 0,
+      "assigned_to": null,
+      "created_at": "2026-04-10T22:00:26.583Z",
+      "updated_at": "2026-07-16T01:16:54.217Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 2,
+    "fields": {
+      "column": 3,
+      "title": "PL.1.1 Create SRS Document",
+      "description": "SRS Document",
+      "order": 0,
+      "assigned_to": [
+        "rmizer"
+      ],
+      "created_at": "2026-04-10T22:01:16.924Z",
+      "updated_at": "2026-04-11T22:13:22.114Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 4,
+    "fields": {
+      "column": 12,
+      "title": "Design signup/login flow",
+      "description": "Wireframe the account creation and sign-in screens.",
+      "order": 0,
+      "assigned_to": null,
+      "created_at": "2026-07-14T22:44:59.444Z",
+      "updated_at": "2026-07-14T22:44:59.444Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 5,
+    "fields": {
+      "column": 12,
+      "title": "Implement email+password auth",
+      "description": "Backend auth endpoints + session handling.",
+      "order": 1,
+      "assigned_to": null,
+      "created_at": "2026-07-14T22:44:59.468Z",
+      "updated_at": "2026-07-14T22:44:59.468Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 6,
+    "fields": {
+      "column": 12,
+      "title": "Build daily check-in UI",
+      "description": "The core screen users see once a day to log a check-in.",
+      "order": 2,
+      "assigned_to": null,
+      "created_at": "2026-07-14T22:44:59.492Z",
+      "updated_at": "2026-07-14T22:44:59.492Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 7,
+    "fields": {
+      "column": 15,
+      "title": "Check-in reminder scheduling",
+      "description": "Backend job to schedule a daily reminder per user.",
+      "order": 0,
+      "assigned_to": null,
+      "created_at": "2026-07-14T22:44:59.514Z",
+      "updated_at": "2026-07-18T13:34:58.938Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 8,
+    "fields": {
+      "column": 11,
+      "title": "Streak calculation logic",
+      "description": "Compute current/longest streak per user and group.",
+      "order": 1,
+      "assigned_to": null,
+      "created_at": "2026-07-14T22:44:59.537Z",
+      "updated_at": "2026-07-14T22:44:59.537Z"
+    }
+  },
+  {
+    "model": "kanban.checklist",
+    "pk": 1,
+    "fields": {
+      "card": 2,
+      "name": "Tester list",
+      "order": 0
+    }
+  },
+  {
+    "model": "kanban.checklist",
+    "pk": 2,
+    "fields": {
+      "card": 2,
+      "name": "Tester list 2",
+      "order": 1
+    }
+  },
+  {
+    "model": "kanban.checklistitem",
+    "pk": 1,
+    "fields": {
+      "checklist": 1,
+      "text": "item 1",
+      "checked": true,
+      "order": 0
+    }
+  },
+  {
+    "model": "kanban.checklistitem",
+    "pk": 2,
+    "fields": {
+      "checklist": 1,
+      "text": "item 2",
+      "checked": true,
+      "order": 1
+    }
+  },
+  {
+    "model": "kanban.checklistitem",
+    "pk": 3,
+    "fields": {
+      "checklist": 2,
+      "text": "item 1",
+      "checked": true,
+      "order": 0
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 1,
+    "fields": {
+      "board": 1,
+      "card_title": "Meeting",
+      "change": "Created in \"FAQ / Suggestions\"",
+      "changed_by": [
+        "rmizer"
+      ],
+      "timestamp": "2026-04-10T22:00:26.586Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 2,
+    "fields": {
+      "board": 1,
+      "card_title": "PL.1.1",
+      "change": "Created in \"Backlog\"",
+      "changed_by": [
+        "rmizer"
+      ],
+      "timestamp": "2026-04-10T22:01:16.927Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 3,
+    "fields": {
+      "board": 1,
+      "card_title": "PL.1.1",
+      "change": "Moved from \"Backlog\" to \"In Progress\"",
+      "changed_by": [
+        "rmizer"
+      ],
+      "timestamp": "2026-04-11T18:46:47.998Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 4,
+    "fields": {
+      "board": 1,
+      "card_title": "PL.1.1",
+      "change": "Moved from \"In Progress\" to \"Backlog\"",
+      "changed_by": [
+        "rmizer"
+      ],
+      "timestamp": "2026-04-11T18:46:50.092Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 5,
+    "fields": {
+      "board": 1,
+      "card_title": "PL.1.1",
+      "change": "Moved from \"Backlog\" to \"In Progress\"",
+      "changed_by": [
+        "rmizer"
+      ],
+      "timestamp": "2026-04-11T18:46:54.970Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 7,
+    "fields": {
+      "board": 4,
+      "card_title": "Design signup/login flow",
+      "change": "Created in \"Done\"",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.449Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 8,
+    "fields": {
+      "board": 4,
+      "card_title": "Implement email+password auth",
+      "change": "Created in \"Done\"",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.472Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 9,
+    "fields": {
+      "board": 4,
+      "card_title": "Build daily check-in UI",
+      "change": "Created in \"Done\"",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.495Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 10,
+    "fields": {
+      "board": 4,
+      "card_title": "Check-in reminder scheduling",
+      "change": "Created in \"In Progress\"",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.517Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 11,
+    "fields": {
+      "board": 4,
+      "card_title": "Streak calculation logic",
+      "change": "Created in \"In Progress\"",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.540Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 16,
+    "fields": {
+      "board": 1,
+      "card_title": "Meeting",
+      "change": "Moved from \"FAQ / Suggestions\" to \"Backlog\"",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-07-16T01:11:45.619Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 17,
+    "fields": {
+      "board": 1,
+      "card_title": "Meeting",
+      "change": "Moved from \"Backlog\" to \"FAQ / Suggestions\"",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-07-16T01:11:48.241Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 18,
+    "fields": {
+      "board": 1,
+      "card_title": "Meeting",
+      "change": "Moved from \"FAQ / Suggestions\" to \"Backlog\"",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-16T01:16:53.144Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 19,
+    "fields": {
+      "board": 1,
+      "card_title": "Meeting",
+      "change": "Moved from \"Backlog\" to \"FAQ / Suggestions\"",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-16T01:16:54.213Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 20,
+    "fields": {
+      "board": 4,
+      "card_title": "Check-in reminder scheduling",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "admin"
+      ],
+      "timestamp": "2026-07-18T13:34:58.931Z"
+    }
+  },
+  {
+    "model": "backlog.epic",
+    "pk": 4,
+    "fields": {
+      "project": 5,
+      "title": "Onboarding & Auth",
+      "description": "Signup, login, and account setup flows.",
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.381Z"
+    }
+  },
+  {
+    "model": "backlog.epic",
+    "pk": 5,
+    "fields": {
+      "project": 5,
+      "title": "Daily Check-ins",
+      "description": "The core habit-logging loop users interact with every day.",
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.387Z"
+    }
+  },
+  {
+    "model": "backlog.epic",
+    "pk": 6,
+    "fields": {
+      "project": 5,
+      "title": "Streaks & Leaderboards",
+      "description": "Gamification: streaks, group leaderboards, and freezes.",
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.391Z"
+    }
+  },
+  {
+    "model": "backlog.epic",
+    "pk": 7,
+    "fields": {
+      "project": 5,
+      "title": "Notifications",
+      "description": "Reminders and alerts that bring users back to the app.",
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.396Z"
+    }
+  },
+  {
+    "model": "backlog.epic",
+    "pk": 8,
+    "fields": {
+      "project": 5,
+      "title": "Group & Social Features",
+      "description": "Creating huddles, inviting friends, group chat.",
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.400Z"
+    }
+  },
+  {
+    "model": "backlog.sprint",
+    "pk": 3,
+    "fields": {
+      "project": 5,
+      "number": 1,
+      "name": "Foundations",
+      "goal": "Ship core auth + check-in loop MVP.",
+      "status": "completed",
+      "start_date": "2026-05-04",
+      "end_date": "2026-05-18",
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.404Z"
+    }
+  },
+  {
+    "model": "backlog.sprint",
+    "pk": 4,
+    "fields": {
+      "project": 5,
+      "number": 2,
+      "name": "Engagement Loop",
+      "goal": "Streaks, leaderboards, and check-in reminders.",
+      "status": "active",
+      "start_date": "2026-07-06",
+      "end_date": "2026-07-20",
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.408Z"
+    }
+  },
+  {
+    "model": "backlog.sprint",
+    "pk": 5,
+    "fields": {
+      "project": 5,
+      "number": 3,
+      "name": "Beta Polish",
+      "goal": "Group features, notifications, and beta feedback fixes.",
+      "status": "planned",
+      "start_date": "2026-07-20",
+      "end_date": "2026-08-03",
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.412Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 4,
+    "fields": {
+      "project": 5,
+      "title": "Design signup/login flow",
+      "description": "Wireframe the account creation and sign-in screens.",
+      "epic": 4,
+      "sprint": 3,
+      "order": 0,
+      "estimate": 3,
+      "moscow": "must",
+      "kanban_card": 4,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.434Z",
+      "updated_at": "2026-07-18T13:00:08.516Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 5,
+    "fields": {
+      "project": 5,
+      "title": "Implement email+password auth",
+      "description": "Backend auth endpoints + session handling.",
+      "epic": 4,
+      "sprint": 3,
+      "order": 1,
+      "estimate": 5,
+      "moscow": "must",
+      "kanban_card": 5,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.461Z",
+      "updated_at": "2026-07-18T13:00:08.215Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 6,
+    "fields": {
+      "project": 5,
+      "title": "Build daily check-in UI",
+      "description": "The core screen users see once a day to log a check-in.",
+      "epic": 5,
+      "sprint": 3,
+      "order": 2,
+      "estimate": 5,
+      "moscow": "must",
+      "kanban_card": 6,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.483Z",
+      "updated_at": "2026-07-18T13:00:07.924Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 7,
+    "fields": {
+      "project": 5,
+      "title": "Check-in reminder scheduling",
+      "description": "Backend job to schedule a daily reminder per user.",
+      "epic": 5,
+      "sprint": 4,
+      "order": 0,
+      "estimate": 3,
+      "moscow": "should",
+      "kanban_card": 7,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.506Z",
+      "updated_at": "2026-07-18T13:00:07.630Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 8,
+    "fields": {
+      "project": 5,
+      "title": "Streak calculation logic",
+      "description": "Compute current/longest streak per user and group.",
+      "epic": 6,
+      "sprint": 4,
+      "order": 1,
+      "estimate": 5,
+      "moscow": "must",
+      "kanban_card": 8,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.529Z",
+      "updated_at": "2026-07-18T13:00:07.351Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 9,
+    "fields": {
+      "project": 5,
+      "title": "Check-in history view",
+      "description": "Let a user scroll back through their past check-ins.",
+      "epic": 5,
+      "sprint": 4,
+      "order": 2,
+      "estimate": 2,
+      "moscow": "must",
+      "kanban_card": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.551Z",
+      "updated_at": "2026-07-18T13:00:07.070Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 10,
+    "fields": {
+      "project": 5,
+      "title": "Group leaderboard UI",
+      "description": "Ranked list of group members by current streak.",
+      "epic": 6,
+      "sprint": 4,
+      "order": 3,
+      "estimate": 3,
+      "moscow": "could",
+      "kanban_card": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.558Z",
+      "updated_at": "2026-07-18T13:00:09.669Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 11,
+    "fields": {
+      "project": 5,
+      "title": "Streak-freeze / grace period",
+      "description": "Let a user spend a \"freeze\" to protect a streak after a missed day.",
+      "epic": 6,
+      "sprint": 5,
+      "order": 0,
+      "estimate": 3,
+      "moscow": "should",
+      "kanban_card": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.566Z",
+      "updated_at": "2026-07-18T13:00:09.965Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 12,
+    "fields": {
+      "project": 5,
+      "title": "Push notification infrastructure",
+      "description": "Set up push notification delivery (APNs/FCM).",
+      "epic": 7,
+      "sprint": 5,
+      "order": 1,
+      "estimate": 5,
+      "moscow": "should",
+      "kanban_card": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.573Z",
+      "updated_at": "2026-07-18T13:00:09.082Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 13,
+    "fields": {
+      "project": 5,
+      "title": "Streak-at-risk alert",
+      "description": "Notify a user late in the day if their streak is about to break.",
+      "epic": 7,
+      "sprint": 5,
+      "order": 2,
+      "estimate": 2,
+      "moscow": "could",
+      "kanban_card": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.580Z",
+      "updated_at": "2026-07-18T13:00:09.374Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 14,
+    "fields": {
+      "project": 5,
+      "title": "Add social login (Google/Apple)",
+      "description": "OAuth login options in addition to email/password.",
+      "epic": 4,
+      "sprint": null,
+      "order": 0,
+      "estimate": 3,
+      "moscow": "could",
+      "kanban_card": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.588Z",
+      "updated_at": "2026-07-18T13:00:10.800Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 15,
+    "fields": {
+      "project": 5,
+      "title": "Weekly summary email",
+      "description": "Digest email recapping the week's check-ins and streaks.",
+      "epic": 7,
+      "sprint": null,
+      "order": 1,
+      "estimate": 2,
+      "moscow": "could",
+      "kanban_card": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.596Z",
+      "updated_at": "2026-07-18T13:00:11.081Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 16,
+    "fields": {
+      "project": 5,
+      "title": "Create/join a huddle group",
+      "description": "Flow for starting a new huddle or joining one via invite code.",
+      "epic": 8,
+      "sprint": null,
+      "order": 2,
+      "estimate": 5,
+      "moscow": "should",
+      "kanban_card": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.605Z",
+      "updated_at": "2026-07-18T13:00:10.242Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 17,
+    "fields": {
+      "project": 5,
+      "title": "Group chat / reactions",
+      "description": "Lightweight chat and emoji reactions within a huddle.",
+      "epic": 8,
+      "sprint": null,
+      "order": 3,
+      "estimate": 8,
+      "moscow": "could",
+      "kanban_card": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.613Z",
+      "updated_at": "2026-07-18T13:00:10.522Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 18,
+    "fields": {
+      "project": 5,
+      "title": "Invite friends flow",
+      "description": "Share an invite link/code to bring friends into a huddle.",
+      "epic": 8,
+      "sprint": null,
+      "order": 4,
+      "estimate": 2,
+      "moscow": "could",
+      "kanban_card": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.622Z",
+      "updated_at": "2026-07-18T13:00:08.800Z"
+    }
+  },
+  {
+    "model": "backlog.userstory",
+    "pk": 1,
+    "fields": {
+      "backlog_item": 4,
+      "content": "As a user, I want to log in with Google or Apple so that I do not need to create a new password.",
+      "created_by": [
+        "admin"
+      ],
+      "created_at": "2026-07-18T12:07:26.163Z",
+      "updated_at": "2026-07-18T12:07:26.163Z"
+    }
+  },
+  {
+    "model": "backlog.userstory",
+    "pk": 2,
+    "fields": {
+      "backlog_item": 7,
+      "content": "As a user, I want reminders at a time I choose so that check-ins fit my schedule.",
+      "created_by": [
+        "admin"
+      ],
+      "created_at": "2026-07-18T12:11:59.306Z",
+      "updated_at": "2026-07-18T12:11:59.306Z"
+    }
+  },
+  {
+    "model": "backlog.userstory",
+    "pk": 3,
+    "fields": {
+      "backlog_item": 11,
+      "content": "As a user, I want to see a streak-freeze warning so that I do not lose my streak accidentally.",
+      "created_by": [
+        "admin"
+      ],
+      "created_at": "2026-07-18T12:12:00.953Z",
+      "updated_at": "2026-07-18T12:12:00.953Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 11,
+    "fields": {
+      "item_title": "Design signup/login flow",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.439Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 12,
+    "fields": {
+      "item_title": "Design signup/login flow",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.457Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 13,
+    "fields": {
+      "item_title": "Implement email+password auth",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.464Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 14,
+    "fields": {
+      "item_title": "Implement email+password auth",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.479Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 15,
+    "fields": {
+      "item_title": "Build daily check-in UI",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.487Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 16,
+    "fields": {
+      "item_title": "Build daily check-in UI",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.502Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 17,
+    "fields": {
+      "item_title": "Check-in reminder scheduling",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.510Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 18,
+    "fields": {
+      "item_title": "Check-in reminder scheduling",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.525Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 19,
+    "fields": {
+      "item_title": "Streak calculation logic",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.532Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 20,
+    "fields": {
+      "item_title": "Streak calculation logic",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.547Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 21,
+    "fields": {
+      "item_title": "Check-in history view",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.555Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 22,
+    "fields": {
+      "item_title": "Group leaderboard UI",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.562Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 23,
+    "fields": {
+      "item_title": "Streak-freeze / grace period",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.569Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 24,
+    "fields": {
+      "item_title": "Push notification infrastructure",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.576Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 25,
+    "fields": {
+      "item_title": "Streak-at-risk alert",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.584Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 26,
+    "fields": {
+      "item_title": "Add social login (Google/Apple)",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.592Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 27,
+    "fields": {
+      "item_title": "Weekly summary email",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.600Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 28,
+    "fields": {
+      "item_title": "Create/join a huddle group",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.608Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 29,
+    "fields": {
+      "item_title": "Group chat / reactions",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.617Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 30,
+    "fields": {
+      "item_title": "Invite friends flow",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-14T22:44:59.625Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 31,
+    "fields": {
+      "item_title": "Non-manager smoke test story",
+      "change": "Story created",
+      "changed_by": [
+        "rmizer"
+      ],
+      "timestamp": "2026-07-16T02:52:52.171Z"
+    }
+  },
+  {
+    "model": "team_resources.teamresource",
+    "pk": 5,
+    "fields": {
+      "file": "team_resources/naming_conventions.md",
+      "uploaded_by": [
+        "mscott"
+      ],
+      "uploaded_at": "2026-07-16T00:36:51.778Z",
+      "archived_at": null
+    }
+  },
+  {
+    "model": "team_resources.teamresource",
+    "pk": 9,
+    "fields": {
+      "file": "team_resources/Team_Resources_Quick_Wins.md",
+      "uploaded_by": [
+        "admin"
+      ],
+      "uploaded_at": "2026-07-18T19:29:30.870Z",
+      "archived_at": null
+    }
+  },
+  {
+    "model": "team_resources.teamresource",
+    "pk": 10,
+    "fields": {
+      "file": "team_resources/Team_Resources_Bigger_Lift.md",
+      "uploaded_by": [
+        "admin"
+      ],
+      "uploaded_at": "2026-07-18T19:29:31.131Z",
+      "archived_at": null
+    }
+  }
+]

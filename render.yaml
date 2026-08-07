@@ -9,7 +9,10 @@ services:
     # which runs before the disk exists — that mismatch is what broke the original deploy:
     # migrate tried to open /var/data/db.sqlite3 during build and got "unable to open
     # database file" since /var/data didn't exist yet).
-    preDeployCommand: python manage.py migrate
+    # seed_demo no-ops once the demo data exists, so this is safe on every deploy —
+    # it only populates the empty disk on first boot. Use `seed_demo --force` from a
+    # shell to deliberately reset the demo back to its seeded state.
+    preDeployCommand: python manage.py migrate && python manage.py seed_demo
     startCommand: gunicorn flywheel.wsgi
     # Persists db.sqlite3 and uploaded media across deploys/restarts — Free-instance
     # services can't attach disks at all, which is why this is on Starter ($7/mo).
