@@ -148,7 +148,7 @@ function ChecklistBlock({ cl, canEdit, onRename, onDelete, onAddItem, onToggleIt
 
 
 // ── Card Modal (create / edit / view) ─────────────────────────────────────────
-function CardModal({ mode, card, columnId, canEdit, onClose, onSaved }) {
+function CardModal({ mode, card, columnId, canEdit, onClose, onSaved, onRefresh }) {
   const [title, setTitle]           = useState(card?.title ?? '')
   const [description, setDescription] = useState(card?.description ?? '')
   const [assignedToId, setAssignedToId] = useState(card?.assigned_to?.id ?? '')
@@ -206,7 +206,19 @@ function CardModal({ mode, card, columnId, canEdit, onClose, onSaved }) {
             method: 'PATCH', headers: jsonH(),
             body: JSON.stringify(body),
           })
-      if (!res.ok) throw new Error()
+      if (!res.ok) {
+        if (res.status === 403) {
+          // The server says this account can't edit the board — which can happen
+          // when the board's edit controls are showing from a stale (owner-era)
+          // load. Tell the user plainly and re-sync the board so those controls
+          // fall away instead of inviting the same failure again.
+          setError('You have view-only access to this board, so changes were not saved.')
+          onRefresh?.()
+        } else {
+          setError('Failed to save card.')
+        }
+        return
+      }
       onSaved()
       onClose()
     } catch {
@@ -733,7 +745,10 @@ function Kanban() {
       .then(r => r.ok ? r.json() : null)
       .then(data => { setBoard(data); setLoading(false) })
       .catch(() => setLoading(false))
-  }, [activeBoardId, isSharedView, token])
+    // user?.id is a dependency so that switching accounts refetches the board and
+    // re-derives my_role/canEdit — otherwise an owner-era load could leave edit
+    // controls showing for a viewer who then can't actually save.
+  }, [activeBoardId, isSharedView, token, user?.id])
 
   useEffect(() => { fetchBoard() }, [fetchBoard])
 
@@ -1061,6 +1076,7 @@ function Kanban() {
           canEdit={canEdit}
           onClose={() => setCardModal(null)}
           onSaved={fetchBoard}
+          onRefresh={fetchBoard}
         />
       )}
 

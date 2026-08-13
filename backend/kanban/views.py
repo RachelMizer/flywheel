@@ -15,6 +15,13 @@ def _resolve_role(user, board):
     """Returns 'owner' | 'edit' | 'view' | None (no access) for this user on this board."""
     if board.owner_id == user.id:
         return 'owner'
+    # Managers have an org-wide edit override: they can open and edit any board,
+    # matching the delete power they already have in _can_delete. Owner-only
+    # actions — changing visibility/link-sharing, managing members, regenerating
+    # the share link — stay gated on 'owner' in their own endpoints, so this does
+    # not hand those to managers; it only unlocks card/column/rename editing.
+    if _is_manager(user):
+        return 'edit'
     membership = BoardMembership.objects.filter(board=board, user=user).first()
     if membership:
         return membership.role
@@ -24,6 +31,9 @@ def _resolve_role(user, board):
 
 
 def _visible_boards(user):
+    # Managers see every board (consistent with their edit/delete override above).
+    if _is_manager(user):
+        return Board.objects.all()
     return Board.objects.filter(
         Q(owner=user) | Q(visibility='public') | Q(memberships__user=user)
     ).distinct()
