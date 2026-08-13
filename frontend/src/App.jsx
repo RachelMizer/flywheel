@@ -45,7 +45,7 @@ function ProtectedApp() {
           <NavLink to="/projects">Project Planning</NavLink>
 
           <span className="nav-label"><Code2 size={15} />Development</span>
-          <NavLink to="/docker">Docker</NavLink>
+          <NavLink to="/docker">Container Manager</NavLink>
 
           <span className="nav-label"><BookOpen size={15} />Team Resources</span>
           <NavLink to="/team-resources">Knowledge Base</NavLink>

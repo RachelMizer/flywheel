@@ -1,10 +1,15 @@
-/* Docker Manager — live container monitoring.
-   Status palette is local to this page; base tokens come from index.css. */
+/* Container Manager — containers styled as little rack-mounted edge devices.
+   Status hues are the reserved status palette (validated for CVD + contrast on
+   the dark faceplate they sit on); base tokens come from index.css. */
 .docker-page {
-  --status-healthy: #1f6f5f;
-  --status-working: #b7791f;
-  --status-down:    #b3261e;
-  --card-border:    #e2e2e2;
+  --st-healthy: #0ca30c;
+  --st-working: #fab219;
+  --st-down:    #d03b3b;
+
+  --faceplate-a: #2a2f39;
+  --faceplate-b: #1b1e24;
+  --unit-border: #d3d7dd;
+  --rail-bg:     #f2f3f5;
 }
 
 .docker-head {
@@ -15,10 +20,7 @@
   flex-wrap: wrap;
 }
 
-.docker-sub {
-  color: var(--color-teal-mid);
-  font-size: 0.95rem;
-}
+.docker-sub { color: var(--color-teal-mid); font-size: 0.95rem; }
 
 .docker-meta {
   display: flex;
@@ -35,27 +37,25 @@
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
-  color: var(--status-healthy);
+  color: var(--st-healthy);
 }
 
 .docker-live-dot {
-  width: 8px;
-  height: 8px;
+  width: 8px; height: 8px;
   border-radius: 50%;
-  background: var(--status-healthy);
-  box-shadow: 0 0 0 0 rgba(31, 111, 95, 0.5);
-  animation: docker-pulse 2s infinite;
+  background: var(--st-healthy);
+  animation: dk-pulse 2s infinite;
 }
 
-@keyframes docker-pulse {
-  0%   { box-shadow: 0 0 0 0 rgba(31, 111, 95, 0.5); }
-  70%  { box-shadow: 0 0 0 7px rgba(31, 111, 95, 0); }
-  100% { box-shadow: 0 0 0 0 rgba(31, 111, 95, 0); }
+@keyframes dk-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(12, 163, 12, 0.5); }
+  70%  { box-shadow: 0 0 0 7px rgba(12, 163, 12, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(12, 163, 12, 0); }
 }
 
 .docker-refreshed { color: #888; }
 
-/* Summary tiles */
+/* ── Summary tiles ─────────────────────────────────────────────────────────── */
 .docker-summary {
   display: grid;
   grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -65,7 +65,7 @@
 
 .docker-tile {
   background: var(--color-white);
-  border: 1px solid var(--card-border);
+  border: 1px solid var(--unit-border);
   border-left: 4px solid #ccc;
   border-radius: 8px;
   padding: 0.85rem 1rem;
@@ -74,7 +74,12 @@
   gap: 0.15rem;
 }
 
-.docker-tile-value { font-size: 1.6rem; font-weight: 700; line-height: 1; }
+.docker-tile-value {
+  font-size: 1.6rem;
+  font-weight: 700;
+  line-height: 1;
+  font-variant-numeric: tabular-nums;
+}
 .docker-tile-label {
   font-size: 0.75rem;
   text-transform: uppercase;
@@ -82,12 +87,12 @@
   color: #777;
 }
 
-.tone-healthy { border-left-color: var(--status-healthy); }
-.tone-working { border-left-color: var(--status-working); }
-.tone-down    { border-left-color: var(--status-down); }
+.tone-healthy { border-left-color: var(--st-healthy); }
+.tone-working { border-left-color: var(--st-working); }
+.tone-down    { border-left-color: var(--st-down); }
 .tone-neutral { border-left-color: var(--color-teal-mid); }
 
-/* Clusters */
+/* ── Clusters ──────────────────────────────────────────────────────────────── */
 .docker-cluster { margin-top: 1.75rem; }
 
 .docker-cluster-name {
@@ -99,85 +104,196 @@
 
 .docker-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-  gap: 1rem;
+  grid-template-columns: repeat(auto-fill, minmax(288px, 1fr));
+  gap: 1.1rem;
 }
 
-/* Cards */
-.docker-card {
+/* ── Unit (a container drawn as a rack device) ─────────────────────────────── */
+.dk-unit {
+  position: relative;
   background: var(--color-white);
-  border: 1px solid var(--card-border);
-  border-top: 3px solid #ccc;
-  border-radius: 8px;
-  padding: 0.9rem 1rem 0.75rem;
+  border: 1px solid var(--unit-border);
+  border-radius: 9px;
+  overflow: hidden;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
-  transition: box-shadow 0.15s ease;
+  box-shadow: 0 1px 2px rgba(0, 0, 0, 0.05);
+  transition: box-shadow 0.15s ease, transform 0.15s ease;
 }
-.docker-card:hover { box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08); }
+.dk-unit:hover {
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.12);
+  transform: translateY(-2px);
+}
 
-.docker-card.status-healthy { border-top-color: var(--status-healthy); }
-.docker-card.status-working { border-top-color: var(--status-working); }
-.docker-card.status-down    { border-top-color: var(--status-down); }
+/* Status stripe down the left edge — redundant with the LED and the tag. */
+.dk-unit::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 4px;
+  background: #bbb;
+  z-index: 2;
+}
+.dk-unit.status-healthy::before { background: var(--st-healthy); }
+.dk-unit.status-working::before { background: var(--st-working); }
+.dk-unit.status-down::before    { background: var(--st-down); }
 
-.docker-card-head {
+/* Faceplate: the dark device front panel that carries the LED + name. */
+.dk-faceplate {
   display: flex;
-  justify-content: space-between;
   align-items: center;
-  gap: 0.5rem;
+  gap: 0.55rem;
+  padding: 0.6rem 0.85rem 0.6rem 1rem;
+  background: linear-gradient(180deg, var(--faceplate-a), var(--faceplate-b));
+  color: #eef0f3;
+  border-bottom: 1px solid #10131a;
+  /* Two "rivets" near the top corners. */
+  background-image:
+    radial-gradient(circle at 10px 9px, rgba(255,255,255,0.22) 0 1px, transparent 1.6px),
+    radial-gradient(circle at calc(100% - 10px) 9px, rgba(255,255,255,0.22) 0 1px, transparent 1.6px),
+    linear-gradient(180deg, var(--faceplate-a), var(--faceplate-b));
 }
 
-.docker-card-name {
+.dk-name {
+  flex: 1;
+  min-width: 0;
   font-weight: 700;
-  font-size: 0.98rem;
-  word-break: break-word;
+  font-size: 0.92rem;
+  letter-spacing: 0.01em;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.docker-badge {
+.dk-tag {
   flex-shrink: 0;
-  font-size: 0.68rem;
+  font-size: 0.6rem;
   font-weight: 700;
   text-transform: uppercase;
-  letter-spacing: 0.04em;
-  padding: 2px 8px;
-  border-radius: 999px;
-  color: #fff;
-}
-.badge-healthy { background: var(--status-healthy); }
-.badge-working { background: var(--status-working); }
-.badge-down    { background: var(--status-down); }
-
-.docker-card-image {
-  font-family: ui-monospace, Consolas, monospace;
-  font-size: 0.78rem;
-  color: #555;
-  background: var(--color-surface);
-  padding: 3px 7px;
+  letter-spacing: 0.08em;
+  padding: 2px 7px;
   border-radius: 4px;
+  border: 1px solid currentColor;
+}
+.status-healthy .dk-tag { color: var(--st-healthy); }
+.status-working .dk-tag { color: var(--st-working); }
+.status-down    .dk-tag { color: var(--st-down); }
+
+/* Status LED — a glowing lens on the faceplate. */
+.dk-led {
+  position: relative;
+  flex-shrink: 0;
+  width: 11px; height: 11px;
+  border-radius: 50%;
+  background: #6b7280;
+}
+.dk-led::after {
+  content: "";
+  position: absolute;
+  top: 2px; left: 2.5px;
+  width: 3px; height: 3px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.85);
+}
+.status-healthy .dk-led { background: var(--st-healthy); animation: led-breathe 2.6s ease-in-out infinite; }
+.status-working .dk-led { background: var(--st-working); animation: led-work 1.1s ease-in-out infinite; }
+.status-down    .dk-led { background: var(--st-down);    animation: led-alarm 0.9s steps(1) infinite; }
+
+@keyframes led-breathe {
+  0%, 100% { box-shadow: 0 0 4px 1px rgba(12, 163, 12, 0.55); }
+  50%      { box-shadow: 0 0 9px 3px rgba(12, 163, 12, 0.95); }
+}
+@keyframes led-work {
+  0%, 100% { box-shadow: 0 0 3px 1px rgba(250, 178, 25, 0.5); }
+  50%      { box-shadow: 0 0 10px 3px rgba(250, 178, 25, 1); }
+}
+@keyframes led-alarm {
+  0%, 49%   { box-shadow: 0 0 9px 3px rgba(208, 59, 59, 0.95); opacity: 1; }
+  50%, 100% { box-shadow: 0 0 2px 0 rgba(208, 59, 59, 0.3);   opacity: 0.55; }
+}
+
+/* Body: corrugated-container fill + role icon + spec readout. */
+.dk-body {
+  display: flex;
+  gap: 0.85rem;
+  padding: 0.9rem 1rem 0.85rem;
+  flex: 1;
+  background-image: repeating-linear-gradient(
+    90deg, rgba(15, 23, 42, 0.035) 0 1px, transparent 1px 8px
+  );
+}
+
+.dk-icon {
+  flex-shrink: 0;
+  width: 44px; height: 44px;
+  display: grid;
+  place-items: center;
+  border-radius: 8px;
+  background: var(--color-surface);
+  border: 1px solid #e4e5e7;
+  color: #3a4048;
+}
+
+.dk-content { min-width: 0; display: flex; flex-direction: column; gap: 0.45rem; }
+
+.dk-image {
   align-self: flex-start;
   max-width: 100%;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.76rem;
+  color: #444;
+  background: var(--color-surface);
+  border: 1px solid #e4e5e7;
+  padding: 2px 7px;
+  border-radius: 4px;
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.docker-card-notes {
-  font-size: 0.85rem;
-  color: #444;
-  line-height: 1.35;
-}
+.dk-notes { font-size: 0.85rem; color: #454545; line-height: 1.38; }
 
-.docker-card-foot {
-  margin-top: auto;
+/* Bottom rail: activity heartbeat + last seen + device class. */
+.dk-rail {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.45rem 1rem;
+  background: var(--rail-bg);
+  border-top: 1px solid #e6e7ea;
   font-size: 0.72rem;
-  color: #999;
-  border-top: 1px solid var(--color-surface);
-  padding-top: 0.45rem;
+  color: #8a8d93;
 }
 
+.dk-heartbeat {
+  width: 7px; height: 7px;
+  border-radius: 50%;
+  background: #b8bcc2;
+  flex-shrink: 0;
+}
+.status-healthy .dk-heartbeat { background: var(--st-healthy); animation: beat 1.6s ease-in-out infinite; }
+.status-working .dk-heartbeat { background: var(--st-working); animation: beat 1s ease-in-out infinite; }
+.status-down    .dk-heartbeat { background: #c9ccd1; }
+
+@keyframes beat {
+  0%, 100% { opacity: 0.35; transform: scale(0.85); }
+  50%      { opacity: 1;    transform: scale(1.15); }
+}
+
+.dk-lastseen { font-variant-numeric: tabular-nums; }
+
+.dk-role {
+  margin-left: auto;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.66rem;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #9a9da3;
+}
+
+/* ── States ────────────────────────────────────────────────────────────────── */
 .docker-error {
-  color: var(--status-down);
+  color: var(--st-down);
   background: #fdecea;
   border: 1px solid #f5c6c2;
   border-radius: 6px;
@@ -186,10 +302,10 @@
   font-size: 0.9rem;
 }
 
-.docker-empty {
-  color: #777;
-  margin: 1.5rem 0;
-  line-height: 1.5;
+.docker-empty { color: #777; margin: 1.5rem 0; line-height: 1.5; }
+
+@media (prefers-reduced-motion: reduce) {
+  .dk-led, .dk-heartbeat, .docker-live-dot { animation: none !important; }
 }
 
 @media (max-width: 620px) {
