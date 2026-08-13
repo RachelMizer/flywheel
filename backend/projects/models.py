@@ -13,6 +13,18 @@ class Project(models.Model):
     created_by  = models.ForeignKey(User, null=True, blank=True, on_delete=models.SET_NULL)
     created_at  = models.DateTimeField(auto_now_add=True)
 
+    # Scrum roles for this project's team. Scrum Master and Product Owner are single
+    # people (nullable FKs); the Development Team is a set. All on_delete=SET_NULL/
+    # cleared implicitly so removing a user doesn't cascade-delete the project.
+    scrum_master  = models.ForeignKey(
+        User, null=True, blank=True, on_delete=models.SET_NULL,
+        related_name='scrum_master_projects')
+    product_owner = models.ForeignKey(
+        User, null=True, blank=True, on_delete=models.SET_NULL,
+        related_name='product_owner_projects')
+    developers    = models.ManyToManyField(
+        User, blank=True, related_name='developer_projects')
+
     def __str__(self):
         return self.title
 

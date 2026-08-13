@@ -1,6 +1,6 @@
 import { useState, useEffect, useCallback, useRef } from 'react'
 import { Link, useParams, useNavigate } from 'react-router-dom'
-import { Folder, ListTodo, CalendarRange, Rocket, Gauge, FileText, Layers, BookOpen, Target } from 'lucide-react'
+import { Folder, ListTodo, CalendarRange, Rocket, Gauge, FileText, Layers, BookOpen, Target, Users } from 'lucide-react'
 import { isMarkdownFile, markdownViewerPath } from '../utils/markdown'
 import './ProjectDetail.css'
 
@@ -173,6 +173,160 @@ function NewSprintModal({ projectId, onClose, onCreated }) {
   )
 }
 
+// ── Scrum Team ───────────────────────────────────────────────────────────────
+function initials(name) {
+  const parts = (name || '').trim().split(/\s+/).filter(Boolean)
+  if (parts.length === 0) return '?'
+  if (parts.length === 1) return parts[0].slice(0, 2).toUpperCase()
+  return (parts[0][0] + parts[parts.length - 1][0]).toUpperCase()
+}
+
+// Deterministic avatar tint per person, so the same user keeps the same color.
+const AVATAR_TINTS = ['#1f6f5f', '#3d6ea5', '#8a5c00', '#7a4bab', '#b3506b', '#2a7d6b', '#495b7a']
+function tintFor(person) {
+  const key = person?.id ?? 0
+  return AVATAR_TINTS[key % AVATAR_TINTS.length]
+}
+
+function PersonBadge({ person, size = 34 }) {
+  if (!person) {
+    return (
+      <span className="st-person st-person-empty">
+        <span className="st-avatar st-avatar-empty" style={{ width: size, height: size }}>—</span>
+        <span className="st-person-name st-unassigned">Unassigned</span>
+      </span>
+    )
+  }
+  return (
+    <span className="st-person" title={person.username}>
+      <span className="st-avatar" style={{ width: size, height: size, background: tintFor(person) }}>
+        {initials(person.full_name)}
+      </span>
+      <span className="st-person-name">{person.full_name}</span>
+    </span>
+  )
+}
+
+function ScrumTeamSection({ project, isManager, onEdit }) {
+  const devs = project.developers || []
+  return (
+    <section className="pd-section st-section">
+      <div className="st-header">
+        <h3><Users size={15} /> Scrum Team</h3>
+        {isManager && <button className="secondary" onClick={onEdit}>Assign Roles</button>}
+      </div>
+      <div className="st-roles">
+        <div className="st-role">
+          <span className="st-role-label">Scrum Master</span>
+          <PersonBadge person={project.scrum_master} />
+        </div>
+        <div className="st-role">
+          <span className="st-role-label">Product Owner</span>
+          <PersonBadge person={project.product_owner} />
+        </div>
+        <div className="st-role st-role-dev">
+          <span className="st-role-label">Development Team <span className="st-count">{devs.length}</span></span>
+          {devs.length === 0
+            ? <span className="st-person-name st-unassigned">No developers assigned</span>
+            : <div className="st-dev-list">{devs.map(d => <PersonBadge key={d.id} person={d} size={30} />)}</div>}
+        </div>
+      </div>
+    </section>
+  )
+}
+
+// ── Assign Scrum Roles Modal (managers) ──────────────────────────────────────
+function ScrumTeamModal({ project, onClose, onSaved }) {
+  const [members, setMembers] = useState([])
+  const [scrumMasterId, setScrumMasterId] = useState(String(project.scrum_master?.id ?? ''))
+  const [productOwnerId, setProductOwnerId] = useState(String(project.product_owner?.id ?? ''))
+  const [devIds, setDevIds] = useState(new Set((project.developers || []).map(d => d.id)))
+  const [saving, setSaving] = useState(false)
+  const [error, setError] = useState('')
+
+  useEffect(() => {
+    fetch(`${PROJECTS_API}/members/`, { headers: authH() })
+      .then(r => r.ok ? r.json() : [])
+      .then(setMembers)
+      .catch(() => setMembers([]))
+  }, [])
+
+  function toggleDev(id) {
+    setDevIds(prev => {
+      const next = new Set(prev)
+      next.has(id) ? next.delete(id) : next.add(id)
+      return next
+    })
+  }
+
+  async function handleSubmit(e) {
+    e.preventDefault()
+    setSaving(true)
+    setError('')
+    try {
+      const res = await fetch(`${PROJECTS_API}/${project.id}/`, {
+        method: 'PATCH', headers: jsonH(),
+        body: JSON.stringify({
+          scrum_master_id: scrumMasterId ? Number(scrumMasterId) : null,
+          product_owner_id: productOwnerId ? Number(productOwnerId) : null,
+          developer_ids: [...devIds],
+        }),
+      })
+      if (!res.ok) {
+        const data = await res.json().catch(() => ({}))
+        throw new Error(data.error || 'Failed to save scrum team.')
+      }
+      await onSaved()
+      onClose()
+    } catch (err) {
+      setError(err.message || 'Failed to save scrum team.')
+    } finally {
+      setSaving(false)
+    }
+  }
+
+  return (
+    <div className="modal-overlay" onClick={onClose}>
+      <div className="modal" onClick={e => e.stopPropagation()}>
+        <div className="modal-header">
+          <h3>Assign Scrum Roles</h3>
+          <button className="modal-close" onClick={onClose}>✕</button>
+        </div>
+        <form onSubmit={handleSubmit} className="card-form">
+          {error && <p className="form-error">{error}</p>}
+          <label>Scrum Master
+            <select value={scrumMasterId} onChange={e => setScrumMasterId(e.target.value)}>
+              <option value="">Unassigned</option>
+              {members.map(m => <option key={m.id} value={m.id}>{m.full_name}</option>)}
+            </select>
+          </label>
+          <label>Product Owner
+            <select value={productOwnerId} onChange={e => setProductOwnerId(e.target.value)}>
+              <option value="">Unassigned</option>
+              {members.map(m => <option key={m.id} value={m.id}>{m.full_name}</option>)}
+            </select>
+          </label>
+          <div className="st-dev-picker">
+            <span className="st-picker-label">Development Team</span>
+            <div className="st-picker-list">
+              {members.map(m => (
+                <label key={m.id} className="st-picker-item">
+                  <input type="checkbox" checked={devIds.has(m.id)} onChange={() => toggleDev(m.id)} />
+                  <span>{m.full_name}</span>
+                </label>
+              ))}
+            </div>
+          </div>
+          <div className="form-actions">
+            <button type="submit" disabled={saving}>{saving ? 'Saving…' : 'Save Team'}</button>
+            <button type="button" className="secondary" onClick={onClose}>Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  )
+}
+
 // ── Main Page ────────────────────────────────────────────────────────────────
 function ProjectDetail({ isManager }) {
   const { projectId } = useParams()
@@ -185,6 +339,7 @@ function ProjectDetail({ isManager }) {
   const [items, setItems] = useState([])
   const [loading, setLoading] = useState(true)
   const [showEdit, setShowEdit] = useState(false)
+  const [showScrumTeam, setShowScrumTeam] = useState(false)
   const [showNewSprint, setShowNewSprint] = useState(false)
   const [uploading, setUploading] = useState(false)
   const [uploadError, setUploadError] = useState('')
@@ -273,6 +428,8 @@ function ProjectDetail({ isManager }) {
       </div>
 
       {project.description && <p className="pd-description">{project.description}</p>}
+
+      <ScrumTeamSection project={project} isManager={isManager} onEdit={() => setShowScrumTeam(true)} />
 
       <div className="pd-sections">
         <section className="pd-section">
@@ -420,6 +577,14 @@ function ProjectDetail({ isManager }) {
           onClose={() => setShowEdit(false)}
           onSaved={fetchAll}
           onDeleted={() => { window.location.href = '/projects' }}
+        />
+      )}
+
+      {showScrumTeam && (
+        <ScrumTeamModal
+          project={project}
+          onClose={() => setShowScrumTeam(false)}
+          onSaved={fetchAll}
         />
       )}
 
