@@ -1,3 +1,4 @@
+from django.contrib.auth import get_user_model
 from django.utils import timezone
 from rest_framework.decorators import api_view, permission_classes
 from rest_framework.permissions import IsAuthenticated
@@ -5,6 +6,8 @@ from rest_framework.response import Response
 
 from backlog.models import Epic, Sprint, BacklogItem
 from .models import Project, ProjectDocument, TimelineEvent
+
+User = get_user_model()
 
 ALLOWED_DOC_EXTENSIONS = {'pdf', 'doc', 'docx', 'ppt', 'pptx', 'xls', 'xlsx', 'txt', 'md', 'markdown', 'png', 'jpg', 'jpeg'}
 ALLOWED_IMAGE_EXTENSIONS = {'png', 'jpg', 'jpeg'}
@@ -48,6 +51,22 @@ def _user_brief(user):
     return {'id': user.id, 'username': user.username, 'full_name': name}
 
 
+def _set_single_role(project, field, value):
+    """Assign a single-person scrum role (scrum_master / product_owner) FK from a
+    user id. Falsy value clears it. Returns an error string, or None on success."""
+    if value in (None, '', 0, '0'):
+        setattr(project, f'{field}_id', None)
+        return None
+    try:
+        uid = int(value)
+    except (TypeError, ValueError):
+        return f'Invalid user id {value!r}.'
+    if not User.objects.filter(pk=uid).exists():
+        return f'User {uid} not found.'
+    setattr(project, f'{field}_id', uid)
+    return None
+
+
 def _project(project, full=False):
     data = {
         'id':          project.id,
@@ -65,6 +84,11 @@ def _project(project, full=False):
             or BacklogItem.objects.filter(project=project).exists()
         )
         data['has_timeline'] = TimelineEvent.objects.filter(project=project).exists()
+        data['scrum_master'] = _user_brief(project.scrum_master)
+        data['product_owner'] = _user_brief(project.product_owner)
+        data['developers'] = [
+            _user_brief(u) for u in project.developers.order_by('first_name', 'username')
+        ]
     return data
 
 
@@ -157,11 +181,34 @@ def project_detail(request, project_id):
             if project.icon:
                 project.icon.delete(save=False)
             project.icon = icon
+        # Scrum role assignment (single-person roles are FKs; the dev team is M2M).
+        for role_field, key in (('scrum_master', 'scrum_master_id'),
+                                 ('product_owner', 'product_owner_id')):
+            if key in request.data:
+                error = _set_single_role(project, role_field, request.data[key])
+                if error:
+                    return Response({'error': error}, status=400)
         project.save()
+        if 'developer_ids' in request.data:
+            ids = request.data['developer_ids'] or []
+            if not isinstance(ids, list):
+                return Response({'error': 'developer_ids must be a list.'}, status=400)
+            users = list(User.objects.filter(id__in=ids))
+            if len(users) != len(set(ids)):
+                return Response({'error': 'One or more developer ids are invalid.'}, status=400)
+            project.developers.set(users)
         return Response(_project(project, full=True))
 
     project.delete()
     return Response(status=204)
+
+
+@api_view(['GET'])
+@permission_classes([IsAuthenticated])
+def member_list(request):
+    """All assignable users, for the scrum-role pickers."""
+    users = User.objects.filter(is_active=True).order_by('first_name', 'last_name', 'username')
+    return Response([_user_brief(u) for u in users])
 
 
 # ── Documents ─────────────────────────────────────────────────────────────────

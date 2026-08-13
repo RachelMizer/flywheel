@@ -419,3 +419,122 @@
 .form-actions { display: flex; gap: 0.75rem; }
 .required { color: #c0392b; }
 .optional { color: #aaa; font-weight: 400; font-size: 0.8rem; text-transform: none; letter-spacing: normal; }
+
+/* ── Scrum Team ─────────────────────────────────────────────────────────────── */
+.st-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 0.75rem;
+}
+.st-header h3 { margin: 0; }
+
+.st-roles {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+}
+
+.st-role {
+  display: flex;
+  flex-direction: column;
+  gap: 0.55rem;
+  background: var(--color-white);
+  border: 1px solid #e4e4e4;
+  border-radius: 6px;
+  padding: 0.75rem 0.9rem;
+  min-width: 178px;
+}
+.st-role-dev { flex: 1; min-width: 250px; }
+
+.st-role-label {
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #8a8d93;
+  display: flex;
+  align-items: center;
+  gap: 0.4rem;
+}
+
+.st-count {
+  background: var(--color-teal-deep);
+  color: #fff;
+  font-size: 0.62rem;
+  border-radius: 999px;
+  padding: 0 6px;
+  line-height: 1.5;
+}
+
+.st-person {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
+.st-avatar {
+  flex-shrink: 0;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  color: #fff;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+}
+.st-avatar-empty {
+  background: var(--color-surface);
+  color: #bbb;
+  border: 1px dashed #cfcfcf;
+}
+
+.st-person-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: var(--color-dark);
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.st-unassigned { color: #a0a0a0; font-weight: 500; font-style: italic; }
+
+.st-dev-list {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.4rem 1rem;
+}
+.st-dev-list .st-person-name { font-size: 0.82rem; font-weight: 500; }
+
+/* Assign-roles modal dev-team picker */
+.st-dev-picker { display: flex; flex-direction: column; gap: 0.4rem; }
+.st-picker-label {
+  font-size: 0.82rem;
+  font-weight: 700;
+  color: var(--color-dark);
+}
+.st-picker-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+  gap: 0.35rem;
+  max-height: 200px;
+  overflow-y: auto;
+  border: 1px solid #e4e4e4;
+  border-radius: 5px;
+  padding: 0.5rem;
+  background: var(--color-surface);
+}
+/* Scoped under .st-picker-list so this out-specifies `.card-form label`
+   (which otherwise uppercases these — wrong for people's names). */
+.st-picker-list .st-picker-item {
+  display: flex;
+  align-items: center;
+  gap: 0.45rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  text-transform: none;
+  font-weight: 500;
+  letter-spacing: 0;
+}
+.st-picker-list .st-picker-item input { width: auto; margin: 0; }
