@@ -26,7 +26,11 @@ class Command(BaseCommand):
             self.stdout.write(
                 'Demo data already present — skipping. Use --force to re-load.'
             )
-            return
+        else:
+            call_command('loaddata', 'seed_data.json')
+            self.stdout.write(self.style.SUCCESS('Demo data loaded.'))
 
-        call_command('loaddata', 'seed_data.json')
-        self.stdout.write(self.style.SUCCESS('Demo data loaded.'))
+        # Container demo rows are seeded and guarded separately (on their own
+        # table's emptiness), so this also populates the Docker registry on a
+        # deploy whose Project data already existed before this feature shipped.
+        call_command('seed_containers', force=options['force'])

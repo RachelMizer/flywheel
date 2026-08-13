@@ -1,0 +1,14 @@
+{
+  "udtDefinitions": [
+    {
+      "name": "Motor",
+      "parameters": ["DeviceId"],
+      "members": ["Running", "Faulted", "Speed", "Current"]
+    },
+    {
+      "name": "Valve",
+      "parameters": ["DeviceId"],
+      "members": ["Open", "Closed", "Position"]
+    }
+  ]
+}

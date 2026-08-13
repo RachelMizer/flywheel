@@ -1,0 +1,10 @@
+{
+  "tagProvider": "Line A",
+  "tags": [
+    { "name": "Conveyor01/Speed", "dataType": "Float8", "engUnit": "m/s" },
+    { "name": "Conveyor01/Running", "dataType": "Boolean" },
+    { "name": "Oven02/Temperature", "dataType": "Float8", "engUnit": "degC" },
+    { "name": "Oven02/Setpoint", "dataType": "Float8", "engUnit": "degC" },
+    { "name": "Palletizer03/CycleCount", "dataType": "Int8" }
+  ]
+}
