@@ -1,10 +1,9 @@
 import { useState, useEffect, useRef, useCallback } from 'react'
+import { roleFor, ROLE_LABEL, STATUS_LABEL, DeviceIcon } from '../components/containerDevice'
 import './DockerManager.css'
 
 const authH = () => ({ Authorization: `Token ${localStorage.getItem('token')}` })
 const POLL_MS = 4000
-
-const STATUS_LABEL = { healthy: 'Healthy', working: 'Working', down: 'Down' }
 
 function relTime(iso) {
   if (!iso) return '—'
@@ -61,7 +60,7 @@ function DockerManager() {
     <div className="page docker-page">
       <div className="docker-head">
         <div>
-          <h1>Docker Manager</h1>
+          <h1>Container Manager</h1>
           <p className="docker-sub">
             Live status of monitored containers across plant clusters.
           </p>
@@ -99,21 +98,32 @@ function DockerManager() {
         <section key={cluster} className="docker-cluster">
           <h2 className="docker-cluster-name">{cluster}</h2>
           <div className="docker-grid">
-            {byCluster[cluster].map(c => (
-              <article key={c.id} className={`docker-card status-${c.status}`}>
-                <header className="docker-card-head">
-                  <span className="docker-card-name">{c.name}</span>
-                  <span className={`docker-badge badge-${c.status}`}>
-                    {STATUS_LABEL[c.status] || c.status}
-                  </span>
-                </header>
-                <div className="docker-card-image">{c.image || '—'}</div>
-                {c.notes && <p className="docker-card-notes">{c.notes}</p>}
-                <footer className="docker-card-foot">
-                  <span title={c.last_seen || ''}>last seen {relTime(c.last_seen)}</span>
-                </footer>
-              </article>
-            ))}
+            {byCluster[cluster].map(c => {
+              const role = roleFor(c)
+              return (
+                <article key={c.id} className={`dk-unit status-${c.status}`}>
+                  <div className="dk-faceplate">
+                    <span className="dk-led" aria-hidden="true" />
+                    <span className="dk-name" title={c.name}>{c.name}</span>
+                    <span className="dk-tag">{STATUS_LABEL[c.status] || c.status}</span>
+                  </div>
+                  <div className="dk-body">
+                    <div className={`dk-icon role-${role}`}><DeviceIcon role={role} /></div>
+                    <div className="dk-content">
+                      <div className="dk-image" title={c.image}>{c.image || '—'}</div>
+                      {c.notes && <p className="dk-notes">{c.notes}</p>}
+                    </div>
+                  </div>
+                  <div className="dk-rail">
+                    <span className="dk-heartbeat" aria-hidden="true" />
+                    <span className="dk-lastseen" title={c.last_seen || ''}>
+                      last seen {relTime(c.last_seen)}
+                    </span>
+                    <span className="dk-role">{ROLE_LABEL[role]}</span>
+                  </div>
+                </article>
+              )
+            })}
           </div>
         </section>
       ))}

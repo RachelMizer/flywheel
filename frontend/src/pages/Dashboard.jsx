@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import { roleFor, STATUS_LABEL, DeviceIcon } from '../components/containerDevice'
 import './Dashboard.css'
 
 const authHeaders = () => ({ Authorization: `Token ${localStorage.getItem('token')}` })
@@ -15,9 +16,6 @@ function fmtDate(d) {
   return `${m}-${day}-${y}`
 }
 
-const STATUS_COLOR = { healthy: '#2ecc71', working: '#f1c40f', down: '#e74c3c' }
-const STATUS_LABEL = { healthy: 'Healthy', working: 'Working', down: 'Down' }
-
 // ── Docker Section ────────────────────────────────────────────────────────────
 function DockerSection() {
   const [containers, setContainers] = useState([])
@@ -32,29 +30,29 @@ function DockerSection() {
 
   return (
     <div className="dash-section">
-      <h3 className="dash-section-title">Docker</h3>
+      <h3 className="dash-section-title">Container Manager</h3>
       {loading && <p className="dash-empty">Loading…</p>}
       {!loading && containers.length === 0 && (
         <p className="dash-empty">No containers registered.</p>
       )}
       {!loading && containers.length > 0 && (
-        <ul className="docker-list">
-          {containers.map(c => (
-            <li key={c.id} className="docker-item">
-              <span
-                className="status-dot"
-                style={{ background: STATUS_COLOR[c.status] || '#ccc' }}
-                title={STATUS_LABEL[c.status] || c.status}
-              />
-              <span className="docker-name">{c.cluster}</span>
-              {c.name !== c.cluster && (
-                <span className="docker-node">{c.name}</span>
-              )}
-              <span className="docker-status" style={{ color: STATUS_COLOR[c.status] }}>
-                {STATUS_LABEL[c.status] || c.status}
-              </span>
-            </li>
-          ))}
+        <ul className="cm-mini-list">
+          {containers.map(c => {
+            const role = roleFor(c)
+            return (
+              <li key={c.id} className={`cm-mini status-${c.status}`}>
+                <span className="cm-mini-chip">
+                  <span className="cm-mini-led" aria-hidden="true" />
+                  <DeviceIcon role={role} size={16} />
+                </span>
+                <span className="cm-mini-text">
+                  <span className="cm-mini-name" title={c.name}>{c.name}</span>
+                  <span className="cm-mini-cluster" title={c.cluster}>{c.cluster}</span>
+                </span>
+                <span className="cm-mini-status">{STATUS_LABEL[c.status] || c.status}</span>
+              </li>
+            )
+          })}
         </ul>
       )}
     </div>
