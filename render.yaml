@@ -5,15 +5,26 @@ services:
     rootDir: backend
     plan: starter
     buildCommand: pip install -r requirements.txt && python manage.py collectstatic --noinput
-    # Runs after build but with the persistent disk already mounted (unlike buildCommand,
-    # which runs before the disk exists — that mismatch is what broke the original deploy:
-    # migrate tried to open /var/data/db.sqlite3 during build and got "unable to open
-    # database file" since /var/data didn't exist yet).
-    # seed_demo no-ops once the demo data exists, so this is safe on every deploy —
-    # it only populates the empty disk on first boot. Use `seed_demo --force` from a
-    # shell to deliberately reset the demo back to its seeded state.
-    preDeployCommand: python manage.py migrate && python manage.py seed_demo
-    startCommand: gunicorn flywheel.wsgi
+    # migrate/seed run here, in startCommand, because this is the only hook that executes
+    # in the container that actually serves traffic — the one where the persistent disk is
+    # really mounted. The two alternatives both fail silently or loudly:
+    #   - buildCommand runs before /var/data exists, so migrate got "unable to open
+    #     database file" and broke the original deploy.
+    #   - preDeployCommand runs on an ephemeral filesystem. Verified 2026-08-13: it logged
+    #     a clean from-scratch migrate plus "Installed 140 object(s)" while the real
+    #     /var/data/db.sqlite3 kept its stale schema and none of that data — a green deploy
+    #     that changed nothing, which is why migrations had to be re-run by hand from the
+    #     dashboard Shell after every schema change.
+    #
+    # Both commands are idempotent: migrate no-ops when the schema is current, and
+    # seed_demo no-ops once the demo data exists, so this is safe on every restart, not
+    # just first boot. Use `seed_demo --force` from a shell to deliberately reset the demo
+    # back to its seeded state.
+    #
+    # This assumes a single instance. SQLite has no safe concurrent-migrate story, so if
+    # this service is ever scaled past one instance, migrate must move to a release step
+    # or a One-Off Job instead of racing on every boot.
+    startCommand: python manage.py migrate && python manage.py seed_demo && gunicorn flywheel.wsgi
     # Persists db.sqlite3 and uploaded media across deploys/restarts — Free-instance
     # services can't attach disks at all, which is why this is on Starter ($7/mo).
     disk:
