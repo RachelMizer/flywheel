@@ -1,0 +1,64 @@
+# FlyWheel demo container stack.
+#
+# A few small, SCADA/Ignition-themed services, each with real files inside, so
+# the local reporter agent (report_agent.py) has something genuine to monitor
+# and push into a locally running FlyWheel. This never runs on the Render
+# deploy — that has no Docker daemon; the seeded demo rows stand in there.
+#
+# Every service carries com.flywheel.* labels the reporter reads:
+#   monitor=true  -> include this container
+#   cluster/name  -> how it is grouped and labelled in the FlyWheel UI
+#   path          -> directory whose files the reporter counts ("files inside")
+#
+# Bring it up:   docker compose -f docker-demo/compose.yaml up -d
+# Tear it down:  docker compose -f docker-demo/compose.yaml down -v
+
+name: flywheel-demo
+
+services:
+  ignition-config-repo:
+    image: nginx:1.27-alpine
+    container_name: fw-ignition-config-repo
+    restart: unless-stopped
+    volumes:
+      - ./configs:/usr/share/nginx/html/configs:ro
+    labels:
+      com.flywheel.monitor: "true"
+      com.flywheel.cluster: "Plant Floor — Line A"
+      com.flywheel.name: "ignition-config-repo"
+      com.flywheel.path: "/usr/share/nginx/html/configs"
+
+  mqtt-broker:
+    image: eclipse-mosquitto:2
+    container_name: fw-mqtt-broker
+    restart: unless-stopped
+    volumes:
+      - ./mosquitto/mosquitto.conf:/mosquitto/config/mosquitto.conf:ro
+    labels:
+      com.flywheel.monitor: "true"
+      com.flywheel.cluster: "Plant Floor — Line A"
+      com.flywheel.name: "mqtt-broker"
+      com.flywheel.path: "/mosquitto/config"
+
+  tag-cache:
+    image: redis:7-alpine
+    container_name: fw-tag-cache
+    restart: unless-stopped
+    labels:
+      com.flywheel.monitor: "true"
+      com.flywheel.cluster: "Central"
+      com.flywheel.name: "tag-cache"
+      com.flywheel.path: "/data"
+
+  # Writes a rolling set of tag files into a volume every few seconds, so the
+  # "files inside" count the reporter shows actually changes over time.
+  edge-node:
+    image: busybox:1.36
+    container_name: fw-edge-node
+    restart: unless-stopped
+    command: ["sh", "-c", "mkdir -p /data/tags; i=0; while true; do i=$$((i+1)); echo ts=$$(date +%s) seq=$$i > /data/tags/tag_$$(printf %03d $$((i%20))).txt; sleep 5; done"]
+    labels:
+      com.flywheel.monitor: "true"
+      com.flywheel.cluster: "Plant Floor — Line B"
+      com.flywheel.name: "edge-node-b"
+      com.flywheel.path: "/data/tags"

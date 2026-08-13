@@ -1,0 +1,11 @@
+{
+  "gatewayNetwork": {
+    "role": "primary",
+    "connectPolicy": "Accept",
+    "sslEnabled": true,
+    "outgoingConnections": [
+      { "host": "ignition-gateway-b", "port": 8060, "purpose": "redundant-standby" }
+    ],
+    "allowedIncoming": ["edge-node-b", "mqtt-broker"]
+  }
+}

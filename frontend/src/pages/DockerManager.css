@@ -1,0 +1,197 @@
+/* Docker Manager — live container monitoring.
+   Status palette is local to this page; base tokens come from index.css. */
+.docker-page {
+  --status-healthy: #1f6f5f;
+  --status-working: #b7791f;
+  --status-down:    #b3261e;
+  --card-border:    #e2e2e2;
+}
+
+.docker-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.docker-sub {
+  color: var(--color-teal-mid);
+  font-size: 0.95rem;
+}
+
+.docker-meta {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.25rem;
+  font-size: 0.8rem;
+}
+
+.docker-live {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--status-healthy);
+}
+
+.docker-live-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: var(--status-healthy);
+  box-shadow: 0 0 0 0 rgba(31, 111, 95, 0.5);
+  animation: docker-pulse 2s infinite;
+}
+
+@keyframes docker-pulse {
+  0%   { box-shadow: 0 0 0 0 rgba(31, 111, 95, 0.5); }
+  70%  { box-shadow: 0 0 0 7px rgba(31, 111, 95, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(31, 111, 95, 0); }
+}
+
+.docker-refreshed { color: #888; }
+
+/* Summary tiles */
+.docker-summary {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 0.75rem;
+  margin: 1.25rem 0;
+}
+
+.docker-tile {
+  background: var(--color-white);
+  border: 1px solid var(--card-border);
+  border-left: 4px solid #ccc;
+  border-radius: 8px;
+  padding: 0.85rem 1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.15rem;
+}
+
+.docker-tile-value { font-size: 1.6rem; font-weight: 700; line-height: 1; }
+.docker-tile-label {
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: #777;
+}
+
+.tone-healthy { border-left-color: var(--status-healthy); }
+.tone-working { border-left-color: var(--status-working); }
+.tone-down    { border-left-color: var(--status-down); }
+.tone-neutral { border-left-color: var(--color-teal-mid); }
+
+/* Clusters */
+.docker-cluster { margin-top: 1.75rem; }
+
+.docker-cluster-name {
+  font-size: 1.05rem;
+  padding-bottom: 0.4rem;
+  border-bottom: 2px solid var(--color-surface);
+  margin-bottom: 1rem;
+}
+
+.docker-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+  gap: 1rem;
+}
+
+/* Cards */
+.docker-card {
+  background: var(--color-white);
+  border: 1px solid var(--card-border);
+  border-top: 3px solid #ccc;
+  border-radius: 8px;
+  padding: 0.9rem 1rem 0.75rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+  transition: box-shadow 0.15s ease;
+}
+.docker-card:hover { box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08); }
+
+.docker-card.status-healthy { border-top-color: var(--status-healthy); }
+.docker-card.status-working { border-top-color: var(--status-working); }
+.docker-card.status-down    { border-top-color: var(--status-down); }
+
+.docker-card-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.docker-card-name {
+  font-weight: 700;
+  font-size: 0.98rem;
+  word-break: break-word;
+}
+
+.docker-badge {
+  flex-shrink: 0;
+  font-size: 0.68rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.04em;
+  padding: 2px 8px;
+  border-radius: 999px;
+  color: #fff;
+}
+.badge-healthy { background: var(--status-healthy); }
+.badge-working { background: var(--status-working); }
+.badge-down    { background: var(--status-down); }
+
+.docker-card-image {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.78rem;
+  color: #555;
+  background: var(--color-surface);
+  padding: 3px 7px;
+  border-radius: 4px;
+  align-self: flex-start;
+  max-width: 100%;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.docker-card-notes {
+  font-size: 0.85rem;
+  color: #444;
+  line-height: 1.35;
+}
+
+.docker-card-foot {
+  margin-top: auto;
+  font-size: 0.72rem;
+  color: #999;
+  border-top: 1px solid var(--color-surface);
+  padding-top: 0.45rem;
+}
+
+.docker-error {
+  color: var(--status-down);
+  background: #fdecea;
+  border: 1px solid #f5c6c2;
+  border-radius: 6px;
+  padding: 0.6rem 0.85rem;
+  margin: 1rem 0;
+  font-size: 0.9rem;
+}
+
+.docker-empty {
+  color: #777;
+  margin: 1.5rem 0;
+  line-height: 1.5;
+}
+
+@media (max-width: 620px) {
+  .docker-summary { grid-template-columns: repeat(2, 1fr); }
+}
