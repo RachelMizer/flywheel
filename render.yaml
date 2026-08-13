@@ -53,15 +53,18 @@ services:
     # no separate "backend URL" config (that's what makes Vite's dev proxy work
     # locally). These rewrites proxy those same paths to the backend service in
     # production, so the browser sees everything as same-origin (no CORS needed).
-    # IMPORTANT: if "flywheel-backend" is taken and Render assigns a different
-    # hostname, update the destinations below to match it.
+    # IMPORTANT: these are the backend's real assigned hostname, NOT its service
+    # name. "flywheel-backend.onrender.com" was already taken by an unrelated
+    # service, so Render assigned the "-2tnw" suffix; pointing these at the bare
+    # name proxies /api/* to a stranger's server. Re-check after any change that
+    # could reassign the hostname.
     routes:
       - type: rewrite
         source: /api/*
-        destination: https://flywheel-backend.onrender.com/api/*
+        destination: https://flywheel-backend-2tnw.onrender.com/api/*
       - type: rewrite
         source: /media/*
-        destination: https://flywheel-backend.onrender.com/media/*
+        destination: https://flywheel-backend-2tnw.onrender.com/media/*
       - type: rewrite
         source: /*
         destination: /index.html
