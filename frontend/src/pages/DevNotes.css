@@ -1,0 +1,189 @@
+.dn-page {
+  max-width: 900px;
+  padding-bottom: 3rem;
+}
+
+.dn-header {
+  margin-bottom: 2rem;
+}
+
+.dn-subtitle {
+  margin-top: 0.75rem;
+  max-width: 70ch;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #5c5c5c;
+}
+
+/* ── Sections ────────────────────────────────────────────────────────────── */
+.dn-section {
+  background: var(--color-white);
+  border-radius: 8px;
+  padding: 1.5rem;
+  margin-bottom: 1.25rem;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.08);
+}
+
+.dn-section-head {
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+  padding-bottom: 0.75rem;
+  margin-bottom: 1.1rem;
+  border-bottom: 1px solid #ebebeb;
+  color: var(--color-teal-deep);
+}
+
+.dn-section-head h2 {
+  margin: 0;
+  font-size: 1rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--color-teal-deep);
+}
+
+.dn-text {
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #444;
+  max-width: 75ch;
+}
+
+.dn-text + .dn-pre,
+.dn-pre + .dn-text {
+  margin-top: 1rem;
+}
+
+/* ── Stack grid ──────────────────────────────────────────────────────────── */
+.dn-stack-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 0.75rem;
+}
+
+.dn-stack-item {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  padding: 0.6rem 0.75rem;
+  background: var(--color-surface);
+  border-left: 3px solid var(--color-teal-mid);
+  border-radius: 4px;
+}
+
+.dn-stack-label {
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #777;
+}
+
+.dn-stack-value {
+  font-size: 0.875rem;
+  font-weight: 600;
+  color: var(--color-dark);
+}
+
+/* ── Code blocks ─────────────────────────────────────────────────────────── */
+.dn-pre {
+  margin: 0;
+  padding: 1rem 1.1rem;
+  background: var(--color-dark);
+  color: #e4e4e4;
+  border-radius: 6px;
+  overflow-x: auto;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 0.8rem;
+  line-height: 1.65;
+  white-space: pre;
+}
+
+/* ── Tables ──────────────────────────────────────────────────────────────── */
+.dn-table-wrap {
+  overflow-x: auto;
+}
+
+.dn-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-size: 0.85rem;
+}
+
+.dn-table th {
+  text-align: left;
+  padding: 0.5rem 0.75rem;
+  font-size: 0.7rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #777;
+  border-bottom: 1px solid #ddd;
+  white-space: nowrap;
+}
+
+.dn-table td {
+  padding: 0.6rem 0.75rem;
+  vertical-align: top;
+  line-height: 1.55;
+  color: #444;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.dn-table tr:last-child td {
+  border-bottom: none;
+}
+
+.dn-table td:first-child {
+  white-space: nowrap;
+}
+
+.dn-table code {
+  background: var(--color-surface);
+  color: var(--color-teal-deep);
+  font-weight: 600;
+}
+
+/* ── Lists ───────────────────────────────────────────────────────────────── */
+.dn-list {
+  margin: 0;
+  padding-left: 1.1rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.7rem;
+  font-size: 0.9rem;
+  line-height: 1.65;
+  color: #444;
+  max-width: 78ch;
+}
+
+.dn-list li::marker {
+  color: var(--color-teal-mid);
+}
+
+.dn-list strong {
+  color: var(--color-dark);
+}
+
+/* ── Callout ─────────────────────────────────────────────────────────────── */
+.dn-note {
+  margin-top: 1rem;
+  padding: 0.85rem 1rem;
+  background: var(--color-surface);
+  border-left: 3px solid var(--color-teal-deep);
+  border-radius: 4px;
+  font-size: 0.85rem;
+  line-height: 1.65;
+  color: #4a4a4a;
+  max-width: 78ch;
+}
+
+@media (max-width: 640px) {
+  .dn-section {
+    padding: 1.1rem;
+  }
+
+  .dn-table td:first-child {
+    white-space: normal;
+  }
+}
