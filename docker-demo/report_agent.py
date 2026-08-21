@@ -113,6 +113,7 @@ def collect():
         reports.append({
             "container_id": cid,
             "name": labels.get("com.flywheel.name") or c.get("Name", "").lstrip("/"),
+            "namespace": labels.get("com.flywheel.namespace", ""),
             "cluster": labels.get("com.flywheel.cluster", ""),
             "image": (c.get("Config") or {}).get("Image", ""),
             "status": status,

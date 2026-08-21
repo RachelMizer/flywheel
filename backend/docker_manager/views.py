@@ -13,6 +13,7 @@ def _serialize(c):
         'id':        c.id,
         'container_id': c.container_id,
         'name':      c.name,
+        'namespace': c.namespace or 'default',
         'cluster':   c.cluster or c.name,
         'image':     c.image,
         'status':    c.status,
@@ -63,9 +64,9 @@ def report_containers(request):
             continue
 
         # Only write fields the caller actually sent, so a partial report (e.g.
-        # a heartbeat carrying just status) doesn't blank out name/image/cluster
+        # a heartbeat carrying just status) doesn't blank out name/image/namespace
         # set by a fuller earlier report. status always has a sensible default.
-        defaults = {f: item[f] for f in ('name', 'cluster', 'image', 'notes')
+        defaults = {f: item[f] for f in ('name', 'namespace', 'cluster', 'image', 'notes')
                     if f in item}
         defaults['status'] = status
         # On first sight of a container that reported no name, fall back to its

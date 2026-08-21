@@ -124,7 +124,7 @@
   text-overflow: ellipsis;
 }
 
-.cm-mini-cluster {
+.cm-mini-ns {
   font-size: 0.67rem;
   color: #999;
   white-space: nowrap;

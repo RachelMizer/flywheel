@@ -2,9 +2,19 @@ from django.core.management.base import BaseCommand
 
 from docker_manager.models import ContainerRecord
 
+# Kubernetes-style namespace per demo cluster. Kept in sync with the backfill
+# migration (0004_backfill_namespace_from_cluster) so fresh seeds and existing
+# rows land in the same namespaces.
+CLUSTER_NAMESPACE = {
+    'Plant Floor — Line A': 'line-a',
+    'Plant Floor — Line B': 'line-b',
+    'Central': 'central',
+}
+
 # Ignition / SCADA-themed demo containers. These stand in on the public Render
-# deploy, which has no Docker daemon; a local reporter agent overwrites the rows
-# for containers it actually finds running (matched by container_id).
+# deploy, which has no Docker daemon. Locally they coexist with rows the reporter
+# agent creates rather than being replaced by them: the agent keys on the real
+# Docker container ID, which never matches these 'demo-' IDs.
 DEMO_CONTAINERS = [
     {
         'container_id': 'demo-ign-gw-line-a',
@@ -105,9 +115,10 @@ class Command(BaseCommand):
 
         created = 0
         for row in DEMO_CONTAINERS:
+            defaults = {k: v for k, v in row.items() if k != 'container_id'}
+            defaults.setdefault('namespace', CLUSTER_NAMESPACE.get(row.get('cluster'), 'default'))
             _, was_created = ContainerRecord.objects.update_or_create(
-                container_id=row['container_id'],
-                defaults={k: v for k, v in row.items() if k != 'container_id'},
+                container_id=row['container_id'], defaults=defaults,
             )
             created += 1 if was_created else 0
 

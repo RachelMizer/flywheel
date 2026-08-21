@@ -47,7 +47,7 @@ function DockerSection() {
                 </span>
                 <span className="cm-mini-text">
                   <span className="cm-mini-name" title={c.name}>{c.name}</span>
-                  <span className="cm-mini-cluster" title={c.cluster}>{c.cluster}</span>
+                  <span className="cm-mini-ns" title={c.namespace || 'default'}>{c.namespace || 'default'}</span>
                 </span>
                 <span className="cm-mini-status">{STATUS_LABEL[c.status] || c.status}</span>
               </li>

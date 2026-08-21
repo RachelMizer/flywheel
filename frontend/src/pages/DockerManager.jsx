@@ -20,6 +20,9 @@ function DockerManager() {
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState('')
   const [lastFetch, setLastFetch] = useState(null)
+  const [search, setSearch] = useState('')
+  const [nsFilter, setNsFilter] = useState('all')
+  const [statusFilter, setStatusFilter] = useState('all')
   const timer = useRef(null)
 
   const fetchContainers = useCallback(async () => {
@@ -42,16 +45,31 @@ function DockerManager() {
     return () => clearInterval(timer.current)
   }, [fetchContainers])
 
-  // Group by cluster, preserving the order the API returns them in.
-  const clusters = []
-  const byCluster = {}
-  for (const c of containers) {
-    const key = c.cluster || 'Ungrouped'
-    if (!byCluster[key]) { byCluster[key] = []; clusters.push(key) }
-    byCluster[key].push(c)
+  const nsOf = c => c.namespace || 'default'
+
+  // Distinct namespaces (from the full set) for the filter dropdown.
+  const namespaces = [...new Set(containers.map(nsOf))].sort()
+
+  // Apply search + namespace + status filters.
+  const q = search.trim().toLowerCase()
+  const filtered = containers.filter(c => {
+    if (nsFilter !== 'all' && nsOf(c) !== nsFilter) return false
+    if (statusFilter !== 'all' && c.status !== statusFilter) return false
+    if (q && !`${c.name} ${c.image}`.toLowerCase().includes(q)) return false
+    return true
+  })
+
+  // Group the filtered set by namespace, preserving the API's order.
+  const groups = []
+  const byNs = {}
+  for (const c of filtered) {
+    const key = nsOf(c)
+    if (!byNs[key]) { byNs[key] = []; groups.push(key) }
+    byNs[key].push(c)
   }
 
-  const counts = containers.reduce((acc, c) => {
+  // Tiles reflect what's currently shown (the filtered set).
+  const counts = filtered.reduce((acc, c) => {
     acc[c.status] = (acc[c.status] || 0) + 1
     return acc
   }, {})
@@ -62,7 +80,7 @@ function DockerManager() {
         <div>
           <h1>Container Manager</h1>
           <p className="docker-sub">
-            Live status of monitored containers across plant clusters.
+            Live status of monitored containers, grouped by namespace.
           </p>
         </div>
         <div className="docker-meta">
@@ -76,12 +94,34 @@ function DockerManager() {
       </div>
 
       {containers.length > 0 && (
-        <div className="docker-summary">
-          <SummaryTile label="Containers" value={containers.length} tone="neutral" />
-          <SummaryTile label="Healthy" value={counts.healthy || 0} tone="healthy" />
-          <SummaryTile label="Working" value={counts.working || 0} tone="working" />
-          <SummaryTile label="Down" value={counts.down || 0} tone="down" />
-        </div>
+        <>
+          <div className="docker-summary">
+            <SummaryTile label="Containers" value={filtered.length} tone="neutral" />
+            <SummaryTile label="Healthy" value={counts.healthy || 0} tone="healthy" />
+            <SummaryTile label="Working" value={counts.working || 0} tone="working" />
+            <SummaryTile label="Down" value={counts.down || 0} tone="down" />
+          </div>
+
+          <div className="docker-controls">
+            <input
+              type="search"
+              className="docker-search"
+              placeholder="Search name or image…"
+              value={search}
+              onChange={e => setSearch(e.target.value)}
+            />
+            <select value={nsFilter} onChange={e => setNsFilter(e.target.value)}>
+              <option value="all">All namespaces</option>
+              {namespaces.map(ns => <option key={ns} value={ns}>{ns}</option>)}
+            </select>
+            <select value={statusFilter} onChange={e => setStatusFilter(e.target.value)}>
+              <option value="all">All statuses</option>
+              <option value="healthy">Healthy</option>
+              <option value="working">Working</option>
+              <option value="down">Down</option>
+            </select>
+          </div>
+        </>
       )}
 
       {error && <p className="docker-error">{error}</p>}
@@ -93,12 +133,18 @@ function DockerManager() {
           <code>python manage.py seed_containers</code>.
         </p>
       )}
+      {!loading && !error && containers.length > 0 && filtered.length === 0 && (
+        <p className="docker-empty">No containers match your filters.</p>
+      )}
 
-      {clusters.map(cluster => (
-        <section key={cluster} className="docker-cluster">
-          <h2 className="docker-cluster-name">{cluster}</h2>
+      {groups.map(ns => (
+        <section key={ns} className="docker-cluster">
+          <h2 className="docker-cluster-name">
+            <span className="docker-ns-tag">namespace</span> {ns}
+            <span className="docker-ns-count">{byNs[ns].length}</span>
+          </h2>
           <div className="docker-grid">
-            {byCluster[cluster].map(c => {
+            {byNs[ns].map(c => {
               const role = roleFor(c)
               return (
                 <article key={c.id} className={`dk-unit status-${c.status}`}>
