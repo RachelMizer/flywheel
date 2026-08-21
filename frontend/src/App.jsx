@@ -16,6 +16,7 @@ import Account from './pages/Account'
 import TeamOverview from './pages/TeamOverview'
 import TeamResources from './pages/TeamResources'
 import MarkdownDocPage from './pages/MarkdownDocPage'
+import DevNotes from './pages/DevNotes'
 import Login from './pages/Login'
 import './App.css'
 
@@ -41,8 +42,8 @@ function ProtectedApp() {
           <NavLink to="/" end>Dashboard</NavLink>
 
           <span className="nav-label"><KanbanIcon size={15} />PROJECT MANAGEMENT</span>
-          <NavLink to="/kanban">Kanban</NavLink>
           <NavLink to="/projects">Project Planning</NavLink>
+          <NavLink to="/kanban">Kanban</NavLink>
 
           <span className="nav-label"><Code2 size={15} />Development</span>
           <NavLink to="/docker">Container Manager</NavLink>
@@ -63,6 +64,12 @@ function ProtectedApp() {
             Account Settings
           </NavLink>
           <button className="sidebar-logout" onClick={logout}>Sign Out</button>
+          <NavLink
+            to="/dev-notes"
+            className={({ isActive }) => `sidebar-devnotes-link${isActive ? ' active' : ''}`}
+          >
+            Developer&rsquo;s Notes
+          </NavLink>
         </div>
       </aside>
 
@@ -84,6 +91,7 @@ function ProtectedApp() {
           <Route path="/team-resources" element={<TeamResources isManager={isManager} />} />
           <Route path="/documents/view" element={<MarkdownDocPage />} />
           <Route path="/account" element={<Account />} />
+          <Route path="/dev-notes" element={<DevNotes />} />
         </Routes>
       </main>
     </div>
