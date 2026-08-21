@@ -25,6 +25,7 @@ services:
     labels:
       com.flywheel.monitor: "true"
       com.flywheel.cluster: "Plant Floor — Line A"
+      com.flywheel.namespace: "line-a"
       com.flywheel.name: "ignition-config-repo"
       com.flywheel.path: "/usr/share/nginx/html/configs"
 
@@ -37,6 +38,7 @@ services:
     labels:
       com.flywheel.monitor: "true"
       com.flywheel.cluster: "Plant Floor — Line A"
+      com.flywheel.namespace: "line-a"
       com.flywheel.name: "mqtt-broker"
       com.flywheel.path: "/mosquitto/config"
 
@@ -47,6 +49,7 @@ services:
     labels:
       com.flywheel.monitor: "true"
       com.flywheel.cluster: "Central"
+      com.flywheel.namespace: "central"
       com.flywheel.name: "tag-cache"
       com.flywheel.path: "/data"
 
@@ -60,5 +63,6 @@ services:
     labels:
       com.flywheel.monitor: "true"
       com.flywheel.cluster: "Plant Floor — Line B"
+      com.flywheel.namespace: "line-b"
       com.flywheel.name: "edge-node-b"
       com.flywheel.path: "/data/tags"

@@ -311,3 +311,67 @@
 @media (max-width: 620px) {
   .docker-summary { grid-template-columns: repeat(2, 1fr); }
 }
+
+/* ── Namespace grouping + filter controls (feature #5) ─────────────────────── */
+.docker-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  align-items: center;
+  margin: 0 0 0.25rem;
+}
+
+.docker-search {
+  flex: 1;
+  min-width: 200px;
+  padding: 0.45rem 0.7rem;
+  border: 1px solid var(--unit-border);
+  border-radius: 6px;
+  font-size: 0.9rem;
+  font-family: 'Arimo', sans-serif;
+  background: var(--color-white);
+  color: var(--color-dark);
+}
+.docker-search:focus,
+.docker-controls select:focus {
+  outline: 2px solid var(--color-teal-mid);
+  outline-offset: -1px;
+}
+
+.docker-controls select {
+  padding: 0.45rem 0.6rem;
+  border: 1px solid var(--unit-border);
+  border-radius: 6px;
+  font-size: 0.85rem;
+  font-family: 'Arimo', sans-serif;
+  background: var(--color-white);
+  color: var(--color-dark);
+  cursor: pointer;
+}
+
+/* Namespace group header (reuses .docker-cluster-name base). */
+.docker-cluster-name {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+.docker-ns-tag {
+  font-size: 0.6rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: #fff;
+  background: var(--color-teal-mid);
+  padding: 2px 7px;
+  border-radius: 4px;
+}
+.docker-ns-count {
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #888;
+  background: var(--color-surface);
+  border: 1px solid var(--unit-border);
+  border-radius: 999px;
+  padding: 0 8px;
+  line-height: 1.5;
+}

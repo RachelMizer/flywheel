@@ -13,6 +13,9 @@ class ContainerRecord(models.Model):
 
     container_id = models.CharField(max_length=100, unique=True)
     name         = models.CharField(max_length=200)
+    # Namespace is the primary grouping (Kubernetes-style). cluster is a coarser
+    # grouping kept for the eventual cluster > namespace > workload hierarchy.
+    namespace    = models.CharField(max_length=200, blank=True, default='')
     cluster      = models.CharField(max_length=200, blank=True, default='')
     image        = models.CharField(max_length=200)
     notes        = models.TextField(blank=True)
@@ -20,7 +23,7 @@ class ContainerRecord(models.Model):
     last_seen    = models.DateTimeField(auto_now=True)
 
     class Meta:
-        ordering = ['cluster', 'name']
+        ordering = ['namespace', 'name']
 
     def __str__(self):
-        return f'{self.cluster or "—"} / {self.name}'
+        return f'{self.namespace or "default"} / {self.name}'
