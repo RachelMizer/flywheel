@@ -1671,12 +1671,44 @@
       "title": "Huddle",
       "description": "A team fitness & accountability app that allows users join small groups (\"huddles\") around a shared goal, check in daily, and see group streaks and leaderboards.",
       "start_date": "2026-05-04",
-      "end_date": "2026-10-01",
+      "end_date": "2026-11-23",
       "icon": "",
       "created_by": [
         "jmizer"
       ],
-      "created_at": "2026-07-14T22:44:59.376Z"
+      "created_at": "2026-07-14T22:44:59.376Z",
+      "scrum_master": [
+        "jmizer"
+      ],
+      "product_owner": [
+        "mscott"
+      ],
+      "developers": [
+        [
+          "teammember1"
+        ],
+        [
+          "teammember4"
+        ],
+        [
+          "jhalpert"
+        ],
+        [
+          "teammember2"
+        ],
+        [
+          "kbutler"
+        ],
+        [
+          "teammember5"
+        ],
+        [
+          "rmizer"
+        ],
+        [
+          "teammember3"
+        ]
+      ]
     }
   },
   {
@@ -1725,6 +1757,66 @@
         "mscott"
       ],
       "uploaded_at": "2026-07-15T01:13:37.894Z"
+    }
+  },
+  {
+    "model": "projects.projectdocument",
+    "pk": 8,
+    "fields": {
+      "project": 5,
+      "file": "project_docs/Huddle_Beta_Feedback_Summary.md",
+      "uploaded_by": [
+        "mscott"
+      ],
+      "uploaded_at": "2026-08-05T14:52:55.207Z"
+    }
+  },
+  {
+    "model": "projects.projectdocument",
+    "pk": 9,
+    "fields": {
+      "project": 5,
+      "file": "project_docs/Huddle_Launch_Checklist.md",
+      "uploaded_by": [
+        "jmizer"
+      ],
+      "uploaded_at": "2026-09-10T18:35:29.403Z"
+    }
+  },
+  {
+    "model": "projects.projectdocument",
+    "pk": 10,
+    "fields": {
+      "project": 5,
+      "file": "project_docs/Huddle_Privacy_Policy.md",
+      "uploaded_by": [
+        "jmizer"
+      ],
+      "uploaded_at": "2026-09-18T15:28:03.672Z"
+    }
+  },
+  {
+    "model": "projects.projectdocument",
+    "pk": 11,
+    "fields": {
+      "project": 5,
+      "file": "project_docs/Huddle_Launch_Retro.md",
+      "uploaded_by": [
+        "mscott"
+      ],
+      "uploaded_at": "2026-10-14T20:25:02.060Z"
+    }
+  },
+  {
+    "model": "projects.projectdocument",
+    "pk": 12,
+    "fields": {
+      "project": 5,
+      "file": "project_docs/Huddle_Q4_Roadmap.md",
+      "uploaded_by": [
+        "jmizer"
+      ],
+      "uploaded_at": "2026-10-21T14:49:37.313Z"
     }
   },
   {
@@ -1786,7 +1878,7 @@
     "fields": {
       "project": 5,
       "title": "Public Launch",
-      "description": "App Store + Play Store public release.",
+      "description": "Shipped v1.0 to the App Store and Play Store. 4.1k signups in the first week.",
       "date": "2026-10-01",
       "epic": null,
       "story": null,
@@ -1890,7 +1982,7 @@
     "fields": {
       "project": 5,
       "title": "Sprint 3 Review & Retro",
-      "description": "Sprint 3 demo and retrospective.",
+      "description": "Demoed group features and push notifications. Retro: beta feedback triage worked well; keep a weekly triage slot.",
       "date": "2026-08-03",
       "epic": null,
       "story": null,
@@ -1899,6 +1991,375 @@
         "jmizer"
       ],
       "created_at": "2026-07-14T22:54:32.606Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 16,
+    "fields": {
+      "project": 5,
+      "title": "Sprint 4 Planning",
+      "description": "Commit to Sprint 4 goal: let users create and join huddles, invite friends, and see a group check-in feed.",
+      "date": "2026-08-03",
+      "epic": null,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-08-01T19:43:55.365Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 17,
+    "fields": {
+      "project": 5,
+      "title": "Sprint 4 Review & Retro",
+      "description": "Demoed huddle creation, invites, and the group feed. Retro: invite flow needed more QA on Android.",
+      "date": "2026-08-17",
+      "epic": null,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-08-15T20:39:48.448Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 18,
+    "fields": {
+      "project": 5,
+      "title": "Sprint 5 Planning",
+      "description": "Commit to Sprint 5 goal: notification preferences, quiet hours, weekly summary email, and teammate nudges.",
+      "date": "2026-08-17",
+      "epic": null,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-08-17T14:06:39.995Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 19,
+    "fields": {
+      "project": 5,
+      "title": "Sprint 5 Review & Retro",
+      "description": "Demoed notification preferences and nudges. Retro: weekly summary email slipped a day on template review.",
+      "date": "2026-08-31",
+      "epic": null,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-08-30T14:09:49.807Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 20,
+    "fields": {
+      "project": 5,
+      "title": "Sprint 6 Planning",
+      "description": "Commit to Sprint 6 goal: crash reporting, API performance, accessibility fixes, and offline check-ins.",
+      "date": "2026-08-31",
+      "epic": null,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-08-28T16:08:43.940Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 21,
+    "fields": {
+      "project": 5,
+      "title": "Sprint 6 Review & Retro",
+      "description": "p95 check-in latency down to 140 ms; offline queue shipped. Retro: accessibility fixes should be continuous, not a one-off.",
+      "date": "2026-09-14",
+      "epic": null,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-09-11T19:39:48.788Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 22,
+    "fields": {
+      "project": 5,
+      "title": "Sprint 7 Planning",
+      "description": "Commit to Sprint 7 goal: store listings, privacy/account deletion, social login, and load testing. Feature freeze 9/14.",
+      "date": "2026-09-14",
+      "epic": null,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-09-11T19:08:54.742Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 23,
+    "fields": {
+      "project": 5,
+      "title": "Sprint 7 Review & Retro",
+      "description": "Feature freeze held. Store assets submitted. Retro: social login took longer due to Apple review requirements.",
+      "date": "2026-09-28",
+      "epic": null,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-09-27T22:28:55.050Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 24,
+    "fields": {
+      "project": 5,
+      "title": "Sprint 8 Planning",
+      "description": "Commit to Sprint 8 goal: ship v1.0 to the App Store and Play Store on 10/1 and stabilize with fast hotfixes.",
+      "date": "2026-09-28",
+      "epic": null,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-09-27T19:30:48.664Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 25,
+    "fields": {
+      "project": 5,
+      "title": "Sprint 8 Review & Retro",
+      "description": "v1.0 launched 10/1; two hotfixes shipped within 48 hours. Retro: add a device/timezone test matrix to release QA.",
+      "date": "2026-10-12",
+      "epic": null,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-10T17:36:31.171Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 26,
+    "fields": {
+      "project": 5,
+      "title": "Sprint 9 Planning",
+      "description": "Commit to Sprint 9 goal: act on launch feedback: onboarding drop-off, group chat reactions, retention funnel.",
+      "date": "2026-10-12",
+      "epic": null,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-11T15:16:10.267Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 27,
+    "fields": {
+      "project": 5,
+      "title": "Sprint 9 Review & Retro",
+      "description": "Onboarding completion up from 62% to 81%. Retention funnel live.",
+      "date": "2026-10-26",
+      "epic": null,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-23T21:12:50.659Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 28,
+    "fields": {
+      "project": 5,
+      "title": "Sprint 10 Planning",
+      "description": "Commit to Sprint 10 goal: improve week-2 retention with streak recovery, recap sharing, and polish.",
+      "date": "2026-10-26",
+      "epic": null,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-26T22:24:35.872Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 29,
+    "fields": {
+      "project": 5,
+      "title": "Sprint 10 Review & Retro",
+      "description": "Sprint 10 demo and retrospective.",
+      "date": "2026-11-09",
+      "epic": null,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-25T17:25:43.282Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 30,
+    "fields": {
+      "project": 5,
+      "title": "Sprint 11 Planning",
+      "description": "Commit to Sprint 11 goal: huddle challenges and health-app sync for the v1.1 release on 11/23.",
+      "date": "2026-11-09",
+      "epic": null,
+      "story": null,
+      "owner": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-27T22:58:12.760Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 31,
+    "fields": {
+      "project": 5,
+      "title": "Feature Freeze",
+      "description": "No new features after this date \u2014 only launch-blocking fixes.",
+      "date": "2026-09-14",
+      "epic": 9,
+      "story": null,
+      "owner": [
+        "mscott"
+      ],
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-09-11T20:23:06.819Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 32,
+    "fields": {
+      "project": 5,
+      "title": "Release Candidate Submitted",
+      "description": "v1.0 RC submitted to App Store and Play Store review.",
+      "date": "2026-09-25",
+      "epic": 9,
+      "story": 28,
+      "owner": [
+        "kbutler"
+      ],
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-09-23T20:22:07.193Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 33,
+    "fields": {
+      "project": 5,
+      "title": "Store Approval",
+      "description": "Both stores approved v1.0; launch scheduled for 10/1.",
+      "date": "2026-09-29",
+      "epic": 9,
+      "story": null,
+      "owner": [
+        "jmizer"
+      ],
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-09-29T18:52:03.390Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 34,
+    "fields": {
+      "project": 5,
+      "title": "Launch Retrospective",
+      "description": "Whole-team retro on launch week. Notes on the Management Board.",
+      "date": "2026-10-14",
+      "epic": null,
+      "story": null,
+      "owner": [
+        "mscott"
+      ],
+      "created_by": [
+        "mscott"
+      ],
+      "created_at": "2026-10-12T20:19:52.632Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 35,
+    "fields": {
+      "project": 5,
+      "title": "5,000 Users",
+      "description": "Crossed 5,000 registered users and 600 active huddles.",
+      "date": "2026-10-22",
+      "epic": 11,
+      "story": null,
+      "owner": [
+        "jmizer"
+      ],
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-21T14:58:21.392Z"
+    }
+  },
+  {
+    "model": "projects.timelineevent",
+    "pk": 36,
+    "fields": {
+      "project": 5,
+      "title": "v1.1 Release",
+      "description": "Streak recovery, huddle challenges, and health-app sync.",
+      "date": "2026-11-23",
+      "epic": 11,
+      "story": null,
+      "owner": [
+        "jmizer"
+      ],
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-25T19:18:44.126Z"
     }
   },
   {
@@ -2198,6 +2659,96 @@
     }
   },
   {
+    "model": "kanban.boardmembership",
+    "pk": 21,
+    "fields": {
+      "board": 4,
+      "user": [
+        "teammember1"
+      ],
+      "role": "edit",
+      "invited_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-08-03T14:39:35.705Z"
+    }
+  },
+  {
+    "model": "kanban.boardmembership",
+    "pk": 22,
+    "fields": {
+      "board": 4,
+      "user": [
+        "teammember2"
+      ],
+      "role": "edit",
+      "invited_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-08-03T14:46:37.959Z"
+    }
+  },
+  {
+    "model": "kanban.boardmembership",
+    "pk": 23,
+    "fields": {
+      "board": 4,
+      "user": [
+        "teammember3"
+      ],
+      "role": "edit",
+      "invited_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-08-03T14:02:37.700Z"
+    }
+  },
+  {
+    "model": "kanban.boardmembership",
+    "pk": 24,
+    "fields": {
+      "board": 4,
+      "user": [
+        "teammember4"
+      ],
+      "role": "edit",
+      "invited_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-08-03T14:13:02.511Z"
+    }
+  },
+  {
+    "model": "kanban.boardmembership",
+    "pk": 25,
+    "fields": {
+      "board": 4,
+      "user": [
+        "teammember5"
+      ],
+      "role": "edit",
+      "invited_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-08-03T14:34:09.841Z"
+    }
+  },
+  {
+    "model": "kanban.boardmembership",
+    "pk": 26,
+    "fields": {
+      "board": 4,
+      "user": [
+        "jhalpert"
+      ],
+      "role": "edit",
+      "invited_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-08-03T14:16:00.470Z"
+    }
+  },
+  {
     "model": "kanban.column",
     "pk": 1,
     "fields": {
@@ -2311,18 +2862,18 @@
     "fields": {
       "column": 1,
       "title": "Meeting",
-      "description": "Next meeting is on 7/16 at 8am.",
+      "description": "Next meeting is on 10/29 at 8am.",
       "order": 0,
       "assigned_to": null,
       "created_at": "2026-04-10T22:00:26.583Z",
-      "updated_at": "2026-07-16T01:16:54.217Z"
+      "updated_at": "2026-10-27T15:45:43.107Z"
     }
   },
   {
     "model": "kanban.card",
     "pk": 2,
     "fields": {
-      "column": 3,
+      "column": 6,
       "title": "PL.1.1 Create SRS Document",
       "description": "SRS Document",
       "order": 0,
@@ -2330,7 +2881,7 @@
         "rmizer"
       ],
       "created_at": "2026-04-10T22:01:16.924Z",
-      "updated_at": "2026-04-11T22:13:22.114Z"
+      "updated_at": "2026-07-15T01:20:11.402Z"
     }
   },
   {
@@ -2376,26 +2927,585 @@
     "model": "kanban.card",
     "pk": 7,
     "fields": {
-      "column": 15,
+      "column": 12,
       "title": "Check-in reminder scheduling",
       "description": "Backend job to schedule a daily reminder per user.",
-      "order": 0,
-      "assigned_to": null,
+      "order": 3,
+      "assigned_to": [
+        "teammember5"
+      ],
       "created_at": "2026-07-14T22:44:59.514Z",
-      "updated_at": "2026-07-18T13:34:58.938Z"
+      "updated_at": "2026-07-19T16:14:21.102Z"
     }
   },
   {
     "model": "kanban.card",
     "pk": 8,
     "fields": {
-      "column": 11,
+      "column": 12,
       "title": "Streak calculation logic",
       "description": "Compute current/longest streak per user and group.",
-      "order": 1,
-      "assigned_to": null,
+      "order": 4,
+      "assigned_to": [
+        "teammember1"
+      ],
       "created_at": "2026-07-14T22:44:59.537Z",
-      "updated_at": "2026-07-14T22:44:59.537Z"
+      "updated_at": "2026-07-18T22:32:19.653Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 10,
+    "fields": {
+      "column": 12,
+      "title": "Check-in history view",
+      "description": "Let a user scroll back through their past check-ins.",
+      "order": 5,
+      "assigned_to": [
+        "kbutler"
+      ],
+      "created_at": "2026-07-06T14:51:19.190Z",
+      "updated_at": "2026-07-17T19:55:46.577Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 11,
+    "fields": {
+      "column": 12,
+      "title": "Group leaderboard UI",
+      "description": "Ranked list of group members by current streak.",
+      "order": 6,
+      "assigned_to": [
+        "teammember2"
+      ],
+      "created_at": "2026-07-09T22:17:53.633Z",
+      "updated_at": "2026-07-16T21:07:19.604Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 12,
+    "fields": {
+      "column": 12,
+      "title": "Streak-freeze / grace period",
+      "description": "Let a user spend a \"freeze\" to protect a streak after a missed day.",
+      "order": 7,
+      "assigned_to": [
+        "teammember3"
+      ],
+      "created_at": "2026-07-20T15:34:04.193Z",
+      "updated_at": "2026-07-30T16:52:35.398Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 13,
+    "fields": {
+      "column": 12,
+      "title": "Push notification infrastructure",
+      "description": "Set up push notification delivery (APNs/FCM).",
+      "order": 8,
+      "assigned_to": [
+        "teammember4"
+      ],
+      "created_at": "2026-07-21T15:14:20.123Z",
+      "updated_at": "2026-07-28T14:51:47.543Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 14,
+    "fields": {
+      "column": 12,
+      "title": "Streak-at-risk alert",
+      "description": "Notify a user late in the day if their streak is about to break.",
+      "order": 9,
+      "assigned_to": [
+        "jhalpert"
+      ],
+      "created_at": "2026-07-20T15:07:16.681Z",
+      "updated_at": "2026-07-29T17:05:11.562Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 15,
+    "fields": {
+      "column": 12,
+      "title": "Add social login (Google/Apple)",
+      "description": "OAuth login options in addition to email/password.",
+      "order": 10,
+      "assigned_to": [
+        "teammember5"
+      ],
+      "created_at": "2026-09-14T16:00:22.500Z",
+      "updated_at": "2026-09-26T22:01:43.139Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 16,
+    "fields": {
+      "column": 12,
+      "title": "Weekly summary email",
+      "description": "Digest email recapping the week's check-ins and streaks.",
+      "order": 11,
+      "assigned_to": [
+        "teammember3"
+      ],
+      "created_at": "2026-08-20T19:57:53.879Z",
+      "updated_at": "2026-08-26T18:58:45.084Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 17,
+    "fields": {
+      "column": 12,
+      "title": "Create/join a huddle group",
+      "description": "Flow for starting a new huddle or joining one via invite code.",
+      "order": 12,
+      "assigned_to": [
+        "teammember1"
+      ],
+      "created_at": "2026-08-06T20:24:18.407Z",
+      "updated_at": "2026-08-15T19:29:47.637Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 18,
+    "fields": {
+      "column": 12,
+      "title": "Group chat / reactions",
+      "description": "Lightweight chat and emoji reactions within a huddle.",
+      "order": 13,
+      "assigned_to": [
+        "kbutler"
+      ],
+      "created_at": "2026-10-14T22:39:32.525Z",
+      "updated_at": "2026-10-24T19:21:12.792Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 19,
+    "fields": {
+      "column": 12,
+      "title": "Invite friends flow",
+      "description": "Share an invite link/code to bring friends into a huddle.",
+      "order": 14,
+      "assigned_to": [
+        "teammember4"
+      ],
+      "created_at": "2026-08-04T22:21:02.425Z",
+      "updated_at": "2026-08-14T14:22:09.703Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 20,
+    "fields": {
+      "column": 12,
+      "title": "Huddle settings & member management",
+      "description": "Rename a huddle, change its icon, and remove members (owner only).",
+      "order": 15,
+      "assigned_to": [
+        "teammember2"
+      ],
+      "created_at": "2026-08-05T19:47:15.686Z",
+      "updated_at": "2026-08-15T17:18:37.644Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 21,
+    "fields": {
+      "column": 12,
+      "title": "Group check-in feed",
+      "description": "Chronological feed of everyone's check-ins inside a huddle.",
+      "order": 16,
+      "assigned_to": [
+        "kbutler"
+      ],
+      "created_at": "2026-08-06T22:46:12.381Z",
+      "updated_at": "2026-08-16T17:17:27.107Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 22,
+    "fields": {
+      "column": 12,
+      "title": "Notification preferences screen",
+      "description": "Per-type toggles for reminders, nudges, streak alerts, and email digests.",
+      "order": 17,
+      "assigned_to": [
+        "teammember4"
+      ],
+      "created_at": "2026-08-20T16:57:05.038Z",
+      "updated_at": "2026-08-28T17:17:21.296Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 23,
+    "fields": {
+      "column": 12,
+      "title": "Quiet hours for reminders",
+      "description": "Suppress push notifications during a user-defined quiet window.",
+      "order": 18,
+      "assigned_to": [
+        "teammember5"
+      ],
+      "created_at": "2026-08-17T16:04:19.868Z",
+      "updated_at": "2026-08-25T15:58:01.062Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 24,
+    "fields": {
+      "column": 12,
+      "title": "Group nudge: remind a teammate",
+      "description": "Let a member send a one-tap nudge to someone who hasn't checked in today.",
+      "order": 19,
+      "assigned_to": [
+        "jhalpert"
+      ],
+      "created_at": "2026-08-19T14:01:09.207Z",
+      "updated_at": "2026-08-25T21:43:21.482Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 25,
+    "fields": {
+      "column": 12,
+      "title": "Crash reporting & error monitoring",
+      "description": "Integrate crash reporting on iOS/Android and alerting for backend 5xx spikes.",
+      "order": 20,
+      "assigned_to": [
+        "teammember3"
+      ],
+      "created_at": "2026-09-02T15:33:27.902Z",
+      "updated_at": "2026-09-12T22:50:51.253Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 26,
+    "fields": {
+      "column": 12,
+      "title": "Check-in API performance pass",
+      "description": "Cut p95 latency of check-in and feed endpoints below 200 ms.",
+      "order": 21,
+      "assigned_to": [
+        "teammember1"
+      ],
+      "created_at": "2026-09-03T19:37:02.773Z",
+      "updated_at": "2026-09-12T15:52:54.034Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 27,
+    "fields": {
+      "column": 12,
+      "title": "Accessibility audit fixes",
+      "description": "Address VoiceOver/TalkBack labels, contrast, and dynamic type issues from the audit.",
+      "order": 22,
+      "assigned_to": [
+        "rmizer"
+      ],
+      "created_at": "2026-09-03T18:07:25.536Z",
+      "updated_at": "2026-09-11T17:38:20.623Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 28,
+    "fields": {
+      "column": 12,
+      "title": "Offline check-in queue",
+      "description": "Queue check-ins made offline and sync them when connectivity returns.",
+      "order": 23,
+      "assigned_to": [
+        "teammember2"
+      ],
+      "created_at": "2026-09-02T17:22:12.582Z",
+      "updated_at": "2026-09-10T19:14:10.967Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 29,
+    "fields": {
+      "column": 12,
+      "title": "App Store / Play Store listing assets",
+      "description": "Screenshots, preview video, descriptions, and keywords for both stores.",
+      "order": 24,
+      "assigned_to": [
+        "kbutler"
+      ],
+      "created_at": "2026-09-15T21:02:39.523Z",
+      "updated_at": "2026-09-26T18:11:02.247Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 30,
+    "fields": {
+      "column": 12,
+      "title": "Privacy policy & account deletion",
+      "description": "Publish privacy policy and add in-app account + data deletion (store requirement).",
+      "order": 25,
+      "assigned_to": [
+        "teammember4"
+      ],
+      "created_at": "2026-09-15T14:05:37.939Z",
+      "updated_at": "2026-09-27T14:23:27.515Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 31,
+    "fields": {
+      "column": 12,
+      "title": "Load test leaderboard endpoints",
+      "description": "Simulate 10k concurrent users against leaderboard and feed endpoints.",
+      "order": 26,
+      "assigned_to": [
+        "teammember1"
+      ],
+      "created_at": "2026-09-14T22:44:20.579Z",
+      "updated_at": "2026-09-23T22:14:42.589Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 32,
+    "fields": {
+      "column": 12,
+      "title": "Launch-day monitoring dashboard",
+      "description": "Single dashboard for signups, check-ins, crash rate, and API errors on launch day.",
+      "order": 27,
+      "assigned_to": [
+        "teammember3"
+      ],
+      "created_at": "2026-09-28T21:44:25.611Z",
+      "updated_at": "2026-10-08T20:29:20.674Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 33,
+    "fields": {
+      "column": 12,
+      "title": "Hotfix: reminders firing in wrong timezone",
+      "description": "Reminders used server time for users who travelled; use device timezone.",
+      "order": 28,
+      "assigned_to": [
+        "teammember5"
+      ],
+      "created_at": "2026-09-28T14:24:18.930Z",
+      "updated_at": "2026-10-05T15:59:24.411Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 34,
+    "fields": {
+      "column": 12,
+      "title": "Hotfix: invite links failing on Android",
+      "description": "Deep links from invite codes opened the browser instead of the app on Android 14.",
+      "order": 29,
+      "assigned_to": [
+        "jhalpert"
+      ],
+      "created_at": "2026-09-30T22:39:25.987Z",
+      "updated_at": "2026-10-05T20:40:30.742Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 35,
+    "fields": {
+      "column": 12,
+      "title": "Product analytics events",
+      "description": "Instrument signup, first check-in, huddle join, and nudge events.",
+      "order": 30,
+      "assigned_to": [
+        "teammember2"
+      ],
+      "created_at": "2026-09-29T15:41:38.319Z",
+      "updated_at": "2026-10-11T19:36:14.392Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 36,
+    "fields": {
+      "column": 12,
+      "title": "Onboarding drop-off fix: skippable profile step",
+      "description": "38% of new users quit on the profile step; make it optional and defer it.",
+      "order": 31,
+      "assigned_to": [
+        "rmizer"
+      ],
+      "created_at": "2026-10-15T21:04:04.312Z",
+      "updated_at": "2026-10-25T14:26:33.651Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 37,
+    "fields": {
+      "column": 12,
+      "title": "Retention funnel dashboard",
+      "description": "Day-1 / day-7 / day-30 retention by signup cohort.",
+      "order": 32,
+      "assigned_to": [
+        "teammember3"
+      ],
+      "created_at": "2026-10-14T14:11:11.644Z",
+      "updated_at": "2026-10-23T17:04:14.756Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 38,
+    "fields": {
+      "column": 11,
+      "title": "Streak recovery challenge",
+      "description": "After a broken streak, offer a 3-day challenge that restores it.",
+      "order": 2,
+      "assigned_to": [
+        "teammember1"
+      ],
+      "created_at": "2026-10-26T16:01:09.552Z",
+      "updated_at": "2026-10-28T18:00:47.095Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 39,
+    "fields": {
+      "column": 15,
+      "title": "Dark mode",
+      "description": "System-aware dark theme across all screens.",
+      "order": 1,
+      "assigned_to": [
+        "teammember4"
+      ],
+      "created_at": "2026-10-26T17:02:27.881Z",
+      "updated_at": "2026-10-28T16:21:33.970Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 40,
+    "fields": {
+      "column": 12,
+      "title": "Fix: leaderboard tie ordering",
+      "description": "Members tied on streak length should be ordered by most recent check-in.",
+      "order": 33,
+      "assigned_to": [
+        "jhalpert"
+      ],
+      "created_at": "2026-10-26T16:51:00.194Z",
+      "updated_at": "2026-10-28T16:24:58.372Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 41,
+    "fields": {
+      "column": 7,
+      "title": "Beta retro \u2014 8/3",
+      "description": "Beta testers loved streaks; top asks were group feed and invites. Reminders felt spammy \u2014 add quiet hours.",
+      "order": 1,
+      "assigned_to": [
+        "mscott"
+      ],
+      "created_at": "2026-08-03T18:18:49.819Z",
+      "updated_at": "2026-08-03T18:18:49.819Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 42,
+    "fields": {
+      "column": 7,
+      "title": "Launch go/no-go \u2014 9/29",
+      "description": "Store approvals in. Crash-free sessions 99.6% on RC. Decision: GO for 10/1.",
+      "order": 2,
+      "assigned_to": [
+        "jmizer"
+      ],
+      "created_at": "2026-09-29T15:43:35.879Z",
+      "updated_at": "2026-09-29T15:43:35.879Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 43,
+    "fields": {
+      "column": 7,
+      "title": "Launch retro \u2014 10/14",
+      "description": "Launch went well: 4.1k signups in week one. Timezone reminder bug and Android invite links were the big misses \u2014 add device-matrix testing to the release checklist.",
+      "order": 3,
+      "assigned_to": [
+        "mscott"
+      ],
+      "created_at": "2026-10-14T21:02:43.948Z",
+      "updated_at": "2026-10-14T21:02:43.948Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 44,
+    "fields": {
+      "column": 7,
+      "title": "Q4 planning \u2014 10/21",
+      "description": "Focus for the rest of Q4 is week-2 retention. v1.1 target 11/23: streak recovery, huddle challenges, health sync.",
+      "order": 4,
+      "assigned_to": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-21T19:45:17.649Z",
+      "updated_at": "2026-10-21T19:45:17.649Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 45,
+    "fields": {
+      "column": 8,
+      "title": "Review weekly store analytics",
+      "description": "Ratings, reviews, and install conversion \u2014 post highlights in the team channel.",
+      "order": 1,
+      "assigned_to": [
+        "mscott"
+      ],
+      "created_at": "2026-10-05T20:43:29.748Z",
+      "updated_at": "2026-10-05T20:43:29.748Z"
+    }
+  },
+  {
+    "model": "kanban.card",
+    "pk": 46,
+    "fields": {
+      "column": 8,
+      "title": "Approve v1.1 scope",
+      "description": "Sign off on the Sprint 11 backlog before planning on 11/9.",
+      "order": 2,
+      "assigned_to": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-26T22:39:55.005Z",
+      "updated_at": "2026-10-26T22:39:55.005Z"
     }
   },
   {
@@ -2414,6 +3524,42 @@
       "card": 2,
       "name": "Tester list 2",
       "order": 1
+    }
+  },
+  {
+    "model": "kanban.checklist",
+    "pk": 3,
+    "fields": {
+      "card": 29,
+      "name": "Store submission",
+      "order": 0
+    }
+  },
+  {
+    "model": "kanban.checklist",
+    "pk": 4,
+    "fields": {
+      "card": 38,
+      "name": "Implementation",
+      "order": 0
+    }
+  },
+  {
+    "model": "kanban.checklist",
+    "pk": 5,
+    "fields": {
+      "card": 39,
+      "name": "Screens",
+      "order": 0
+    }
+  },
+  {
+    "model": "kanban.checklist",
+    "pk": 6,
+    "fields": {
+      "card": 42,
+      "name": "Go/no-go criteria",
+      "order": 0
     }
   },
   {
@@ -2444,6 +3590,186 @@
       "text": "item 1",
       "checked": true,
       "order": 0
+    }
+  },
+  {
+    "model": "kanban.checklistitem",
+    "pk": 4,
+    "fields": {
+      "checklist": 3,
+      "text": "iPhone 6.7\" + 5.5\" screenshots",
+      "checked": true,
+      "order": 0
+    }
+  },
+  {
+    "model": "kanban.checklistitem",
+    "pk": 5,
+    "fields": {
+      "checklist": 3,
+      "text": "Android phone + tablet screenshots",
+      "checked": true,
+      "order": 1
+    }
+  },
+  {
+    "model": "kanban.checklistitem",
+    "pk": 6,
+    "fields": {
+      "checklist": 3,
+      "text": "30s preview video",
+      "checked": true,
+      "order": 2
+    }
+  },
+  {
+    "model": "kanban.checklistitem",
+    "pk": 7,
+    "fields": {
+      "checklist": 3,
+      "text": "Keywords & description reviewed by PO",
+      "checked": true,
+      "order": 3
+    }
+  },
+  {
+    "model": "kanban.checklistitem",
+    "pk": 8,
+    "fields": {
+      "checklist": 4,
+      "text": "Challenge state model + migration",
+      "checked": true,
+      "order": 0
+    }
+  },
+  {
+    "model": "kanban.checklistitem",
+    "pk": 9,
+    "fields": {
+      "checklist": 4,
+      "text": "Recovery offer screen",
+      "checked": true,
+      "order": 1
+    }
+  },
+  {
+    "model": "kanban.checklistitem",
+    "pk": 10,
+    "fields": {
+      "checklist": 4,
+      "text": "Daily progress tracking",
+      "checked": false,
+      "order": 2
+    }
+  },
+  {
+    "model": "kanban.checklistitem",
+    "pk": 11,
+    "fields": {
+      "checklist": 4,
+      "text": "Restore streak on completion",
+      "checked": false,
+      "order": 3
+    }
+  },
+  {
+    "model": "kanban.checklistitem",
+    "pk": 12,
+    "fields": {
+      "checklist": 4,
+      "text": "Analytics events",
+      "checked": false,
+      "order": 4
+    }
+  },
+  {
+    "model": "kanban.checklistitem",
+    "pk": 13,
+    "fields": {
+      "checklist": 5,
+      "text": "Check-in",
+      "checked": true,
+      "order": 0
+    }
+  },
+  {
+    "model": "kanban.checklistitem",
+    "pk": 14,
+    "fields": {
+      "checklist": 5,
+      "text": "Feed",
+      "checked": true,
+      "order": 1
+    }
+  },
+  {
+    "model": "kanban.checklistitem",
+    "pk": 15,
+    "fields": {
+      "checklist": 5,
+      "text": "Leaderboard",
+      "checked": true,
+      "order": 2
+    }
+  },
+  {
+    "model": "kanban.checklistitem",
+    "pk": 16,
+    "fields": {
+      "checklist": 5,
+      "text": "Settings",
+      "checked": true,
+      "order": 3
+    }
+  },
+  {
+    "model": "kanban.checklistitem",
+    "pk": 17,
+    "fields": {
+      "checklist": 5,
+      "text": "Onboarding",
+      "checked": false,
+      "order": 4
+    }
+  },
+  {
+    "model": "kanban.checklistitem",
+    "pk": 18,
+    "fields": {
+      "checklist": 6,
+      "text": "Both stores approved",
+      "checked": true,
+      "order": 0
+    }
+  },
+  {
+    "model": "kanban.checklistitem",
+    "pk": 19,
+    "fields": {
+      "checklist": 6,
+      "text": "Crash-free sessions \u2265 99.5%",
+      "checked": true,
+      "order": 1
+    }
+  },
+  {
+    "model": "kanban.checklistitem",
+    "pk": 20,
+    "fields": {
+      "checklist": 6,
+      "text": "On-call rota staffed for launch week",
+      "checked": true,
+      "order": 2
+    }
+  },
+  {
+    "model": "kanban.checklistitem",
+    "pk": 21,
+    "fields": {
+      "checklist": 6,
+      "text": "Rollback plan reviewed",
+      "checked": true,
+      "order": 3
     }
   },
   {
@@ -2642,6 +3968,1722 @@
     }
   },
   {
+    "model": "kanban.cardactivity",
+    "pk": 21,
+    "fields": {
+      "board": 4,
+      "card_title": "Check-in reminder scheduling",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-07-19T16:14:21.102Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 22,
+    "fields": {
+      "board": 4,
+      "card_title": "Streak calculation logic",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "teammember1"
+      ],
+      "timestamp": "2026-07-10T20:47:07.070Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 23,
+    "fields": {
+      "board": 4,
+      "card_title": "Streak calculation logic",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "teammember1"
+      ],
+      "timestamp": "2026-07-18T22:32:19.653Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 24,
+    "fields": {
+      "board": 4,
+      "card_title": "Check-in history view",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "kbutler"
+      ],
+      "timestamp": "2026-07-06T14:51:19.190Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 25,
+    "fields": {
+      "board": 4,
+      "card_title": "Check-in history view",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "kbutler"
+      ],
+      "timestamp": "2026-07-09T16:19:00.873Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 26,
+    "fields": {
+      "board": 4,
+      "card_title": "Check-in history view",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "kbutler"
+      ],
+      "timestamp": "2026-07-10T18:25:46.855Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 27,
+    "fields": {
+      "board": 4,
+      "card_title": "Check-in history view",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-17T19:55:46.577Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 28,
+    "fields": {
+      "board": 4,
+      "card_title": "Group leaderboard UI",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "teammember2"
+      ],
+      "timestamp": "2026-07-09T22:17:53.633Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 29,
+    "fields": {
+      "board": 4,
+      "card_title": "Group leaderboard UI",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "teammember2"
+      ],
+      "timestamp": "2026-07-10T19:39:54.965Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 30,
+    "fields": {
+      "board": 4,
+      "card_title": "Group leaderboard UI",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "teammember2"
+      ],
+      "timestamp": "2026-07-12T14:22:50.158Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 31,
+    "fields": {
+      "board": 4,
+      "card_title": "Group leaderboard UI",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "teammember2"
+      ],
+      "timestamp": "2026-07-16T21:07:19.604Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 32,
+    "fields": {
+      "board": 4,
+      "card_title": "Streak-freeze / grace period",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-07-20T15:34:04.193Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 33,
+    "fields": {
+      "board": 4,
+      "card_title": "Streak-freeze / grace period",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-07-24T17:55:59.362Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 34,
+    "fields": {
+      "board": 4,
+      "card_title": "Streak-freeze / grace period",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-07-27T20:17:28.597Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 35,
+    "fields": {
+      "board": 4,
+      "card_title": "Streak-freeze / grace period",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-07-30T16:52:35.398Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 36,
+    "fields": {
+      "board": 4,
+      "card_title": "Push notification infrastructure",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-07-21T15:14:20.123Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 37,
+    "fields": {
+      "board": 4,
+      "card_title": "Push notification infrastructure",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-07-22T20:06:19.930Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 38,
+    "fields": {
+      "board": 4,
+      "card_title": "Push notification infrastructure",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-07-24T17:05:17.462Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 39,
+    "fields": {
+      "board": 4,
+      "card_title": "Push notification infrastructure",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-28T14:51:47.543Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 40,
+    "fields": {
+      "board": 4,
+      "card_title": "Streak-at-risk alert",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "jhalpert"
+      ],
+      "timestamp": "2026-07-20T15:07:16.681Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 41,
+    "fields": {
+      "board": 4,
+      "card_title": "Streak-at-risk alert",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "jhalpert"
+      ],
+      "timestamp": "2026-07-22T21:52:28.892Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 42,
+    "fields": {
+      "board": 4,
+      "card_title": "Streak-at-risk alert",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "jhalpert"
+      ],
+      "timestamp": "2026-07-27T18:34:40.897Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 43,
+    "fields": {
+      "board": 4,
+      "card_title": "Streak-at-risk alert",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-07-29T17:05:11.562Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 44,
+    "fields": {
+      "board": 4,
+      "card_title": "Add social login (Google/Apple)",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "teammember5"
+      ],
+      "timestamp": "2026-09-14T16:00:22.500Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 45,
+    "fields": {
+      "board": 4,
+      "card_title": "Add social login (Google/Apple)",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "teammember5"
+      ],
+      "timestamp": "2026-09-18T16:47:28.184Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 46,
+    "fields": {
+      "board": 4,
+      "card_title": "Add social login (Google/Apple)",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "teammember5"
+      ],
+      "timestamp": "2026-09-22T19:54:03.949Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 47,
+    "fields": {
+      "board": 4,
+      "card_title": "Add social login (Google/Apple)",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-09-26T22:01:43.139Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 48,
+    "fields": {
+      "board": 4,
+      "card_title": "Weekly summary email",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-08-20T19:57:53.879Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 49,
+    "fields": {
+      "board": 4,
+      "card_title": "Weekly summary email",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-08-22T14:26:29.982Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 50,
+    "fields": {
+      "board": 4,
+      "card_title": "Weekly summary email",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-08-25T18:30:04.510Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 51,
+    "fields": {
+      "board": 4,
+      "card_title": "Weekly summary email",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-08-26T18:58:45.084Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 52,
+    "fields": {
+      "board": 4,
+      "card_title": "Create/join a huddle group",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "teammember1"
+      ],
+      "timestamp": "2026-08-06T20:24:18.407Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 53,
+    "fields": {
+      "board": 4,
+      "card_title": "Create/join a huddle group",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "teammember1"
+      ],
+      "timestamp": "2026-08-09T15:06:02.370Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 54,
+    "fields": {
+      "board": 4,
+      "card_title": "Create/join a huddle group",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "teammember1"
+      ],
+      "timestamp": "2026-08-12T16:12:41.296Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 55,
+    "fields": {
+      "board": 4,
+      "card_title": "Create/join a huddle group",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "teammember1"
+      ],
+      "timestamp": "2026-08-15T19:29:47.637Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 56,
+    "fields": {
+      "board": 4,
+      "card_title": "Group chat / reactions",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "kbutler"
+      ],
+      "timestamp": "2026-10-14T22:39:32.525Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 57,
+    "fields": {
+      "board": 4,
+      "card_title": "Group chat / reactions",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "kbutler"
+      ],
+      "timestamp": "2026-10-17T14:55:35.593Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 58,
+    "fields": {
+      "board": 4,
+      "card_title": "Group chat / reactions",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "kbutler"
+      ],
+      "timestamp": "2026-10-19T19:20:28.867Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 59,
+    "fields": {
+      "board": 4,
+      "card_title": "Group chat / reactions",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-10-24T19:21:12.792Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 60,
+    "fields": {
+      "board": 4,
+      "card_title": "Invite friends flow",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-08-04T22:21:02.425Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 61,
+    "fields": {
+      "board": 4,
+      "card_title": "Invite friends flow",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-08-07T18:17:37.757Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 62,
+    "fields": {
+      "board": 4,
+      "card_title": "Invite friends flow",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-08-09T16:29:46.688Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 63,
+    "fields": {
+      "board": 4,
+      "card_title": "Invite friends flow",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-08-14T14:22:09.703Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 64,
+    "fields": {
+      "board": 4,
+      "card_title": "Huddle settings & member management",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "teammember2"
+      ],
+      "timestamp": "2026-08-05T19:47:15.686Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 65,
+    "fields": {
+      "board": 4,
+      "card_title": "Huddle settings & member management",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "teammember2"
+      ],
+      "timestamp": "2026-08-06T19:07:45.584Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 66,
+    "fields": {
+      "board": 4,
+      "card_title": "Huddle settings & member management",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "teammember2"
+      ],
+      "timestamp": "2026-08-11T20:56:33.060Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 67,
+    "fields": {
+      "board": 4,
+      "card_title": "Huddle settings & member management",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-08-15T17:18:37.644Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 68,
+    "fields": {
+      "board": 4,
+      "card_title": "Group check-in feed",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "kbutler"
+      ],
+      "timestamp": "2026-08-06T22:46:12.381Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 69,
+    "fields": {
+      "board": 4,
+      "card_title": "Group check-in feed",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "kbutler"
+      ],
+      "timestamp": "2026-08-07T18:18:07.674Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 70,
+    "fields": {
+      "board": 4,
+      "card_title": "Group check-in feed",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "kbutler"
+      ],
+      "timestamp": "2026-08-11T18:01:56.306Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 71,
+    "fields": {
+      "board": 4,
+      "card_title": "Group check-in feed",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-08-16T17:17:27.107Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 72,
+    "fields": {
+      "board": 4,
+      "card_title": "Notification preferences screen",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-08-20T16:57:05.038Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 73,
+    "fields": {
+      "board": 4,
+      "card_title": "Notification preferences screen",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-08-22T20:19:10.787Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 74,
+    "fields": {
+      "board": 4,
+      "card_title": "Notification preferences screen",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-08-26T22:08:33.720Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 75,
+    "fields": {
+      "board": 4,
+      "card_title": "Notification preferences screen",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-08-28T17:17:21.296Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 76,
+    "fields": {
+      "board": 4,
+      "card_title": "Quiet hours for reminders",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "teammember5"
+      ],
+      "timestamp": "2026-08-17T16:04:19.868Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 77,
+    "fields": {
+      "board": 4,
+      "card_title": "Quiet hours for reminders",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "teammember5"
+      ],
+      "timestamp": "2026-08-19T21:29:23.843Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 78,
+    "fields": {
+      "board": 4,
+      "card_title": "Quiet hours for reminders",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "teammember5"
+      ],
+      "timestamp": "2026-08-22T20:21:27.943Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 79,
+    "fields": {
+      "board": 4,
+      "card_title": "Quiet hours for reminders",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-08-25T15:58:01.062Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 80,
+    "fields": {
+      "board": 4,
+      "card_title": "Group nudge: remind a teammate",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "jhalpert"
+      ],
+      "timestamp": "2026-08-19T14:01:09.207Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 81,
+    "fields": {
+      "board": 4,
+      "card_title": "Group nudge: remind a teammate",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "jhalpert"
+      ],
+      "timestamp": "2026-08-22T16:55:31.250Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 82,
+    "fields": {
+      "board": 4,
+      "card_title": "Group nudge: remind a teammate",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "jhalpert"
+      ],
+      "timestamp": "2026-08-24T21:22:34.103Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 83,
+    "fields": {
+      "board": 4,
+      "card_title": "Group nudge: remind a teammate",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-08-25T21:43:21.482Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 84,
+    "fields": {
+      "board": 4,
+      "card_title": "Crash reporting & error monitoring",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-09-02T15:33:27.902Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 85,
+    "fields": {
+      "board": 4,
+      "card_title": "Crash reporting & error monitoring",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-09-03T16:32:25.871Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 86,
+    "fields": {
+      "board": 4,
+      "card_title": "Crash reporting & error monitoring",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-09-05T21:11:19.874Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 87,
+    "fields": {
+      "board": 4,
+      "card_title": "Crash reporting & error monitoring",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-09-12T22:50:51.253Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 88,
+    "fields": {
+      "board": 4,
+      "card_title": "Check-in API performance pass",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "teammember1"
+      ],
+      "timestamp": "2026-09-03T19:37:02.773Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 89,
+    "fields": {
+      "board": 4,
+      "card_title": "Check-in API performance pass",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "teammember1"
+      ],
+      "timestamp": "2026-09-04T20:19:45.396Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 90,
+    "fields": {
+      "board": 4,
+      "card_title": "Check-in API performance pass",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "teammember1"
+      ],
+      "timestamp": "2026-09-07T21:31:03.364Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 91,
+    "fields": {
+      "board": 4,
+      "card_title": "Check-in API performance pass",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-09-12T15:52:54.034Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 92,
+    "fields": {
+      "board": 4,
+      "card_title": "Accessibility audit fixes",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "rmizer"
+      ],
+      "timestamp": "2026-09-03T18:07:25.536Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 93,
+    "fields": {
+      "board": 4,
+      "card_title": "Accessibility audit fixes",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "rmizer"
+      ],
+      "timestamp": "2026-09-06T22:00:20.116Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 94,
+    "fields": {
+      "board": 4,
+      "card_title": "Accessibility audit fixes",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "rmizer"
+      ],
+      "timestamp": "2026-09-08T16:06:59.479Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 95,
+    "fields": {
+      "board": 4,
+      "card_title": "Accessibility audit fixes",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "rmizer"
+      ],
+      "timestamp": "2026-09-11T17:38:20.623Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 96,
+    "fields": {
+      "board": 4,
+      "card_title": "Offline check-in queue",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "teammember2"
+      ],
+      "timestamp": "2026-09-02T17:22:12.582Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 97,
+    "fields": {
+      "board": 4,
+      "card_title": "Offline check-in queue",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "teammember2"
+      ],
+      "timestamp": "2026-09-04T22:24:48.912Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 98,
+    "fields": {
+      "board": 4,
+      "card_title": "Offline check-in queue",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "teammember2"
+      ],
+      "timestamp": "2026-09-06T22:05:04.557Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 99,
+    "fields": {
+      "board": 4,
+      "card_title": "Offline check-in queue",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "teammember2"
+      ],
+      "timestamp": "2026-09-10T19:14:10.967Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 100,
+    "fields": {
+      "board": 4,
+      "card_title": "App Store / Play Store listing assets",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "kbutler"
+      ],
+      "timestamp": "2026-09-15T21:02:39.523Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 101,
+    "fields": {
+      "board": 4,
+      "card_title": "App Store / Play Store listing assets",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "kbutler"
+      ],
+      "timestamp": "2026-09-18T14:19:53.274Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 102,
+    "fields": {
+      "board": 4,
+      "card_title": "App Store / Play Store listing assets",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "kbutler"
+      ],
+      "timestamp": "2026-09-20T21:06:44.801Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 103,
+    "fields": {
+      "board": 4,
+      "card_title": "App Store / Play Store listing assets",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "kbutler"
+      ],
+      "timestamp": "2026-09-26T18:11:02.247Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 104,
+    "fields": {
+      "board": 4,
+      "card_title": "Privacy policy & account deletion",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-09-15T14:05:37.939Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 105,
+    "fields": {
+      "board": 4,
+      "card_title": "Privacy policy & account deletion",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-09-18T19:11:40.784Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 106,
+    "fields": {
+      "board": 4,
+      "card_title": "Privacy policy & account deletion",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-09-22T16:02:52.666Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 107,
+    "fields": {
+      "board": 4,
+      "card_title": "Privacy policy & account deletion",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-09-27T14:23:27.515Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 108,
+    "fields": {
+      "board": 4,
+      "card_title": "Load test leaderboard endpoints",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "teammember1"
+      ],
+      "timestamp": "2026-09-14T22:44:20.579Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 109,
+    "fields": {
+      "board": 4,
+      "card_title": "Load test leaderboard endpoints",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "teammember1"
+      ],
+      "timestamp": "2026-09-15T16:40:59.487Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 110,
+    "fields": {
+      "board": 4,
+      "card_title": "Load test leaderboard endpoints",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "teammember1"
+      ],
+      "timestamp": "2026-09-20T19:00:31.082Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 111,
+    "fields": {
+      "board": 4,
+      "card_title": "Load test leaderboard endpoints",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-09-23T22:14:42.589Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 112,
+    "fields": {
+      "board": 4,
+      "card_title": "Launch-day monitoring dashboard",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-09-28T21:44:25.611Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 113,
+    "fields": {
+      "board": 4,
+      "card_title": "Launch-day monitoring dashboard",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-10-02T22:03:11.356Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 114,
+    "fields": {
+      "board": 4,
+      "card_title": "Launch-day monitoring dashboard",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-10-04T21:21:07.209Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 115,
+    "fields": {
+      "board": 4,
+      "card_title": "Launch-day monitoring dashboard",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-10-08T20:29:20.674Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 116,
+    "fields": {
+      "board": 4,
+      "card_title": "Hotfix: reminders firing in wrong timezone",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "teammember5"
+      ],
+      "timestamp": "2026-09-28T14:24:18.930Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 117,
+    "fields": {
+      "board": 4,
+      "card_title": "Hotfix: reminders firing in wrong timezone",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "teammember5"
+      ],
+      "timestamp": "2026-09-30T17:37:45.856Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 118,
+    "fields": {
+      "board": 4,
+      "card_title": "Hotfix: reminders firing in wrong timezone",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "teammember5"
+      ],
+      "timestamp": "2026-10-02T19:42:15.781Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 119,
+    "fields": {
+      "board": 4,
+      "card_title": "Hotfix: reminders firing in wrong timezone",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-10-05T15:59:24.411Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 120,
+    "fields": {
+      "board": 4,
+      "card_title": "Hotfix: invite links failing on Android",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "jhalpert"
+      ],
+      "timestamp": "2026-09-30T22:39:25.987Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 121,
+    "fields": {
+      "board": 4,
+      "card_title": "Hotfix: invite links failing on Android",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "jhalpert"
+      ],
+      "timestamp": "2026-10-01T16:24:01.852Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 122,
+    "fields": {
+      "board": 4,
+      "card_title": "Hotfix: invite links failing on Android",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "jhalpert"
+      ],
+      "timestamp": "2026-10-02T21:47:45.007Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 123,
+    "fields": {
+      "board": 4,
+      "card_title": "Hotfix: invite links failing on Android",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "jhalpert"
+      ],
+      "timestamp": "2026-10-05T20:40:30.742Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 124,
+    "fields": {
+      "board": 4,
+      "card_title": "Product analytics events",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "teammember2"
+      ],
+      "timestamp": "2026-09-29T15:41:38.319Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 125,
+    "fields": {
+      "board": 4,
+      "card_title": "Product analytics events",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "teammember2"
+      ],
+      "timestamp": "2026-10-03T15:24:17.145Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 126,
+    "fields": {
+      "board": 4,
+      "card_title": "Product analytics events",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "teammember2"
+      ],
+      "timestamp": "2026-10-04T15:39:44.708Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 127,
+    "fields": {
+      "board": 4,
+      "card_title": "Product analytics events",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-10-11T19:36:14.392Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 128,
+    "fields": {
+      "board": 4,
+      "card_title": "Onboarding drop-off fix: skippable profile step",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "rmizer"
+      ],
+      "timestamp": "2026-10-15T21:04:04.312Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 129,
+    "fields": {
+      "board": 4,
+      "card_title": "Onboarding drop-off fix: skippable profile step",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "rmizer"
+      ],
+      "timestamp": "2026-10-18T19:06:09.076Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 130,
+    "fields": {
+      "board": 4,
+      "card_title": "Onboarding drop-off fix: skippable profile step",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "rmizer"
+      ],
+      "timestamp": "2026-10-21T20:45:27.118Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 131,
+    "fields": {
+      "board": 4,
+      "card_title": "Onboarding drop-off fix: skippable profile step",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-10-25T14:26:33.651Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 132,
+    "fields": {
+      "board": 4,
+      "card_title": "Retention funnel dashboard",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-10-14T14:11:11.644Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 133,
+    "fields": {
+      "board": 4,
+      "card_title": "Retention funnel dashboard",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-10-16T18:41:24.588Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 134,
+    "fields": {
+      "board": 4,
+      "card_title": "Retention funnel dashboard",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-10-20T21:31:05.871Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 135,
+    "fields": {
+      "board": 4,
+      "card_title": "Retention funnel dashboard",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-10-23T17:04:14.756Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 136,
+    "fields": {
+      "board": 4,
+      "card_title": "Streak recovery challenge",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "teammember1"
+      ],
+      "timestamp": "2026-10-26T16:01:09.552Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 137,
+    "fields": {
+      "board": 4,
+      "card_title": "Streak recovery challenge",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "teammember1"
+      ],
+      "timestamp": "2026-10-28T18:00:47.095Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 138,
+    "fields": {
+      "board": 4,
+      "card_title": "Dark mode",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-10-26T17:02:27.881Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 139,
+    "fields": {
+      "board": 4,
+      "card_title": "Dark mode",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-10-27T22:53:11.811Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 140,
+    "fields": {
+      "board": 4,
+      "card_title": "Dark mode",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-10-28T16:21:33.970Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 141,
+    "fields": {
+      "board": 4,
+      "card_title": "Fix: leaderboard tie ordering",
+      "change": "Created in \"To Do\"",
+      "changed_by": [
+        "jhalpert"
+      ],
+      "timestamp": "2026-10-26T16:51:00.194Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 142,
+    "fields": {
+      "board": 4,
+      "card_title": "Fix: leaderboard tie ordering",
+      "change": "Moved from \"To Do\" to \"In Progress\"",
+      "changed_by": [
+        "jhalpert"
+      ],
+      "timestamp": "2026-10-26T22:59:09.261Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 143,
+    "fields": {
+      "board": 4,
+      "card_title": "Fix: leaderboard tie ordering",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "jhalpert"
+      ],
+      "timestamp": "2026-10-27T14:44:29.615Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 144,
+    "fields": {
+      "board": 4,
+      "card_title": "Fix: leaderboard tie ordering",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-10-28T16:24:58.372Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 145,
+    "fields": {
+      "board": 2,
+      "card_title": "Beta retro \u2014 8/3",
+      "change": "Created in \"Meeting Notes\"",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-08-03T18:18:49.819Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 146,
+    "fields": {
+      "board": 2,
+      "card_title": "Launch go/no-go \u2014 9/29",
+      "change": "Created in \"Meeting Notes\"",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-09-29T15:43:35.879Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 147,
+    "fields": {
+      "board": 2,
+      "card_title": "Launch retro \u2014 10/14",
+      "change": "Created in \"Meeting Notes\"",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-10-14T21:02:43.948Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 148,
+    "fields": {
+      "board": 2,
+      "card_title": "Q4 planning \u2014 10/21",
+      "change": "Created in \"Meeting Notes\"",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-10-21T19:45:17.649Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 149,
+    "fields": {
+      "board": 2,
+      "card_title": "Review weekly store analytics",
+      "change": "Created in \"Daily Tasks\"",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-10-05T20:43:29.748Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 150,
+    "fields": {
+      "board": 2,
+      "card_title": "Approve v1.1 scope",
+      "change": "Created in \"Daily Tasks\"",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-10-26T22:39:55.005Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 151,
+    "fields": {
+      "board": 1,
+      "card_title": "PL.1.1 Create SRS Document",
+      "change": "Moved from \"In Progress\" to \"In Review\"",
+      "changed_by": [
+        "rmizer"
+      ],
+      "timestamp": "2026-07-15T01:14:02.557Z"
+    }
+  },
+  {
+    "model": "kanban.cardactivity",
+    "pk": 152,
+    "fields": {
+      "board": 1,
+      "card_title": "PL.1.1 Create SRS Document",
+      "change": "Moved from \"In Review\" to \"Done\"",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-07-15T01:20:11.402Z"
+    }
+  },
+  {
     "model": "backlog.epic",
     "pk": 4,
     "fields": {
@@ -2707,6 +5749,45 @@
     }
   },
   {
+    "model": "backlog.epic",
+    "pk": 9,
+    "fields": {
+      "project": 5,
+      "title": "Launch Readiness",
+      "description": "Performance, reliability, store listings, and compliance work required for public launch.",
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-08-28T17:38:52.221Z"
+    }
+  },
+  {
+    "model": "backlog.epic",
+    "pk": 10,
+    "fields": {
+      "project": 5,
+      "title": "Analytics & Insights",
+      "description": "Product analytics, funnels, and dashboards to understand how huddles are used after launch.",
+      "created_by": [
+        "mscott"
+      ],
+      "created_at": "2026-10-08T14:37:54.001Z"
+    }
+  },
+  {
+    "model": "backlog.epic",
+    "pk": 11,
+    "fields": {
+      "project": 5,
+      "title": "Retention & Growth",
+      "description": "Features that keep users checking in week over week and bring new members into huddles.",
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-14T17:29:26.361Z"
+    }
+  },
+  {
     "model": "backlog.sprint",
     "pk": 3,
     "fields": {
@@ -2731,7 +5812,7 @@
       "number": 2,
       "name": "Engagement Loop",
       "goal": "Streaks, leaderboards, and check-in reminders.",
-      "status": "active",
+      "status": "completed",
       "start_date": "2026-07-06",
       "end_date": "2026-07-20",
       "created_by": [
@@ -2748,13 +5829,149 @@
       "number": 3,
       "name": "Beta Polish",
       "goal": "Group features, notifications, and beta feedback fixes.",
-      "status": "planned",
+      "status": "completed",
       "start_date": "2026-07-20",
       "end_date": "2026-08-03",
       "created_by": [
         "jmizer"
       ],
       "created_at": "2026-07-14T22:44:59.412Z"
+    }
+  },
+  {
+    "model": "backlog.sprint",
+    "pk": 6,
+    "fields": {
+      "project": 5,
+      "number": 4,
+      "name": "Huddles Go Social",
+      "goal": "Let users create and join huddles, invite friends, and see a group check-in feed.",
+      "status": "completed",
+      "start_date": "2026-08-03",
+      "end_date": "2026-08-17",
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-31T17:13:29.088Z"
+    }
+  },
+  {
+    "model": "backlog.sprint",
+    "pk": 7,
+    "fields": {
+      "project": 5,
+      "number": 5,
+      "name": "Notify & Nudge",
+      "goal": "Notification preferences, quiet hours, weekly summary email, and teammate nudges.",
+      "status": "completed",
+      "start_date": "2026-08-17",
+      "end_date": "2026-08-31",
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-08-14T17:52:02.697Z"
+    }
+  },
+  {
+    "model": "backlog.sprint",
+    "pk": 8,
+    "fields": {
+      "project": 5,
+      "number": 6,
+      "name": "Launch Hardening",
+      "goal": "Crash reporting, API performance, accessibility fixes, and offline check-ins.",
+      "status": "completed",
+      "start_date": "2026-08-31",
+      "end_date": "2026-09-14",
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-08-28T15:12:31.057Z"
+    }
+  },
+  {
+    "model": "backlog.sprint",
+    "pk": 9,
+    "fields": {
+      "project": 5,
+      "number": 7,
+      "name": "Store Readiness",
+      "goal": "Store listings, privacy/account deletion, social login, and load testing. Feature freeze 9/14.",
+      "status": "completed",
+      "start_date": "2026-09-14",
+      "end_date": "2026-09-28",
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-09-11T22:22:09.159Z"
+    }
+  },
+  {
+    "model": "backlog.sprint",
+    "pk": 10,
+    "fields": {
+      "project": 5,
+      "number": 8,
+      "name": "Launch",
+      "goal": "Ship v1.0 to the App Store and Play Store on 10/1 and stabilize with fast hotfixes.",
+      "status": "completed",
+      "start_date": "2026-09-28",
+      "end_date": "2026-10-12",
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-09-25T16:49:47.403Z"
+    }
+  },
+  {
+    "model": "backlog.sprint",
+    "pk": 11,
+    "fields": {
+      "project": 5,
+      "number": 9,
+      "name": "Post-Launch Feedback",
+      "goal": "Act on launch feedback: onboarding drop-off, group chat reactions, retention funnel.",
+      "status": "completed",
+      "start_date": "2026-10-12",
+      "end_date": "2026-10-26",
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-09T16:51:15.504Z"
+    }
+  },
+  {
+    "model": "backlog.sprint",
+    "pk": 12,
+    "fields": {
+      "project": 5,
+      "number": 10,
+      "name": "Retention",
+      "goal": "Improve week-2 retention with streak recovery, recap sharing, and polish.",
+      "status": "active",
+      "start_date": "2026-10-26",
+      "end_date": "2026-11-09",
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-23T16:15:18.394Z"
+    }
+  },
+  {
+    "model": "backlog.sprint",
+    "pk": 13,
+    "fields": {
+      "project": 5,
+      "number": 11,
+      "name": "v1.1 Polish",
+      "goal": "Huddle challenges and health-app sync for the v1.1 release on 11/23.",
+      "status": "planned",
+      "start_date": "2026-11-09",
+      "end_date": "2026-11-23",
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-27T20:19:44.376Z"
     }
   },
   {
@@ -2834,7 +6051,7 @@
         "jmizer"
       ],
       "created_at": "2026-07-14T22:44:59.506Z",
-      "updated_at": "2026-07-18T13:00:07.630Z"
+      "updated_at": "2026-07-19T16:14:21.102Z"
     }
   },
   {
@@ -2854,7 +6071,7 @@
         "jmizer"
       ],
       "created_at": "2026-07-14T22:44:59.529Z",
-      "updated_at": "2026-07-18T13:00:07.351Z"
+      "updated_at": "2026-07-18T22:32:19.653Z"
     }
   },
   {
@@ -2869,12 +6086,12 @@
       "order": 2,
       "estimate": 2,
       "moscow": "must",
-      "kanban_card": null,
+      "kanban_card": 10,
       "created_by": [
         "jmizer"
       ],
       "created_at": "2026-07-14T22:44:59.551Z",
-      "updated_at": "2026-07-18T13:00:07.070Z"
+      "updated_at": "2026-07-17T19:55:46.577Z"
     }
   },
   {
@@ -2889,12 +6106,12 @@
       "order": 3,
       "estimate": 3,
       "moscow": "could",
-      "kanban_card": null,
+      "kanban_card": 11,
       "created_by": [
         "jmizer"
       ],
       "created_at": "2026-07-14T22:44:59.558Z",
-      "updated_at": "2026-07-18T13:00:09.669Z"
+      "updated_at": "2026-07-16T21:07:19.604Z"
     }
   },
   {
@@ -2909,12 +6126,12 @@
       "order": 0,
       "estimate": 3,
       "moscow": "should",
-      "kanban_card": null,
+      "kanban_card": 12,
       "created_by": [
         "jmizer"
       ],
       "created_at": "2026-07-14T22:44:59.566Z",
-      "updated_at": "2026-07-18T13:00:09.965Z"
+      "updated_at": "2026-07-30T16:52:35.398Z"
     }
   },
   {
@@ -2929,12 +6146,12 @@
       "order": 1,
       "estimate": 5,
       "moscow": "should",
-      "kanban_card": null,
+      "kanban_card": 13,
       "created_by": [
         "jmizer"
       ],
       "created_at": "2026-07-14T22:44:59.573Z",
-      "updated_at": "2026-07-18T13:00:09.082Z"
+      "updated_at": "2026-07-28T14:51:47.543Z"
     }
   },
   {
@@ -2949,12 +6166,12 @@
       "order": 2,
       "estimate": 2,
       "moscow": "could",
-      "kanban_card": null,
+      "kanban_card": 14,
       "created_by": [
         "jmizer"
       ],
       "created_at": "2026-07-14T22:44:59.580Z",
-      "updated_at": "2026-07-18T13:00:09.374Z"
+      "updated_at": "2026-07-29T17:05:11.562Z"
     }
   },
   {
@@ -2965,16 +6182,16 @@
       "title": "Add social login (Google/Apple)",
       "description": "OAuth login options in addition to email/password.",
       "epic": 4,
-      "sprint": null,
+      "sprint": 9,
       "order": 0,
       "estimate": 3,
       "moscow": "could",
-      "kanban_card": null,
+      "kanban_card": 15,
       "created_by": [
         "jmizer"
       ],
       "created_at": "2026-07-14T22:44:59.588Z",
-      "updated_at": "2026-07-18T13:00:10.800Z"
+      "updated_at": "2026-09-26T22:01:43.139Z"
     }
   },
   {
@@ -2985,16 +6202,16 @@
       "title": "Weekly summary email",
       "description": "Digest email recapping the week's check-ins and streaks.",
       "epic": 7,
-      "sprint": null,
-      "order": 1,
+      "sprint": 7,
+      "order": 0,
       "estimate": 2,
       "moscow": "could",
-      "kanban_card": null,
+      "kanban_card": 16,
       "created_by": [
         "jmizer"
       ],
       "created_at": "2026-07-14T22:44:59.596Z",
-      "updated_at": "2026-07-18T13:00:11.081Z"
+      "updated_at": "2026-08-26T18:58:45.084Z"
     }
   },
   {
@@ -3005,16 +6222,16 @@
       "title": "Create/join a huddle group",
       "description": "Flow for starting a new huddle or joining one via invite code.",
       "epic": 8,
-      "sprint": null,
-      "order": 2,
+      "sprint": 6,
+      "order": 0,
       "estimate": 5,
       "moscow": "should",
-      "kanban_card": null,
+      "kanban_card": 17,
       "created_by": [
         "jmizer"
       ],
       "created_at": "2026-07-14T22:44:59.605Z",
-      "updated_at": "2026-07-18T13:00:10.242Z"
+      "updated_at": "2026-08-15T19:29:47.637Z"
     }
   },
   {
@@ -3025,16 +6242,16 @@
       "title": "Group chat / reactions",
       "description": "Lightweight chat and emoji reactions within a huddle.",
       "epic": 8,
-      "sprint": null,
-      "order": 3,
+      "sprint": 11,
+      "order": 0,
       "estimate": 8,
       "moscow": "could",
-      "kanban_card": null,
+      "kanban_card": 18,
       "created_by": [
         "jmizer"
       ],
       "created_at": "2026-07-14T22:44:59.613Z",
-      "updated_at": "2026-07-18T13:00:10.522Z"
+      "updated_at": "2026-10-24T19:21:12.792Z"
     }
   },
   {
@@ -3045,16 +6262,556 @@
       "title": "Invite friends flow",
       "description": "Share an invite link/code to bring friends into a huddle.",
       "epic": 8,
-      "sprint": null,
-      "order": 4,
+      "sprint": 6,
+      "order": 1,
       "estimate": 2,
+      "moscow": "could",
+      "kanban_card": 19,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-07-14T22:44:59.622Z",
+      "updated_at": "2026-08-14T14:22:09.703Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 19,
+    "fields": {
+      "project": 5,
+      "title": "Huddle settings & member management",
+      "description": "Rename a huddle, change its icon, and remove members (owner only).",
+      "epic": 8,
+      "sprint": 6,
+      "order": 2,
+      "estimate": 3,
+      "moscow": "should",
+      "kanban_card": 20,
+      "created_by": [
+        "mscott"
+      ],
+      "created_at": "2026-07-24T20:50:47.000Z",
+      "updated_at": "2026-08-15T17:18:37.644Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 20,
+    "fields": {
+      "project": 5,
+      "title": "Group check-in feed",
+      "description": "Chronological feed of everyone's check-ins inside a huddle.",
+      "epic": 8,
+      "sprint": 6,
+      "order": 3,
+      "estimate": 5,
+      "moscow": "must",
+      "kanban_card": 21,
+      "created_by": [
+        "mscott"
+      ],
+      "created_at": "2026-07-26T21:07:48.959Z",
+      "updated_at": "2026-08-16T17:17:27.107Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 21,
+    "fields": {
+      "project": 5,
+      "title": "Notification preferences screen",
+      "description": "Per-type toggles for reminders, nudges, streak alerts, and email digests.",
+      "epic": 7,
+      "sprint": 7,
+      "order": 1,
+      "estimate": 3,
+      "moscow": "must",
+      "kanban_card": 22,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-08-06T20:53:57.597Z",
+      "updated_at": "2026-08-28T17:17:21.296Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 22,
+    "fields": {
+      "project": 5,
+      "title": "Quiet hours for reminders",
+      "description": "Suppress push notifications during a user-defined quiet window.",
+      "epic": 7,
+      "sprint": 7,
+      "order": 2,
+      "estimate": 2,
+      "moscow": "could",
+      "kanban_card": 23,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-08-06T16:24:22.952Z",
+      "updated_at": "2026-08-25T15:58:01.062Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 23,
+    "fields": {
+      "project": 5,
+      "title": "Group nudge: remind a teammate",
+      "description": "Let a member send a one-tap nudge to someone who hasn't checked in today.",
+      "epic": 7,
+      "sprint": 7,
+      "order": 3,
+      "estimate": 3,
+      "moscow": "should",
+      "kanban_card": 24,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-08-11T17:53:31.729Z",
+      "updated_at": "2026-08-25T21:43:21.482Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 24,
+    "fields": {
+      "project": 5,
+      "title": "Crash reporting & error monitoring",
+      "description": "Integrate crash reporting on iOS/Android and alerting for backend 5xx spikes.",
+      "epic": 9,
+      "sprint": 8,
+      "order": 0,
+      "estimate": 2,
+      "moscow": "must",
+      "kanban_card": 25,
+      "created_by": [
+        "mscott"
+      ],
+      "created_at": "2026-08-21T20:06:38.475Z",
+      "updated_at": "2026-09-12T22:50:51.253Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 25,
+    "fields": {
+      "project": 5,
+      "title": "Check-in API performance pass",
+      "description": "Cut p95 latency of check-in and feed endpoints below 200 ms.",
+      "epic": 9,
+      "sprint": 8,
+      "order": 1,
+      "estimate": 5,
+      "moscow": "must",
+      "kanban_card": 26,
+      "created_by": [
+        "mscott"
+      ],
+      "created_at": "2026-08-19T19:50:09.239Z",
+      "updated_at": "2026-09-12T15:52:54.034Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 26,
+    "fields": {
+      "project": 5,
+      "title": "Accessibility audit fixes",
+      "description": "Address VoiceOver/TalkBack labels, contrast, and dynamic type issues from the audit.",
+      "epic": 9,
+      "sprint": 8,
+      "order": 2,
+      "estimate": 3,
+      "moscow": "should",
+      "kanban_card": 27,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-08-27T20:17:56.571Z",
+      "updated_at": "2026-09-11T17:38:20.623Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 27,
+    "fields": {
+      "project": 5,
+      "title": "Offline check-in queue",
+      "description": "Queue check-ins made offline and sync them when connectivity returns.",
+      "epic": 5,
+      "sprint": 8,
+      "order": 3,
+      "estimate": 5,
+      "moscow": "should",
+      "kanban_card": 28,
+      "created_by": [
+        "mscott"
+      ],
+      "created_at": "2026-08-26T16:50:39.279Z",
+      "updated_at": "2026-09-10T19:14:10.967Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 28,
+    "fields": {
+      "project": 5,
+      "title": "App Store / Play Store listing assets",
+      "description": "Screenshots, preview video, descriptions, and keywords for both stores.",
+      "epic": 9,
+      "sprint": 9,
+      "order": 1,
+      "estimate": 3,
+      "moscow": "must",
+      "kanban_card": 29,
+      "created_by": [
+        "mscott"
+      ],
+      "created_at": "2026-09-08T22:37:56.036Z",
+      "updated_at": "2026-09-26T18:11:02.247Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 29,
+    "fields": {
+      "project": 5,
+      "title": "Privacy policy & account deletion",
+      "description": "Publish privacy policy and add in-app account + data deletion (store requirement).",
+      "epic": 9,
+      "sprint": 9,
+      "order": 2,
+      "estimate": 3,
+      "moscow": "must",
+      "kanban_card": 30,
+      "created_by": [
+        "mscott"
+      ],
+      "created_at": "2026-09-10T14:01:40.378Z",
+      "updated_at": "2026-09-27T14:23:27.515Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 30,
+    "fields": {
+      "project": 5,
+      "title": "Load test leaderboard endpoints",
+      "description": "Simulate 10k concurrent users against leaderboard and feed endpoints.",
+      "epic": 9,
+      "sprint": 9,
+      "order": 3,
+      "estimate": 2,
+      "moscow": "should",
+      "kanban_card": 31,
+      "created_by": [
+        "mscott"
+      ],
+      "created_at": "2026-09-02T15:45:58.144Z",
+      "updated_at": "2026-09-23T22:14:42.589Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 31,
+    "fields": {
+      "project": 5,
+      "title": "Launch-day monitoring dashboard",
+      "description": "Single dashboard for signups, check-ins, crash rate, and API errors on launch day.",
+      "epic": 9,
+      "sprint": 10,
+      "order": 0,
+      "estimate": 2,
+      "moscow": "must",
+      "kanban_card": 32,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-09-20T16:34:36.882Z",
+      "updated_at": "2026-10-08T20:29:20.674Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 32,
+    "fields": {
+      "project": 5,
+      "title": "Hotfix: reminders firing in wrong timezone",
+      "description": "Reminders used server time for users who travelled; use device timezone.",
+      "epic": 7,
+      "sprint": 10,
+      "order": 1,
+      "estimate": 2,
+      "moscow": "must",
+      "kanban_card": 33,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-09-16T16:33:07.247Z",
+      "updated_at": "2026-10-05T15:59:24.411Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 33,
+    "fields": {
+      "project": 5,
+      "title": "Hotfix: invite links failing on Android",
+      "description": "Deep links from invite codes opened the browser instead of the app on Android 14.",
+      "epic": 8,
+      "sprint": 10,
+      "order": 2,
+      "estimate": 1,
+      "moscow": "must",
+      "kanban_card": 34,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-09-20T18:11:04.954Z",
+      "updated_at": "2026-10-05T20:40:30.742Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 34,
+    "fields": {
+      "project": 5,
+      "title": "Product analytics events",
+      "description": "Instrument signup, first check-in, huddle join, and nudge events.",
+      "epic": 10,
+      "sprint": 10,
+      "order": 3,
+      "estimate": 3,
+      "moscow": "should",
+      "kanban_card": 35,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-09-17T20:23:27.705Z",
+      "updated_at": "2026-10-11T19:36:14.392Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 35,
+    "fields": {
+      "project": 5,
+      "title": "Onboarding drop-off fix: skippable profile step",
+      "description": "38% of new users quit on the profile step; make it optional and defer it.",
+      "epic": 4,
+      "sprint": 11,
+      "order": 1,
+      "estimate": 2,
+      "moscow": "must",
+      "kanban_card": 36,
+      "created_by": [
+        "mscott"
+      ],
+      "created_at": "2026-10-01T20:30:15.964Z",
+      "updated_at": "2026-10-25T14:26:33.651Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 36,
+    "fields": {
+      "project": 5,
+      "title": "Retention funnel dashboard",
+      "description": "Day-1 / day-7 / day-30 retention by signup cohort.",
+      "epic": 10,
+      "sprint": 11,
+      "order": 2,
+      "estimate": 3,
+      "moscow": "should",
+      "kanban_card": 37,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-08T22:39:54.301Z",
+      "updated_at": "2026-10-23T17:04:14.756Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 37,
+    "fields": {
+      "project": 5,
+      "title": "Streak recovery challenge",
+      "description": "After a broken streak, offer a 3-day challenge that restores it.",
+      "epic": 11,
+      "sprint": 12,
+      "order": 0,
+      "estimate": 5,
+      "moscow": "should",
+      "kanban_card": 38,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-15T20:44:10.016Z",
+      "updated_at": "2026-10-28T18:00:47.095Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 38,
+    "fields": {
+      "project": 5,
+      "title": "Weekly recap share card",
+      "description": "Shareable image summarizing a user's week of check-ins.",
+      "epic": 11,
+      "sprint": 12,
+      "order": 1,
+      "estimate": 3,
       "moscow": "could",
       "kanban_card": null,
       "created_by": [
         "jmizer"
       ],
-      "created_at": "2026-07-14T22:44:59.622Z",
-      "updated_at": "2026-07-18T13:00:08.800Z"
+      "created_at": "2026-10-14T19:51:46.208Z",
+      "updated_at": "2026-10-14T19:51:46.208Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 39,
+    "fields": {
+      "project": 5,
+      "title": "Dark mode",
+      "description": "System-aware dark theme across all screens.",
+      "epic": null,
+      "sprint": 12,
+      "order": 2,
+      "estimate": 3,
+      "moscow": "could",
+      "kanban_card": 39,
+      "created_by": [
+        "mscott"
+      ],
+      "created_at": "2026-10-19T19:59:16.710Z",
+      "updated_at": "2026-10-28T16:21:33.970Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 40,
+    "fields": {
+      "project": 5,
+      "title": "Fix: leaderboard tie ordering",
+      "description": "Members tied on streak length should be ordered by most recent check-in.",
+      "epic": 6,
+      "sprint": 12,
+      "order": 3,
+      "estimate": 1,
+      "moscow": "must",
+      "kanban_card": 40,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-16T19:55:21.432Z",
+      "updated_at": "2026-10-28T16:24:58.372Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 41,
+    "fields": {
+      "project": 5,
+      "title": "Huddle challenges (30-day goals)",
+      "description": "Group-wide goals with a shared progress bar and completion badge.",
+      "epic": 11,
+      "sprint": 13,
+      "order": 0,
+      "estimate": 8,
+      "moscow": "should",
+      "kanban_card": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-26T22:33:30.160Z",
+      "updated_at": "2026-10-26T22:33:30.160Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 42,
+    "fields": {
+      "project": 5,
+      "title": "Apple Health / Google Fit sync",
+      "description": "Auto-complete check-ins from workouts recorded in health apps.",
+      "epic": 5,
+      "sprint": 13,
+      "order": 1,
+      "estimate": 8,
+      "moscow": "could",
+      "kanban_card": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-26T18:28:16.350Z",
+      "updated_at": "2026-10-26T18:28:16.350Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 43,
+    "fields": {
+      "project": 5,
+      "title": "Coach / admin role for huddles",
+      "description": "Let a huddle owner appoint coaches who can post announcements.",
+      "epic": 8,
+      "sprint": null,
+      "order": 0,
+      "estimate": 5,
+      "moscow": "could",
+      "kanban_card": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-20T14:37:21.730Z",
+      "updated_at": "2026-10-20T14:37:21.730Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 44,
+    "fields": {
+      "project": 5,
+      "title": "Localization (Spanish, French)",
+      "description": "Translate the app UI and store listings.",
+      "epic": null,
+      "sprint": null,
+      "order": 1,
+      "estimate": 5,
+      "moscow": "wont",
+      "kanban_card": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-22T19:31:12.311Z",
+      "updated_at": "2026-10-22T19:31:12.311Z"
+    }
+  },
+  {
+    "model": "backlog.backlogitem",
+    "pk": 45,
+    "fields": {
+      "project": 5,
+      "title": "Referral rewards",
+      "description": "Earn a streak freeze for each friend who joins and checks in.",
+      "epic": 11,
+      "sprint": null,
+      "order": 2,
+      "estimate": 3,
+      "moscow": "could",
+      "kanban_card": null,
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-18T14:50:56.753Z",
+      "updated_at": "2026-10-18T14:50:56.753Z"
     }
   },
   {
@@ -3094,6 +6851,71 @@
       ],
       "created_at": "2026-07-18T12:12:00.953Z",
       "updated_at": "2026-07-18T12:12:00.953Z"
+    }
+  },
+  {
+    "model": "backlog.userstory",
+    "pk": 4,
+    "fields": {
+      "backlog_item": 20,
+      "content": "As a huddle member, I want to see my group's check-ins in one feed so that I feel accountable to them.",
+      "created_by": [
+        "mscott"
+      ],
+      "created_at": "2026-07-27T17:10:52.995Z",
+      "updated_at": "2026-07-27T17:10:52.995Z"
+    }
+  },
+  {
+    "model": "backlog.userstory",
+    "pk": 5,
+    "fields": {
+      "backlog_item": 23,
+      "content": "As a huddle member, I want to nudge a teammate who hasn't checked in so that our group keeps its streak.",
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-08-12T20:26:08.763Z",
+      "updated_at": "2026-08-12T20:26:08.763Z"
+    }
+  },
+  {
+    "model": "backlog.userstory",
+    "pk": 6,
+    "fields": {
+      "backlog_item": 27,
+      "content": "As a user with spotty signal, I want my check-in saved offline so that I don't lose my streak.",
+      "created_by": [
+        "mscott"
+      ],
+      "created_at": "2026-08-27T18:54:36.464Z",
+      "updated_at": "2026-08-27T18:54:36.464Z"
+    }
+  },
+  {
+    "model": "backlog.userstory",
+    "pk": 7,
+    "fields": {
+      "backlog_item": 35,
+      "content": "As a new user, I want to skip filling out my profile so that I can join my huddle right away.",
+      "created_by": [
+        "mscott"
+      ],
+      "created_at": "2026-10-02T20:00:10.954Z",
+      "updated_at": "2026-10-02T20:00:10.954Z"
+    }
+  },
+  {
+    "model": "backlog.userstory",
+    "pk": 8,
+    "fields": {
+      "backlog_item": 37,
+      "content": "As a user who just lost a streak, I want a way to earn it back so that I don't give up on the app.",
+      "created_by": [
+        "jmizer"
+      ],
+      "created_at": "2026-10-16T18:24:25.741Z",
+      "updated_at": "2026-10-16T18:24:25.741Z"
     }
   },
   {
@@ -3349,6 +7171,858 @@
     }
   },
   {
+    "model": "backlog.backlogactivity",
+    "pk": 32,
+    "fields": {
+      "item_title": "Sprint 4: Huddles Go Social",
+      "change": "Sprint created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-07-31T17:13:29.088Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 33,
+    "fields": {
+      "item_title": "Sprint 5: Notify & Nudge",
+      "change": "Sprint created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-08-14T17:52:02.697Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 34,
+    "fields": {
+      "item_title": "Sprint 6: Launch Hardening",
+      "change": "Sprint created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-08-28T15:12:31.057Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 35,
+    "fields": {
+      "item_title": "Sprint 7: Store Readiness",
+      "change": "Sprint created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-09-11T22:22:09.159Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 36,
+    "fields": {
+      "item_title": "Sprint 8: Launch",
+      "change": "Sprint created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-09-25T16:49:47.403Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 37,
+    "fields": {
+      "item_title": "Sprint 9: Post-Launch Feedback",
+      "change": "Sprint created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-10-09T16:51:15.504Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 38,
+    "fields": {
+      "item_title": "Sprint 10: Retention",
+      "change": "Sprint created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-10-23T16:15:18.394Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 39,
+    "fields": {
+      "item_title": "Sprint 11: v1.1 Polish",
+      "change": "Sprint created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-10-27T20:19:44.376Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 40,
+    "fields": {
+      "item_title": "Check-in history view",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "kbutler"
+      ],
+      "timestamp": "2026-07-06T14:51:19.190Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 41,
+    "fields": {
+      "item_title": "Group leaderboard UI",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "teammember2"
+      ],
+      "timestamp": "2026-07-09T22:17:53.633Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 42,
+    "fields": {
+      "item_title": "Streak-freeze / grace period",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-07-20T15:34:04.193Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 43,
+    "fields": {
+      "item_title": "Push notification infrastructure",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-07-21T15:14:20.123Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 44,
+    "fields": {
+      "item_title": "Streak-at-risk alert",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "jhalpert"
+      ],
+      "timestamp": "2026-07-20T15:07:16.681Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 45,
+    "fields": {
+      "item_title": "Add social login (Google/Apple)",
+      "change": "Moved to sprint 9",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-09-13T22:28:29.206Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 46,
+    "fields": {
+      "item_title": "Add social login (Google/Apple)",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "teammember5"
+      ],
+      "timestamp": "2026-09-14T16:00:22.500Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 47,
+    "fields": {
+      "item_title": "Weekly summary email",
+      "change": "Moved to sprint 7",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-08-16T14:21:58.877Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 48,
+    "fields": {
+      "item_title": "Weekly summary email",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-08-20T19:57:53.879Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 49,
+    "fields": {
+      "item_title": "Create/join a huddle group",
+      "change": "Moved to sprint 6",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-08-02T15:08:04.895Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 50,
+    "fields": {
+      "item_title": "Create/join a huddle group",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "teammember1"
+      ],
+      "timestamp": "2026-08-06T20:24:18.407Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 51,
+    "fields": {
+      "item_title": "Group chat / reactions",
+      "change": "Moved to sprint 11",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-10-11T19:29:51.437Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 52,
+    "fields": {
+      "item_title": "Group chat / reactions",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "kbutler"
+      ],
+      "timestamp": "2026-10-14T22:39:32.525Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 53,
+    "fields": {
+      "item_title": "Invite friends flow",
+      "change": "Moved to sprint 6",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-08-02T18:08:44.548Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 54,
+    "fields": {
+      "item_title": "Invite friends flow",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-08-04T22:21:02.425Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 55,
+    "fields": {
+      "item_title": "Huddle settings & member management",
+      "change": "Story created",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-07-24T20:50:47.000Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 56,
+    "fields": {
+      "item_title": "Huddle settings & member management",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "teammember2"
+      ],
+      "timestamp": "2026-08-05T19:47:15.686Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 57,
+    "fields": {
+      "item_title": "Group check-in feed",
+      "change": "Story created",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-07-26T21:07:48.959Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 58,
+    "fields": {
+      "item_title": "Group check-in feed",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "kbutler"
+      ],
+      "timestamp": "2026-08-06T22:46:12.381Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 59,
+    "fields": {
+      "item_title": "Notification preferences screen",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-08-06T20:53:57.597Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 60,
+    "fields": {
+      "item_title": "Notification preferences screen",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-08-20T16:57:05.038Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 61,
+    "fields": {
+      "item_title": "Quiet hours for reminders",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-08-06T16:24:22.952Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 62,
+    "fields": {
+      "item_title": "Quiet hours for reminders",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "teammember5"
+      ],
+      "timestamp": "2026-08-17T16:04:19.868Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 63,
+    "fields": {
+      "item_title": "Group nudge: remind a teammate",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-08-11T17:53:31.729Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 64,
+    "fields": {
+      "item_title": "Group nudge: remind a teammate",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "jhalpert"
+      ],
+      "timestamp": "2026-08-19T14:01:09.207Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 65,
+    "fields": {
+      "item_title": "Crash reporting & error monitoring",
+      "change": "Story created",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-08-21T20:06:38.475Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 66,
+    "fields": {
+      "item_title": "Crash reporting & error monitoring",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-09-02T15:33:27.902Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 67,
+    "fields": {
+      "item_title": "Check-in API performance pass",
+      "change": "Story created",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-08-19T19:50:09.239Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 68,
+    "fields": {
+      "item_title": "Check-in API performance pass",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "teammember1"
+      ],
+      "timestamp": "2026-09-03T19:37:02.773Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 69,
+    "fields": {
+      "item_title": "Accessibility audit fixes",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-08-27T20:17:56.571Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 70,
+    "fields": {
+      "item_title": "Accessibility audit fixes",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "rmizer"
+      ],
+      "timestamp": "2026-09-03T18:07:25.536Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 71,
+    "fields": {
+      "item_title": "Offline check-in queue",
+      "change": "Story created",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-08-26T16:50:39.279Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 72,
+    "fields": {
+      "item_title": "Offline check-in queue",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "teammember2"
+      ],
+      "timestamp": "2026-09-02T17:22:12.582Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 73,
+    "fields": {
+      "item_title": "App Store / Play Store listing assets",
+      "change": "Story created",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-09-08T22:37:56.036Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 74,
+    "fields": {
+      "item_title": "App Store / Play Store listing assets",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "kbutler"
+      ],
+      "timestamp": "2026-09-15T21:02:39.523Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 75,
+    "fields": {
+      "item_title": "Privacy policy & account deletion",
+      "change": "Story created",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-09-10T14:01:40.378Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 76,
+    "fields": {
+      "item_title": "Privacy policy & account deletion",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-09-15T14:05:37.939Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 77,
+    "fields": {
+      "item_title": "Load test leaderboard endpoints",
+      "change": "Story created",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-09-02T15:45:58.144Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 78,
+    "fields": {
+      "item_title": "Load test leaderboard endpoints",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "teammember1"
+      ],
+      "timestamp": "2026-09-14T22:44:20.579Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 79,
+    "fields": {
+      "item_title": "Launch-day monitoring dashboard",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-09-20T16:34:36.882Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 80,
+    "fields": {
+      "item_title": "Launch-day monitoring dashboard",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-09-28T21:44:25.611Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 81,
+    "fields": {
+      "item_title": "Hotfix: reminders firing in wrong timezone",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-09-16T16:33:07.247Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 82,
+    "fields": {
+      "item_title": "Hotfix: reminders firing in wrong timezone",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "teammember5"
+      ],
+      "timestamp": "2026-09-28T14:24:18.930Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 83,
+    "fields": {
+      "item_title": "Hotfix: invite links failing on Android",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-09-20T18:11:04.954Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 84,
+    "fields": {
+      "item_title": "Hotfix: invite links failing on Android",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "jhalpert"
+      ],
+      "timestamp": "2026-09-30T22:39:25.987Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 85,
+    "fields": {
+      "item_title": "Product analytics events",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-09-17T20:23:27.705Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 86,
+    "fields": {
+      "item_title": "Product analytics events",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "teammember2"
+      ],
+      "timestamp": "2026-09-29T15:41:38.319Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 87,
+    "fields": {
+      "item_title": "Onboarding drop-off fix: skippable profile step",
+      "change": "Story created",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-10-01T20:30:15.964Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 88,
+    "fields": {
+      "item_title": "Onboarding drop-off fix: skippable profile step",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "rmizer"
+      ],
+      "timestamp": "2026-10-15T21:04:04.312Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 89,
+    "fields": {
+      "item_title": "Retention funnel dashboard",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-10-08T22:39:54.301Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 90,
+    "fields": {
+      "item_title": "Retention funnel dashboard",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "teammember3"
+      ],
+      "timestamp": "2026-10-14T14:11:11.644Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 91,
+    "fields": {
+      "item_title": "Streak recovery challenge",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-10-15T20:44:10.016Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 92,
+    "fields": {
+      "item_title": "Streak recovery challenge",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "teammember1"
+      ],
+      "timestamp": "2026-10-26T16:01:09.552Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 93,
+    "fields": {
+      "item_title": "Weekly recap share card",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-10-14T19:51:46.208Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 94,
+    "fields": {
+      "item_title": "Dark mode",
+      "change": "Story created",
+      "changed_by": [
+        "mscott"
+      ],
+      "timestamp": "2026-10-19T19:59:16.710Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 95,
+    "fields": {
+      "item_title": "Dark mode",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "teammember4"
+      ],
+      "timestamp": "2026-10-26T17:02:27.881Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 96,
+    "fields": {
+      "item_title": "Fix: leaderboard tie ordering",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-10-16T19:55:21.432Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 97,
+    "fields": {
+      "item_title": "Fix: leaderboard tie ordering",
+      "change": "Started (linked to Kanban card)",
+      "changed_by": [
+        "jhalpert"
+      ],
+      "timestamp": "2026-10-26T16:51:00.194Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 98,
+    "fields": {
+      "item_title": "Huddle challenges (30-day goals)",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-10-26T22:33:30.160Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 99,
+    "fields": {
+      "item_title": "Apple Health / Google Fit sync",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-10-26T18:28:16.350Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 100,
+    "fields": {
+      "item_title": "Coach / admin role for huddles",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-10-20T14:37:21.730Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 101,
+    "fields": {
+      "item_title": "Localization (Spanish, French)",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-10-22T19:31:12.311Z"
+    }
+  },
+  {
+    "model": "backlog.backlogactivity",
+    "pk": 102,
+    "fields": {
+      "item_title": "Referral rewards",
+      "change": "Story created",
+      "changed_by": [
+        "jmizer"
+      ],
+      "timestamp": "2026-10-18T14:50:56.753Z"
+    }
+  },
+  {
     "model": "team_resources.teamresource",
     "pk": 5,
     "fields": {
@@ -3369,7 +8043,7 @@
         "admin"
       ],
       "uploaded_at": "2026-07-18T19:29:30.870Z",
-      "archived_at": null
+      "archived_at": "2026-09-02T16:58:08.360Z"
     }
   },
   {
@@ -3381,6 +8055,54 @@
         "admin"
       ],
       "uploaded_at": "2026-07-18T19:29:31.131Z",
+      "archived_at": null
+    }
+  },
+  {
+    "model": "team_resources.teamresource",
+    "pk": 11,
+    "fields": {
+      "file": "team_resources/Release_Process.md",
+      "uploaded_by": [
+        "mscott"
+      ],
+      "uploaded_at": "2026-08-20T14:01:15.601Z",
+      "archived_at": null
+    }
+  },
+  {
+    "model": "team_resources.teamresource",
+    "pk": 12,
+    "fields": {
+      "file": "team_resources/On_Call_Runbook.md",
+      "uploaded_by": [
+        "admin"
+      ],
+      "uploaded_at": "2026-09-24T21:00:08.965Z",
+      "archived_at": null
+    }
+  },
+  {
+    "model": "team_resources.teamresource",
+    "pk": 13,
+    "fields": {
+      "file": "team_resources/Incident_Postmortem_Template.md",
+      "uploaded_by": [
+        "mscott"
+      ],
+      "uploaded_at": "2026-10-07T18:39:35.171Z",
+      "archived_at": null
+    }
+  },
+  {
+    "model": "team_resources.teamresource",
+    "pk": 14,
+    "fields": {
+      "file": "team_resources/Mobile_Device_Test_Matrix.md",
+      "uploaded_by": [
+        "rmizer"
+      ],
+      "uploaded_at": "2026-10-16T21:54:31.129Z",
       "archived_at": null
     }
   }
