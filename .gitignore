@@ -1,6 +1,7 @@
 # ── Project docs (local only) ─────────────────────────────────────────────────
 build_notes.txt
 dev/
+credentials.txt
 
 # ── Python / Django ───────────────────────────────────────────────────────────
 __pycache__/
