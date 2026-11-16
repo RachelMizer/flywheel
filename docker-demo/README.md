@@ -14,7 +14,17 @@ is for **local development**; on the deploy, the seeded demo rows stand in.
 
 The containers carry `com.flywheel.*` labels the agent reads: `monitor=true` to
 opt in, `cluster`/`name` for how they group in the UI, and `path` for the
-directory whose files get counted.
+directory whose files get counted. `config_paths` (optional, comma-separated)
+lists directories whose files are hashed so the **Security** page can flag
+config drift.
+
+Every report also carries a security posture block (privileged mode, effective
+user, host networking, capabilities, mounts, published ports, MQTT/Redis auth,
+image age). Add `--scan` to also count CVEs per image with
+[Trivy](https://trivy.dev) (a local `trivy` binary if installed, otherwise the
+`aquasec/trivy` image via Docker; results cached for `--scan-hours`, default 12).
+The demo stack is deliberately not hardened — the MQTT broker allows anonymous
+clients and Redis has no password — so the Security page has real findings to show.
 
 ## Run it
 

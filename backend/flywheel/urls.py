@@ -28,4 +28,5 @@ urlpatterns = [
     path("api/backlog/", include("backlog.urls")),
     path("api/projects/", include("projects.urls")),
     path("api/team-resources/", include("team_resources.urls")),
+    path("api/security/", include("security.urls")),
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)

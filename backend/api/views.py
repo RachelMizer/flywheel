@@ -6,6 +6,9 @@ from rest_framework.response import Response
 from rest_framework.authtoken.models import Token
 from rest_framework import status
 
+from security.audit import record
+from security.signals import record_login
+
 
 @api_view(["GET"])
 @permission_classes([AllowAny])
@@ -19,11 +22,13 @@ def login(request):
     username = request.data.get("username")
     password = request.data.get("password")
 
-    user = authenticate(username=username, password=password)
+    # Passing request lets the user_login_failed signal record the caller's IP.
+    user = authenticate(request=request, username=username, password=password)
     if not user:
         return Response({"error": "Invalid credentials"}, status=status.HTTP_401_UNAUTHORIZED)
 
     token, _ = Token.objects.get_or_create(user=user)
+    record_login(user, request, password=password)
     return Response({
         "token": token.key,
         "user": _serialize_user(user),
@@ -34,6 +39,8 @@ def login(request):
 @permission_classes([IsAuthenticated])
 def logout(request):
     request.user.auth_token.delete()
+    record("logout", "auth", f"{request.user.username} signed out",
+           actor=request.user, target=request.user.username, request=request)
     return Response({"message": "Logged out"})
 
 
@@ -62,6 +69,7 @@ def _serialize_user(user):
         "last_name": user.last_name,
         "date_joined": user.date_joined,
         "is_staff": user.is_staff,
+        "is_superuser": user.is_superuser,
         "groups": groups,
         "role": groups[0] if groups else "user",
     }

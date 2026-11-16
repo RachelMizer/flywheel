@@ -1,5 +1,5 @@
 import { BrowserRouter, Routes, Route, NavLink, Navigate } from 'react-router-dom'
-import { Kanban as KanbanIcon, Code2, Users, BookOpen } from 'lucide-react'
+import { Kanban as KanbanIcon, Code2, Users, BookOpen, Shield } from 'lucide-react'
 import { AuthProvider, useAuth } from './context/AuthContext'
 import Dashboard from './pages/Dashboard'
 import DockerManager from './pages/DockerManager'
@@ -17,6 +17,7 @@ import TeamOverview from './pages/TeamOverview'
 import TeamResources from './pages/TeamResources'
 import MarkdownDocPage from './pages/MarkdownDocPage'
 import DevNotes from './pages/DevNotes'
+import Security from './pages/Security'
 import Login from './pages/Login'
 import './App.css'
 
@@ -29,6 +30,8 @@ function ProtectedApp() {
 
   const displayName = user.first_name || user.username
   const isManager = user.groups?.includes('manager')
+  // Mirrors the backend's CanViewSecurity permission.
+  const canViewSecurity = isManager || user.groups?.includes('support-admin') || user.is_superuser
 
   return (
     <div className="app">
@@ -55,6 +58,13 @@ function ProtectedApp() {
             <>
               <span className="nav-label"><Users size={15} />Team Management</span>
               <NavLink to="/team">Team Overview</NavLink>
+            </>
+          )}
+
+          {canViewSecurity && (
+            <>
+              <span className="nav-label"><Shield size={15} />Security</span>
+              <NavLink to="/security">Security Monitoring</NavLink>
             </>
           )}
         </nav>
@@ -88,6 +98,7 @@ function ProtectedApp() {
           <Route path="/projects/:projectId/backlog/stories" element={<UserStories />} />
           <Route path="/projects/:projectId/agile-dashboard" element={<AgileDashboard />} />
           <Route path="/team" element={isManager ? <TeamOverview /> : <Navigate to="/" replace />} />
+          <Route path="/security" element={canViewSecurity ? <Security /> : <Navigate to="/" replace />} />
           <Route path="/team-resources" element={<TeamResources isManager={isManager} />} />
           <Route path="/documents/view" element={<MarkdownDocPage />} />
           <Route path="/account" element={<Account />} />

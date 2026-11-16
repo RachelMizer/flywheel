@@ -65,6 +65,7 @@ INSTALLED_APPS = [
     "backlog",
     "docker_manager",
     "team_resources",
+    "security",
 ]
 
 MIDDLEWARE = [
@@ -77,6 +78,9 @@ MIDDLEWARE = [
     "django.contrib.auth.middleware.AuthenticationMiddleware",
     "django.contrib.messages.middleware.MessageMiddleware",
     "django.middleware.clickjacking.XFrameOptionsMiddleware",
+    # Parks the request in a thread-local so security signals can attribute
+    # role changes, share-link toggles and uploads to the user who made them.
+    "security.audit.CurrentRequestMiddleware",
 ]
 
 ROOT_URLCONF = "flywheel.urls"
@@ -176,9 +180,14 @@ CORS_ALLOWED_ORIGINS = [
 # Django REST Framework
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": [
-        "rest_framework.authentication.TokenAuthentication",
+        # TokenAuthentication plus last-used time/IP tracking for the Security page.
+        "security.authentication.TrackedTokenAuthentication",
     ],
     "DEFAULT_PERMISSION_CLASSES": [
         "rest_framework.permissions.IsAuthenticated",
     ],
 }
+
+# Security monitoring: successful logins outside [start, end) hours (TIME_ZONE)
+# are flagged as off-hours on the Security page.
+SECURITY_BUSINESS_HOURS = (6, 22)

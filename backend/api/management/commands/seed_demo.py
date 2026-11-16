@@ -2,6 +2,7 @@ from django.core.management import call_command
 from django.core.management.base import BaseCommand
 
 from projects.models import Project
+from security.audit import audit_suppressed
 
 
 class Command(BaseCommand):
@@ -27,10 +28,13 @@ class Command(BaseCommand):
                 'Demo data already present — skipping. Use --force to re-load.'
             )
         else:
-            call_command('loaddata', 'seed_data.json')
+            # Fixture users/groups/boards aren't real security events.
+            with audit_suppressed():
+                call_command('loaddata', 'seed_data.json')
             self.stdout.write(self.style.SUCCESS('Demo data loaded.'))
 
         # Container demo rows are seeded and guarded separately (on their own
         # table's emptiness), so this also populates the Docker registry on a
         # deploy whose Project data already existed before this feature shipped.
         call_command('seed_containers', force=options['force'])
+        call_command('seed_security', force=options['force'])

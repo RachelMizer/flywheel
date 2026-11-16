@@ -9,6 +9,9 @@
 #   monitor=true  -> include this container
 #   cluster/name  -> how it is grouped and labelled in the FlyWheel UI
 #   path          -> directory whose files the reporter counts ("files inside")
+#   config_paths  -> comma-separated dirs whose files are SHA-256 hashed for the
+#                    Security page's config-drift check (only stable config; not
+#                    data dirs that change by design, like edge-node's tags)
 #
 # Bring it up:   docker compose -f docker-demo/compose.yaml up -d
 # Tear it down:  docker compose -f docker-demo/compose.yaml down -v
@@ -28,6 +31,7 @@ services:
       com.flywheel.namespace: "line-a"
       com.flywheel.name: "ignition-config-repo"
       com.flywheel.path: "/usr/share/nginx/html/configs"
+      com.flywheel.config_paths: "/usr/share/nginx/html/configs"
 
   mqtt-broker:
     image: eclipse-mosquitto:2
@@ -41,6 +45,7 @@ services:
       com.flywheel.namespace: "line-a"
       com.flywheel.name: "mqtt-broker"
       com.flywheel.path: "/mosquitto/config"
+      com.flywheel.config_paths: "/mosquitto/config"
 
   tag-cache:
     image: redis:7-alpine

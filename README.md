@@ -23,6 +23,14 @@ and Docker container monitoring in a single app with role-based access.
   assignee.
 - **Docker Manager** — registry/dashboard of Docker container health
   status (healthy / working / down) by cluster.
+- **Security Monitoring** — manager/support-admin view with a posture score
+  and checklist (debug mode, secret key, HTTPS/HSTS, CORS, default passwords),
+  failed-login and brute-force detection, new-IP/off-hours sign-ins, API token
+  age/last-use with revocation, role and privilege change history, Kanban share
+  link and upload exposure (content-sniffed for disguised executables, macros,
+  active PDF content), and container hardening findings reported by the Docker
+  agent (privileged mode, root, host network, sockets/host mounts, exposed OT
+  ports, anonymous MQTT/Redis, image age, CVEs, config drift against a baseline).
 - **Account** — profile management.
 
 ## Tech Stack
@@ -46,7 +54,8 @@ Django Groups (see `api/management/commands/setup_groups.py`):
 | `manager`       | Full add/change/delete/view; sees the Team Overview page   |
 
 Team Resources is available to any authenticated user, with archiving
-restricted to managers.
+restricted to managers. Security Monitoring is limited to `manager`,
+`support-admin`, and superusers.
 
 ## Getting Started
 

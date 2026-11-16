@@ -82,6 +82,13 @@ def report_containers(request):
         # it explicitly for the create-with-no-changed-defaults edge case.
         obj.last_seen = timezone.now()
         obj.save(update_fields=['last_seen'])
+        # Optional security posture block (privileges, ports, config hashes, CVEs)
+        # for the Security page; older agents simply don't send it.
+        if 'security' in item:
+            from security.ingest import ingest_container_security
+            sec_error = ingest_container_security(obj, item['security'])
+            if sec_error:
+                errors.append({'index': i, 'error': sec_error})
         updated.append({'container_id': container_id, 'created': created})
 
     resp = {'updated': updated}
